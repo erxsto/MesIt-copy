@@ -8,9 +8,9 @@
    <header class="row">
        @include('layouts.header')
    </header>
-   <div id="main" class="row">
-           @yield('content')
-   </div>
+   <main class="py-4">
+        @yield('content')
+    </main>
    <footer class="row">
        @include('layouts.footer')
    </footer>

@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/', function () {
-    return view('home1');
-});
+Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionController@vibracion');
