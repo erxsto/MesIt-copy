@@ -20,8 +20,5 @@ class TemperaturaController extends Controller
         return response()->json(
             $temps
         ); 
-        return response()->json(
-            $temps
-        );
     }
 }

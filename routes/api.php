@@ -18,5 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('chart', 'App\Http\Controllers\VibracionController@index')->name('api.chart');
+Route::get('datavibracion', 'App\Http\Controllers\VibracionController@datavibracion')->name('datavibracion');
 Route::get('datatemp', 'App\Http\Controllers\TemperaturaController@datatemp')->name('datatemp');
