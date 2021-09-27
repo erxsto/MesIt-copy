@@ -9,5 +9,5 @@ class grafica_ejes extends Model
 {
     protected $table = "grafica_ejes";
     protected $primaryKey = "id";
-    protected $fillable = ['ejex','ejey','ejez'];
+    protected $fillable = ['ejex','ejey','ejez','created_at',];
 }

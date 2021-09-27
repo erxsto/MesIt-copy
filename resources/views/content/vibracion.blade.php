@@ -43,7 +43,7 @@
     data: {
       labels: [],
       datasets: [{
-        label: 'Speed',
+        label: 'ejex',
         data: [],
         borderWidth: 1
       }]
@@ -61,7 +61,7 @@
   });
   var updateChart = function() {
     $.ajax({
-      url: "/api/datatemp",
+      url: "/api/datavibracion",
       type: 'GET',
       dataType: 'json',
       headers: {
