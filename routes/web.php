@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionController@vibracion');
+Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\TemperaturaController@index');
