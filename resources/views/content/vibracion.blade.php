@@ -9,7 +9,7 @@
                 </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h3>Last 30 speed measurements</h3>
+                            <h3>VibracionN</h3>
                             <canvas id="myChart"></canvas>
                         </div>
                     </div>
