@@ -11,13 +11,15 @@ class VibracionController extends Controller
     public function vibracion()
     {
         $query = \DB::select('SELECT TOP 5 id,ejex,ejey,ejez FROM dbo.grafica_ejes ORDER BY id DESC');
-        return view('content.vibracion', ['grafica'=>$query]);
+        return view('content.vibracion', ['grafica' => $query]);
     }
     public function datavibracion()
     {
-        $graficas = grafica_ejes::take(1)->get()->sortByDesc('id');
+        $graficas = grafica_ejes::latest()->take(10)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
-        $data = $graficas->pluck('ejex', 'ejey', 'ejez');
-        return response()->json(compact('labels', 'data')); 
+        $data = $graficas->pluck('ejex');
+        $datay = $graficas->pluck('ejey');
+        $dataz = $graficas->pluck('ejez');
+        return response()->json(compact('labels', 'data', 'datay', 'dataz'));
     }
 }
