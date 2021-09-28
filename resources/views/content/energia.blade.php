@@ -11,17 +11,16 @@ url:"/api/dataenergia",
 dataType:'json',
 method: 'GET',
 async: false}).responseText;
-var Respuesta=jQuery.parseJSON(JSON);
+var Respuesta= jQuery.parseJSON(JSON);
 
 
-
-document.getElementById("indicador").innerHTML =  Math.round(Respuesta[0].fase1A);
+document.getElementById("indicador").innerHTML =  (Respuesta[0].fase1A);
 document.getElementById("indicador1").innerHTML = Respuesta[0].fase2A;
 document.getElementById("indicador2").innerHTML = Respuesta[0].fase3A;
 document.getElementById("indicador3").innerHTML = Respuesta[0].voltsL1;
 document.getElementById("indicador4").innerHTML = Respuesta[0].voltsL2;
 document.getElementById("indicador5").innerHTML = Respuesta[0].voltsL3;
-document.getElementById("indicador6").innerHTML = Math.round(Respuesta[0].hz);
+document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
 
 
 }, 1700);
@@ -46,12 +45,12 @@ document.getElementById("indicador6").innerHTML = Math.round(Respuesta[0].hz);
 
         FASE 2A
     </a>
-    <a href="#">
+    <a style="color: #572364;"href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador2"></h4>
+        <h4 style="color: #b2ffff;"id="indicador2"></h4>
 
         FASE 3A
     </a>
