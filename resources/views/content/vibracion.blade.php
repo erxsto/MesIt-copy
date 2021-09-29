@@ -1,21 +1,8 @@
 @extends('layouts.index')
 @section('content')
 <div class="content">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    Dashboard
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <table>
+<canvas id="myChart"></canvas>
+    <!-- <table>
         <thead>
             <th>Id</th>
             <th>Eje X</th>
@@ -32,7 +19,7 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> -->
 </div>
 </div>
 <script>
@@ -42,50 +29,77 @@
         data: {
             labels: [],
             datasets: [{
-                label: 'ejex',
+                label: 'Eje X',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#FF0000',
-                backgroundColor: '#FF0000'
+                borderColor: '#eb9c36',
+                backgroundColor: 'rgba(235, 156, 54, 0.07)',
+                pointStyle: 'circle',
+                fill: true,
+                //cubicInterpolationMode: 'monotone',
             }, {
-                label: 'ejey',
+                label: 'Eje Y',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#0000ff',
-                backgroundColor: '#0000ff'
+                borderColor: '#11400f',
+                backgroundColor: 'rgba(17, 64, 15, 0.07)',
+                pointStyle: 'circle',
+                //cubicInterpolationMode: 'monotone',
+                fill: true,
             }, {
-                label: 'ejez',
+                label: 'Eje Z',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#00ff00',
-                backgroundColor: '#00ff00'
+                borderColor: '#0871ca',
+                backgroundColor: 'rgba(8, 113, 202, 0.07)',
+                pointStyle: 'circle',
+                //cubicInterpolationMode: 'monotone',
+                fill: true,
             }]
         },
         options: {
+            animations: {
+                radius: {
+                    duration: 400,
+                    easing: 'linear',
+                    loop: (context) => context.active
+                }
+            },
+            hoverRadius: 10,
+            hoverBackgroundColor: 'black',
+            interaction: {
+                mode: 'nearest',
+                intersect: false,
+                axis: 'x'
+            },
             plugins: {
+                tooltip: {
+                    enabled: false
+                },
                 title: {
-                    text: 'Vibración',
+                    text: 'EJES',
                     display: true,
+                },
+                filler: {
+                    propagate: true
+                },
+                'samples-filler-analyser': {
+                    target: 'chart-analyser'
                 }
             },
             scales: {
                 x: {
                     title: {
-                        display: false,
-                        text: 'Valor',
+                        display: true,
+                        text: 'Id',
                     },
-                    //type: 'logarithmic',
-
                 },
                 y: {
                     title: {
-                        display: false,
-                        text: 'Valor',
+                        display: true,
+                        text: 'Datos',
                     },
-                    //type: 'logarithmic',
-
                 },
-
             },
         }
     });
@@ -113,7 +127,6 @@
             }
         });
     }
-
     updateChart();
     setInterval(() => {
         updateChart();
