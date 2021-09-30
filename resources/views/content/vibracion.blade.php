@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 <canvas id="myChart"></canvas>
-    <!-- <table>
+<!-- <table>
         <thead>
             <th>Id</th>
             <th>Eje X</th>
@@ -55,6 +55,7 @@
             }]
         },
         options: {
+            responsive: true,
             animations: {
                 radius: {
                     duration: 400,
@@ -76,6 +77,7 @@
                 title: {
                     text: 'EJES',
                     display: true,
+                    color: 'black',
                 },
                 filler: {
                     propagate: true
@@ -89,13 +91,31 @@
                     title: {
                         display: true,
                         text: 'ID',
+                        color: 'black',
+                        font: {
+                            size: 15,
+                            weight: 'bold',
+                            lineHeight: 1.2,
+                        },
                     },
+                    ticks: {
+                        color: 'black',
+                    }
                 },
                 y: {
                     title: {
                         display: true,
                         text: 'VALORES',
+                        color: 'black',
+                        font: {
+                            size: 15,
+                            weight: 'bold',
+                            lineHeight: 1.2,
+                        },
                     },
+                    ticks: {
+                        color: 'black',
+                    }
                 },
             },
         }
