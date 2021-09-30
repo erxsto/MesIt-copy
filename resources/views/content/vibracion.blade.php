@@ -1,6 +1,5 @@
 @extends('layouts.index')
 @section('content')
-<div class="content">
 <canvas id="myChart"></canvas>
     <!-- <table>
         <thead>
@@ -20,8 +19,6 @@
             @endforeach
         </tbody>
     </table> -->
-</div>
-</div>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
@@ -91,13 +88,13 @@
                 x: {
                     title: {
                         display: true,
-                        text: 'Id',
+                        text: 'ID',
                     },
                 },
                 y: {
                     title: {
                         display: true,
-                        text: 'Datos',
+                        text: 'VALORES',
                     },
                 },
             },

@@ -7,26 +7,75 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-      <script src="jquery-latest-js"></script>
-      
+      <script src="https://kit.fontawesome.com/02bd5799bc.js" crossorigin="anonymous"></script>  
 <style>
-   
-/* BODY */
+*{
+  box-sizing: border-box;
+}
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgb(8,34,77);
-background: linear-gradient(90deg, rgba(8,34,77,1) 0%, rgba(28,54,101,1) 0%, rgba(90,121,173,1) 0%, rgba(165,206,231,1) 100%, rgba(0,187,255,1) 100%);
+  flex-direction: column;
+  /* background: rgb(8,34,77);
+  background: linear-gradient(90deg, rgba(8,34,77,1) 0%, rgba(28,54,101,1) 0%, rgba(90,121,173,1) 0%, rgba(165,206,231,1) 100%, rgba(0,187,255,1) 100%); */
   /* background: rgb(11,11,11);
   background: radial-gradient(circle, rgba(11,11,11,1) 0%, rgba(32,32,32,1) 42%, rgba(27,27,27,1) 66%, rgba(12,12,14,1) 100%); */ 
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 14px; */
   margin:20px;
+  transition: background 0.2s linear;
 }
+
+body.dark{
+  background-color: #111a35;
+}
+
+body.dark .copyright{
+  color: #fff;
+}
+
+.checkbox{
+  opacity: 0;
+  position: absolue;
+}
+
+.label{
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  height: 26px;
+  width: 50px;
+  transform: scale(1.5);
+}
+
+.ball{
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transition: transform 0.2s linear;
+}
+.checkbox:checked + .label .ball{
+  transform: translateX(24px);
+}
+.fa-moon{
+  color: #f1c40f;
+}
+.fa-sun{
+  color: #f39c12;
+}
+
 .menu{
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
