@@ -32,7 +32,7 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador"></h4>
+        <txt id="indicador"></txt>
 
         FASE 1A
     </a>
@@ -41,16 +41,16 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador1"></h4>
+        <div id="indicador1"></div>
 
         FASE 2A
     </a>
-    <a style="color: #572364;"href="#">
+    <a href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <h4 style="color: #b2ffff;"id="indicador2"></h4>
+        <div id="indicador2"></div>
 
         FASE 3A
     </a>
@@ -59,8 +59,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador3"></h4>
-
+        <div id="indicador3"> </div>
+        <br>
         VOLTS L1
     </a>
     <a href="#">
@@ -68,7 +68,7 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador4"></h4>
+        <div id="indicador4"></div>
 
         VOLTS L2
     </a>
@@ -77,17 +77,17 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador5"></h4>
+        <div id="indicador5"></div>
 
         VOLTS L3
     </a>
     
-    <a style="margin-left:11.4cm;"href="#">
+    <a href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <h4 id="indicador6"></h4>
+        <div id="indicador6"></div>
 
         HZ
     </a> 

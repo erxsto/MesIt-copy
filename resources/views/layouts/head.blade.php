@@ -5,66 +5,87 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
       <script src="jquery-latest-js"></script>
       
 <style>
-  blanco{
+   
+/* BODY */
 
-    color:white;
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(8,34,77);
+background: linear-gradient(90deg, rgba(8,34,77,1) 0%, rgba(28,54,101,1) 0%, rgba(90,121,173,1) 0%, rgba(165,206,231,1) 100%, rgba(0,187,255,1) 100%);
+  /* background: rgb(11,11,11);
+  background: radial-gradient(circle, rgba(11,11,11,1) 0%, rgba(32,32,32,1) 42%, rgba(27,27,27,1) 66%, rgba(12,12,14,1) 100%); */ 
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  margin:20px;
+}
+.menu{
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+/* CUSTOM NAVBAR */
+.navbar-custom {
+  color:#084B8A;
+}
+
+/* ETIQUETAS ENERGIA */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.navbar-custom {
-    background-color:#004b80;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(#00043D,#262517);
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-}
-a {
+
+/* ETIQUETA <a> */
+.a {
   position: relative;
   display: inline-block;
-  padding: 40px 50px;
-  margin: 40px 0;
+  padding: 2.5rem 3.125em;
+  margin: 2.5em 0;
   color: #03e9f4;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 4px;
+  letter-spacing: 0.25em;
   overflow: hidden;
-  margin-right: 180px;
+  margin-right: 11.25em;
 }
-a:hover {
+.a:hover {
   background: #03e9f4;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 200px #03e9f4;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  box-shadow: 0 0 0.3125em #03e9f4, 0 0 1.5625em #03e9f4, 0 0 3.125em #03e9f4,
+    0 0 12.5em #03e9f4;
+  -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005);
 }
-a:nth-child(1) {
+.a:nth-child(1) {
   filter: hue-rotate(270deg);
 }
-a:nth-child(2) {
+.a:nth-child(2) {
   filter: hue-rotate(110deg);
 }
-a span {
+
+/* SPANS */
+.a span {
   position: absolute;
   display: block;
 }
-a span:nth-child(1) {
+.a span:nth-child(1) {
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 0.125em;
   background: linear-gradient(90deg, transparent, #03e9f4);
   animation: animate1 1s linear infinite;
 }
@@ -77,10 +98,10 @@ a span:nth-child(1) {
     left: 100%;
   }
 }
-a span:nth-child(2) {
+.a span:nth-child(2) {
   top: -100%;
   right: 0;
-  width: 2px;
+  width: 0.125em;
   height: 100%;
   background: linear-gradient(180deg, transparent, #03e9f4);
   animation: animate2 1s linear infinite;
@@ -95,11 +116,11 @@ a span:nth-child(2) {
     top: 100%;
   }
 }
-a span:nth-child(3) {
+.a span:nth-child(3) {
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 2px;
+  height: 0.125em;
   background: linear-gradient(270deg, transparent, #03e9f4);
   animation: animate3 1s linear infinite;
   animation-delay: 0.5s;
@@ -114,10 +135,10 @@ a span:nth-child(3) {
   }
 }
 
-a span:nth-child(4) {
+.a span:nth-child(4) {
   bottom: -100%;
   left: 0;
-  width: 2px;
+  width: 0.125em;
   height: 100%;
   background: linear-gradient(360deg, transparent, #e9f403);
   animation: animate4 1s linear infinite;
@@ -132,5 +153,17 @@ a span:nth-child(4) {
     bottom: 100%;
   }
 }
+/* END ENERGY */
 
+/* MEDIA SCREEN */
+
+@media screen and (max-width:500px){
+  .body{
+    font-size: 10px;
+  }
+  .a{
+    font-size: 7px;
+  }
+  
+}
 </style>
