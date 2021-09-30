@@ -10,7 +10,7 @@
     <li  class="navbar-item active btn-lg">MES INTERFACE IT</li>
       
      <li class="nav-item active" style="margin-left:15px;">
-        <a class="hoverit nav-link btn-lg" href="./"><i class="bi bi-house" ></i> Dashboard</a>  
+        <a class="hoverit nav-link btn-lg" href="./"><i class="bi bi-house" ></i></a>  
       </li>
 
       <li class="nav-item active" style="margin-left:10px;">

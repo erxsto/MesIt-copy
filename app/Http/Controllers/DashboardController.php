@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\grafica_ejes;
 
-class VibracionController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
         $query = \DB::select('SELECT TOP 5 id,ejex,ejey,ejez FROM dbo.grafica_ejes ORDER BY id DESC');
-        return view('content.vibracion', ['grafica' => $query]);
+        return view('home', ['grafica' => $query]);
     }
     public function datavibracion()
     {
