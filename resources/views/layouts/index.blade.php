@@ -3,17 +3,19 @@
 <head>
    @include('layouts.head')
 </head>
+
 <body>
 <div class="container">
-   <header class="row">
+   <header>
        @include('layouts.header')
    </header>
    <main class="py-4">
         @yield('content')
     </main>
-   <footer class="row">
+   <footer>
        @include('layouts.footer')
    </footer>
 </div>
+
 </body>
 </html>

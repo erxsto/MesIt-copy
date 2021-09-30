@@ -227,13 +227,29 @@ body.dark .menu{
 
 /* MEDIA SCREEN */
 
-@media screen and (max-width:500px){
-  .body{
-    font-size: 10px;
+@media screen and (max-width:900px){
+  body{
+    font-size: 14px;
   }
-  .a{
-    font-size: 7px;
+  .navbar .navbar-brand{
+    font-size: 14px;
   }
+  .nav-link{
+    font-size: 14px;
+  }
+  
+}
+@media screen and (max-width:760px){
+  body{
+    font-size: 9px;
+  }
+  .navbar .navbar-brand{
+    font-size: 9px;
+  }
+  .nav-link{
+    font-size: 9px;
+  }
+ /* Falta tamaño de cada item */
   
 }
 </style>
