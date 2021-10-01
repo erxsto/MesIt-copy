@@ -12,37 +12,29 @@
       <script src="https://kit.fontawesome.com/e815cd1bb7.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
 <style>
-  
-.fas{
-  display: flex;
-  /* default */
-	flex-direction: row-reverse;
-  /* default */
-	flex-wrap: wrap;
-  /* default */
-	justify-content: flex-start;
-	align-items: center;
-	align-content: flex-end;
-}
-.hoverit:hover{
-  font-size:1.5em;  
-}
-.home{
-  font-size:1.1em;
-}
+
 
 *{
   box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  margin:40px;
-  transition: background 0.2s linear;
+  background:;
+}
+.container{
+  width:90%;
+  max-width:1200px;
+  margin: 20px auto;
+  display: grid;
+   grid-gap: 20px;
+   grid-template-columns: repeat(1,1fr);
+   grid-template-rows: repeat(6,auto) ;
+
+}
+
+.container > div,
+.container .header{
+  background:black;
 }
 
 body.dark{
@@ -97,17 +89,10 @@ body.dark .menu{
   color: #f39c12;
 }
 
-.menu{
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
-  border-left: 1px solid #000;
-  display: flex;
-  justify-content: space-between;
-}
 /* CUSTOM NAVBAR */
 .navbar-custom {
   color:#084B8A;
+  
 }
 
 /* ETIQUETAS ENERGIA */
@@ -124,27 +109,30 @@ body.dark .menu{
   display: inline-block;
   padding: 2.5rem 3.125em;
   margin: 2.5em 0;
-  color: #03e9f4;
+  color: #e7c85b;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
   letter-spacing: 0.25em;
   overflow: hidden;
   margin-right: 11.25em;
+  
+  
+  background:;
+  color: #fd1d1d;
+  box-shadow:  -6px 4px 56px -5px rgba(0,93,161,1);
+-webkit-box-shadow: -6px 4px 56px -5px rgba(0,93,161,1);
+-moz-box-shadow: -6px 4px 56px -5px rgba(0,93,161,1);
+
+  /* -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005); */
 }
-.a:hover {
-  background: #03e9f4;
-  color: #050801;
-  box-shadow: 0 0 0.3125em #03e9f4, 0 0 1.5625em #03e9f4, 0 0 3.125em #03e9f4,
-    0 0 12.5em #03e9f4;
-  -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005);
-}
-.a:nth-child(1) {
-  filter: hue-rotate(270deg);
-}
-.a:nth-child(2) {
-  filter: hue-rotate(110deg);
-}
+
+  
+/* 
+.a {
+  filter: hue-rotate(270deg); //FILTER CAMBIO DE COLOR
+} */
+
 
 /* SPANS */
 .a span {
@@ -156,7 +144,7 @@ body.dark .menu{
   left: 0;
   width: 100%;
   height: 0.125em;
-  background: linear-gradient(90deg, transparent, #03e9f4);
+  background: linear-gradient(90deg, transparent, #ff0000);
   animation: animate1 1s linear infinite;
 }
 @keyframes animate1 {
@@ -173,7 +161,7 @@ body.dark .menu{
   right: 0;
   width: 0.125em;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
+  background: linear-gradient(180deg, transparent, #ff0000);
   animation: animate2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -191,7 +179,7 @@ body.dark .menu{
   right: 0;
   width: 100%;
   height: 0.125em;
-  background: linear-gradient(270deg, transparent, #03e9f4);
+  background: linear-gradient(270deg, transparent, #ff0000);
   animation: animate3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -210,7 +198,7 @@ body.dark .menu{
   left: 0;
   width: 0.125em;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #e9f403);
+  background: linear-gradient(360deg, transparent, #ff0000);
   animation: animate4 1s linear infinite;
   animation-delay: 0.75s;
 }
