@@ -45,7 +45,7 @@ body.dark .copyright{
   color: #fff;
 }
 
-body.dark .menu{
+body.dark .navbar{
   background-color: #fff;
 }
 
@@ -64,9 +64,9 @@ body.dark .menu{
   padding: 5px;
   height: 26px;
   width: 50px;
-  left: 15px;
-  top: 10px;
-  transform: scale(1.1);
+  left: 2px;
+  top: 12px;
+  transform: scale(0.8);
 }
 
 .ball{
