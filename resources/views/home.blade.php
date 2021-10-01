@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+<!-- Gráfica de vibración -->
 <canvas id="myChart"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
