@@ -14,82 +14,132 @@ async: false}).responseText;
 var Respuesta= jQuery.parseJSON(JSON);
 
 
-document.getElementById("indicador").innerHTML =  (Respuesta[0].fase1A);
-document.getElementById("indicador1").innerHTML = Respuesta[0].fase2A;
-document.getElementById("indicador2").innerHTML = Respuesta[0].fase3A;
-document.getElementById("indicador3").innerHTML = Respuesta[0].voltsL1;
-document.getElementById("indicador4").innerHTML = Respuesta[0].voltsL2;
-document.getElementById("indicador5").innerHTML = Respuesta[0].voltsL3;
-document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
+document.getElementById("indicador").innerHTML =  (Respuesta[0].fase1A)/10;
+document.getElementById("indicador1").innerHTML = (Respuesta[0].fase2A)/10;
+document.getElementById("indicador2").innerHTML = (Respuesta[0].fase3A)/10;
+document.getElementById("indicador3").innerHTML = (Respuesta[0].voltsL1)/10;
+document.getElementById("indicador4").innerHTML = (Respuesta[0].voltsL2)/10;
+document.getElementById("indicador5").innerHTML = (Respuesta[0].voltsL3)/10;
+document.getElementById("indicador6").innerHTML = (Respuesta[0].hz)/10;
+document.getElementById("indicador7").innerHTML = (Respuesta[0].facpotencia)/1000;
+document.getElementById("indicador8").innerHTML = (Respuesta[0].pottactiva)/10;
+document.getElementById("indicador9").innerHTML = (Respuesta[0].pottreactiva)/10;
+document.getElementById("indicador10").innerHTML = (Respuesta[0].energiaa)/10;
+document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
 
 }, 1700);
 
 </script>
 <div class="energy">
- <div class="a a1" href="#">
+ <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <txt id="indicador"></txt>
+        <div class="num"id="indicador"></div>
 
-        FASE 1A
-    </div >
-    <div class="a a2" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <div id="indicador1"></div>
-
-        FASE 2A
-    </div >
-    <div class="a a3" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <div id="indicador2"></div>
-
-        FASE 3A
+        <hr> FASE 1A
     </div>
-    <div class="a a4" href="#">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <div id="indicador3"> </div>
-        <br>
-        VOLTS L1
-    </div>
-    <div class="a a5" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <div id="indicador4"></div>
+        <div class="num"id="indicador1"></div>
 
-        VOLTS L2
+        <hr> FASE 2A
     </div>
-    <div class="a a6" href="#">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <div id="indicador5"></div>
+        <div class="num"id="indicador2"></div>
 
-        VOLTS L3
+        <hr> FASE 3A
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador3"> </div>
+        
+        <hr> VOLTS L1
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador4"></div>
+
+        <hr> VOLTS L2
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador5"></div>
+
+        <hr> VOLTS L3
     </div>
     
-    <div class="a a7" href="#">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <div id="indicador6"></div>
+        <div class="num"id="indicador6"></div>
 
-        HZ
+        <hr> Frecuencia (Hz)
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador7"></div>
+
+        <hr> Factor de Potencia
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador8"></div>
+
+        <hr> Potencia total activa
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador9"></div>
+
+      <hr>  Potencia total reactiva
     </div> 
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador10"></div>
+
+        <hr> Energia activa
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num"id="indicador11"></div>
+
+        <hr> Energia reactiva
+    </div>
 </div>
 @endsection
