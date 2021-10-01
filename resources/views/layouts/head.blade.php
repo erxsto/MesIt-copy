@@ -123,7 +123,17 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+  .num{
+    box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
+    -webkit-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
+    -moz-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
+    width:45%;
+    border:solid 1px;
+    border-radius:90px;
+    display:inline-block;
+    font-weight:bold;
+    
+  }
   /* ETIQUETA <a> */
   .a {
     position: relative;
@@ -139,10 +149,11 @@
     font-size: 16px;
     text-align: center;
     background: ;
-    color: #000080;
-    box-shadow: -1px 1px 19px -2px rgba(255, 0, 0, 0.61);
-    -webkit-box-shadow: -1px 1px 19px -2px rgba(255, 0, 0, 0.61);
-    -moz-box-shadow: -1px 1px 19px -2px rgba(255, 0, 0, 0.61);
+    color: black;
+    margin-left: 1.5rem;
+    box-shadow:-1px 1px 5px 3px rgba(0,89,153,0.59);
+-webkit-box-shadow: -1px 1px 5px 3px rgba(0,89,153,0.59);
+-moz-box-shadow: -1px 1px 5px 3px rgba(0,89,153,0.59); 
 
     /* -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005); */
   }
@@ -165,7 +176,8 @@
     left: 0;
     width: 100%;
     height: 0.125em;
-    background: linear-gradient(90deg, transparent, #ff0000);
+    background: linear-gradient(90deg, transparent, #1261C7);
+
     animation: animate1 1s linear infinite;
   }
 
@@ -185,7 +197,7 @@
     right: 0;
     width: 0.125em;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #ff0000);
+    background: linear-gradient(180deg, transparent, #1261C7);
     animation: animate2 1s linear infinite;
     animation-delay: 0.25s;
   }
@@ -206,7 +218,7 @@
     right: 0;
     width: 100%;
     height: 0.125em;
-    background: linear-gradient(270deg, transparent, #ff0000);
+    background: linear-gradient(270deg, transparent, #1261C7);
     animation: animate3 1s linear infinite;
     animation-delay: 0.5s;
   }
@@ -227,7 +239,7 @@
     left: 0;
     width: 0.125em;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #ff0000);
+    background: linear-gradient(360deg, transparent, #1261C7);
     animation: animate4 1s linear infinite;
     animation-delay: 0.75s;
   }

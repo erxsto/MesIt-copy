@@ -39,7 +39,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador"></div>
 
-        <hr> FASE 1A
+        <hr> FASE 1A (A)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -48,7 +48,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador1"></div>
 
-        <hr> FASE 2A
+        <hr> FASE 2A (A)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -57,7 +57,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador2"></div>
 
-        <hr> FASE 3A
+        <hr> FASE 3A (A)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -66,7 +66,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador3"> </div>
         
-        <hr> VOLTS L1
+        <hr> VOLTS L1 (V)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -75,7 +75,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador4"></div>
 
-        <hr> VOLTS L2
+        <hr> VOLTS L2 (V)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -84,7 +84,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador5"></div>
 
-        <hr> VOLTS L3
+        <hr> VOLTS L3 (V)
     </div>
     
     <div class="a" href="#">
@@ -103,7 +103,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador7"></div>
 
-        <hr> Factor de Potencia
+        <hr> Factor de Potencia (%)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -112,7 +112,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador8"></div>
 
-        <hr> Potencia total activa
+        <hr> Potencia total activa (KW)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -121,7 +121,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador9"></div>
 
-      <hr>  Potencia total reactiva
+      <hr>  Potencia total reactiva (KVAR)
     </div> 
     <div class="a" href="#">
         <span></span>
@@ -130,7 +130,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador10"></div>
 
-        <hr> Energia activa
+        <hr> Energia activa (KWH)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -139,7 +139,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
         <span></span>
         <div class="num"id="indicador11"></div>
 
-        <hr> Energia reactiva
+        <hr> Energia reactiva (KVARH)
     </div>
 </div>
 @endsection
