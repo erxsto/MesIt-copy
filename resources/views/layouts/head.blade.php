@@ -32,6 +32,23 @@ body {
 
 }
 
+.energy{
+  display:grid;
+  grid.gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: repeat(); */
+  grid-template-areas: "num1 num2 num3 num4 "
+  "num5 num6 num7 num8 "
+  "num9 num10 num11 num12 "
+  "num13 num14 num15 num16 "
+  "num17 num18 num19 num20 "
+  
+}
+.energy .a1{ 
+  grid-area:num1;
+}
+
+
 .container > div,
 .container .header{
   background:black;
@@ -107,19 +124,18 @@ body.dark .navbar{
 .a {
   position: relative;
   display: inline-block;
-  padding: 2.5rem 3.125em;
-  margin: 2.5em 0;
-  color: #e7c85b;
+  padding: 1.5rem;
+  margin: 2.5rem 0;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.25rem;
   overflow: hidden;
-  margin-right: 11.25em;
-  
-  
+  margin-right: 1.2rem;
+  font-size:16px;
+  text-align:center;  
   background:;
-  color: #fd1d1d;
+  color: #000080;
   box-shadow:  -1px 1px 19px -2px rgba(255,0,0,0.61);
 -webkit-box-shadow: -1px 1px 19px -2px rgba(255,0,0,0.61);
 -moz-box-shadow: -1px 1px 19px -2px rgba(255,0,0,0.61);

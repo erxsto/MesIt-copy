@@ -26,8 +26,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
 }, 1700);
 
 </script>
-
- <div class="a" href="#">
+<div class="energy">
+ <div class="a a1" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -35,8 +35,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <txt id="indicador"></txt>
 
         FASE 1A
-    </div class="a">
-    <div class="a" href="#">
+    </div >
+    <div class="a a2" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -44,8 +44,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador1"></div>
 
         FASE 2A
-    </div class="a">
-    <div class="a" href="#">
+    </div >
+    <div class="a a3" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -53,8 +53,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador2"></div>
 
         FASE 3A
-    </div class="a">
-    <div class="a" href="#">
+    </div>
+    <div class="a a4" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -62,8 +62,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador3"> </div>
         <br>
         VOLTS L1
-    </div class="a">
-    <div class="a" href="#">
+    </div>
+    <div class="a a5" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -71,8 +71,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador4"></div>
 
         VOLTS L2
-    </div class="a">
-    <div class="a" href="#">
+    </div>
+    <div class="a a6" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -80,9 +80,9 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador5"></div>
 
         VOLTS L3
-    </div class="a">
+    </div>
     
-    <div class="a" href="#">
+    <div class="a a7" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -90,6 +90,6 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador6"></div>
 
         HZ
-    </div class="a"> 
-    
+    </div> 
+</div>
 @endsection
