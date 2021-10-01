@@ -27,7 +27,7 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
 
 </script>
 
- <a href="#">
+ <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -35,8 +35,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <txt id="indicador"></txt>
 
         FASE 1A
-    </a>
-    <a href="#">
+    </div class="a">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -44,8 +44,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador1"></div>
 
         FASE 2A
-    </a>
-    <a href="#">
+    </div class="a">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -53,8 +53,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador2"></div>
 
         FASE 3A
-    </a>
-    <a href="#">
+    </div class="a">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -62,8 +62,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador3"> </div>
         <br>
         VOLTS L1
-    </a>
-    <a href="#">
+    </div class="a">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -71,8 +71,8 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador4"></div>
 
         VOLTS L2
-    </a>
-    <a href="#">
+    </div class="a">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -80,9 +80,9 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador5"></div>
 
         VOLTS L3
-    </a>
+    </div class="a">
     
-    <a href="#">
+    <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
@@ -90,6 +90,6 @@ document.getElementById("indicador6").innerHTML = (Respuesta[0].hz);
         <div id="indicador6"></div>
 
         HZ
-    </a> 
+    </div class="a"> 
     
 @endsection

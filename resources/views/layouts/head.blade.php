@@ -120,9 +120,9 @@ body.dark .navbar{
   
   background:;
   color: #fd1d1d;
-  box-shadow:  -6px 4px 56px -5px rgba(0,93,161,1);
--webkit-box-shadow: -6px 4px 56px -5px rgba(0,93,161,1);
--moz-box-shadow: -6px 4px 56px -5px rgba(0,93,161,1);
+  box-shadow:  -1px 1px 19px -2px rgba(255,0,0,0.61);
+-webkit-box-shadow: -1px 1px 19px -2px rgba(255,0,0,0.61);
+-moz-box-shadow: -1px 1px 19px -2px rgba(255,0,0,0.61);
 
   /* -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005); */
 }
