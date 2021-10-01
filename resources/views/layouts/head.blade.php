@@ -55,7 +55,7 @@
   }
 
   body.dark {
-    background-color: #232946;
+    background-color: #4c4c4c;
   }
 
   body.dark .copyright {
@@ -64,7 +64,6 @@
 
   body.dark .navbar {
     background-color: #fff;
-    box-shadow: 0 0 10px 2px #fff;
   }
 
   .checkbox {
@@ -112,7 +111,7 @@
 
   /* CUSTOM NAVBAR */
   .navbar-custom {
-    color: #232946;
+    color: #4c4c4c;
   }
 
   /* ETIQUETAS ENERGIA */

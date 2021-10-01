@@ -20,12 +20,12 @@
       <li class="nav-item active" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom" href="./temperatura"><i class="bi bi-speedometer2"></i></a>
       </li>
-      <input type="checkbox" class="checkbox" id="checkbox">
+      <!-- <input type="checkbox" class="checkbox" id="checkbox">
       <label for="checkbox" class="label">
         <i class="fas fa-moon"></i>
         <i class="fas fa-sun"></i>
         <div class="ball"></div>
-      </label>
+      </label> -->
     </ul>
   </div>
 </nav>
