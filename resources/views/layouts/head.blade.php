@@ -17,9 +17,48 @@
   }
 
   body {
+    font-family: 'Open Sans', sans-serif;
     background: ;
+    padding: 40px 0;
   }
+  h1, h2, h3, h4, h5, h6 {
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+}
+.contenedor {
+	max-width: 1000px;
+	width: 90%;
+	margin: auto;
+}
+header {
+	margin-bottom: 40px;
+}
+header h3 {
+	color: #5A5A5A;
+}
 
+header h1 {
+	font-size: 60px;
+	font-weight: normal;
+}
+.graficas {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	
+	gap: 20px;
+}
+
+.grafica {
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0 4px 20px rgba(194,194,194,.25);
+	border-radius: 5px;
+
+	display: grid;
+}
+@media screen and (max-width: 850px) {
+	
+}
   .container {
     width: 90%;
     max-width: 1200px;

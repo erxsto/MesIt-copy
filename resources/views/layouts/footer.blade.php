@@ -49,7 +49,7 @@
     <div class="row align-items-center" style="background-color: rgba(0, 0, 0, 0.0);">
         <div id="copyright" class="col-md-7 col-lg-8">
             <p> Copyright ©2021 Todos los derechos reservados por:
-                <a href="#" style="text-decoration: none;">
+                <a href="https://www.amats.com.mx/" style="text-decoration: none;">
                     <strong class="text-info">AMATS ELECTRIC S.A DE C.V</strong>
                 </a>
             </p>

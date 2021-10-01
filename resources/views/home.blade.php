@@ -1,7 +1,23 @@
 @extends('layouts.index')
 @section('content')
 <!-- Gráfica de vibración -->
-<canvas id="myChart"></canvas>
+<div class="contenedor">
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <main class="graficas">
+        <div class="grafica">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="grafica">
+        </div>
+        <div class="grafica">
+        </div>
+        <div class="grafica">
+        </div>
+    </main>
+</div>
+
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
@@ -12,8 +28,8 @@
                 label: 'Eje X',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#eb9c36',
-                backgroundColor: 'rgba(235, 156, 54, 0.07)',
+                borderColor: '#fe0000',
+                backgroundColor: 'rgba(254, 0, 0, 0.07)',
                 pointStyle: 'circle',
                 fill: true,
                 //cubicInterpolationMode: 'monotone',
@@ -21,8 +37,8 @@
                 label: 'Eje Y',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#11400f',
-                backgroundColor: 'rgba(17, 64, 15, 0.07)',
+                borderColor: '#00ffff',
+                backgroundColor: 'rgba(0, 255, 255, 0.07)',
                 pointStyle: 'circle',
                 //cubicInterpolationMode: 'monotone',
                 fill: true,
@@ -30,8 +46,8 @@
                 label: 'Eje Z',
                 data: [],
                 borderWidth: 3,
-                borderColor: '#0871ca',
-                backgroundColor: 'rgba(8, 113, 202, 0.07)',
+                borderColor: '#008f39',
+                backgroundColor: 'rgba(0, 143, 57, 0.07)',
                 pointStyle: 'circle',
                 //cubicInterpolationMode: 'monotone',
                 fill: true,
@@ -105,7 +121,7 @@
     });
     var updateChart = function() {
         $.ajax({
-            url: "/api/datavibracion",
+            url: "/api/datadashboard",
             type: 'GET',
             dataType: 'json',
             headers: {
