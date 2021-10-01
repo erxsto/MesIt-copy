@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-custom">
-  <a class="navbar-brand">
+  <a class="navbar-brand" style="margin-left:50px;">
     <img style="width:9.375em;" class="logo" src="http://amats.com.mx/images/logo-amats-electric-r.svg" alt="amats_logo">
   </a>
   <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,8 +7,8 @@
   </button>
   <div class="collapse navbar-collapse" id="toggleMobileMenu">
     <text class="navbar-item active btn-lg">MES INTERFACE IT</text>
-    <ul class="navbar-nav ms-auto text-center">
-      <li class="nav-item active" style="margin-left:10px;">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item active" style="margin-left:999px;">
         <a class="hoverit nav-link btn-lg navbar-custom" href="./"><i class="bi bi-house"></i></a>
       </li>
       <li class="nav-item active" style="margin-left:10px;">
