@@ -11,15 +11,55 @@
 <!-- ICONS -->
 <script src="https://kit.fontawesome.com/e815cd1bb7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+<!--Estilos de cada página dependiendo su clase -->
 <style>
   * {
     box-sizing: border-box;
   }
 
   body {
+    font-family: 'Open Sans', sans-serif;
     background: ;
+    padding: 40px 0;
   }
+  h1, h2, h3, h4, h5, h6 {
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+}
+.contenedor {
+	max-width: 1000px;
+	width: 90%;
+	margin: auto;
+}
+header {
+	margin-bottom: 40px;
+}
+header h3 {
+	color: #5A5A5A;
+}
 
+header h1 {
+	font-size: 60px;
+	font-weight: normal;
+}
+.graficas {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+	gap: 20px;
+}
+
+.grafica {
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0 4px 20px rgba(194,194,194,.25);
+	border-radius: 5px;
+background-color: ;
+	display: grid;
+}
+@media screen and (max-width: 850px) {
+	
+}
   .container {
     width: 90%;
     max-width: 1200px;

@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $query = \DB::select('SELECT TOP 5 id,ejex,ejey,ejez FROM dbo.grafica_ejes ORDER BY id DESC');
         return view('home', ['grafica' => $query]);
     }
-    public function datavibracion()
+    public function datadashboard()
     {
         $graficas = grafica_ejes::latest()->take(5)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
