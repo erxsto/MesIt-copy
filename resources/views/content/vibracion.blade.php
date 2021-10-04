@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+<!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <!-- <table>
         <thead>
@@ -54,6 +55,7 @@
                 fill: true,
             }]
         },
+        //Propiedades de la gráfica
         options: {
             responsive: true,
             animations: {
@@ -128,6 +130,7 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
+            //Se actualizan los 3 ejes.
             success: function(data, datay) {
                 myChart.data.labels = data.labels;
                 myChart.data.datasets[0].data = data.data;
@@ -144,6 +147,7 @@
             }
         });
     }
+    //Se actualizada cada ('1000')
     updateChart();
     setInterval(() => {
         updateChart();
