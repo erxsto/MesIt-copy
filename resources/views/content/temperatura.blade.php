@@ -41,8 +41,33 @@
     }, 1300);
   }
 </script>
-<center>
-<div id="medidores">
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Director (Year)',  'Rotten Tomatoes', 'IMDB'],
+          ['Alfred Hitchcock (1935)', 8.4,         7.9],
+          ['Ralph Thomas (1959)',     6.9,         6.5],
+          ['Don Sharp (1978)',        6.5,         6.4],
+          ['James Hawes (2008)',      4.4,         6.2]
+        ]);
+
+        var options = {
+          title: 'Histograma de Temperatura',
+          vAxis: {title: 'Temperatura (°C)'},
+          isStacked: true
+        };
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <section class="columns">
+<div class="column" id="medidores">
 </div>
-</center>
+<div class="column" id="chart_div" style="width: 900px; height: 500px;"></div>
+    </section>
 @endsection

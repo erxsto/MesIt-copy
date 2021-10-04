@@ -100,7 +100,6 @@
 
 
 <!-- /GetButton.io widget -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
     const toggleSwitch = document.querySelector('input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
