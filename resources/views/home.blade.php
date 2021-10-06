@@ -13,18 +13,7 @@
             async: false
         }).responseText;
         var Respuesta = jQuery.parseJSON(JSON);
-
-
-        document.getElementById("indicador").innerHTML = (Respuesta[0].fase1A) / 10;
-        document.getElementById("indicador1").innerHTML = (Respuesta[0].fase2A) / 10;
-        document.getElementById("indicador2").innerHTML = (Respuesta[0].fase3A) / 10;
-        document.getElementById("indicador3").innerHTML = (Respuesta[0].voltsL1) / 10;
-        document.getElementById("indicador4").innerHTML = (Respuesta[0].voltsL2) / 10;
-        document.getElementById("indicador5").innerHTML = (Respuesta[0].voltsL3) / 10;
         document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
-        document.getElementById("indicador7").innerHTML = (Respuesta[0].facpotencia) / 1000;
-        document.getElementById("indicador8").innerHTML = (Respuesta[0].pottactiva) / 10;
-        document.getElementById("indicador9").innerHTML = (Respuesta[0].pottreactiva) / 10;
         document.getElementById("indicador10").innerHTML = (Respuesta[0].energiaa) / 10;
         document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar) / 10;
 
@@ -70,6 +59,76 @@
         }, 1300);
     }
 </script>
+<!-- Script de grafica temperatura -->
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Temperatura', 'Celcius', 'Farenheit'],
+            ['1', 8.4, 7.9],
+            ['2', 8.4, 7.9],
+            ['3', 8.4, 7.9],
+            ['4', 8.4, 7.9],
+            ['5', 8.4, 7.9],
+            ['6', 8.4, 7.9],
+            ['7', 8.4, 7.9],
+            ['8', 8.4, 7.9],
+            ['9', 8.4, 7.9],
+            ['(ACTUAL) 10', 8.4, 7.9],
+        ]);
+
+        var options = {
+            title: 'Histograma de Temperatura',
+            vAxis: {
+                title: 'Grados de Temperatura'
+            },
+            isStacked: true
+        };
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        setInterval(function() {
+            var JSON = $.ajax({
+                url: "/api/datacharttemp",
+                dataType: 'json',
+                method: 'GET',
+                async: false
+            }).responseText;
+            var Respuesta = jQuery.parseJSON(JSON);
+
+            // for(var i=0; i<=9;+i++){
+            //   data.setValue(i,1,Respuesta[i].temp);
+            //   data.setValue(i,2,Respuesta[i].far);
+            // }
+            data.setValue(0, 1, Respuesta[9].temp);
+            data.setValue(0, 2, Respuesta[9].far);
+            data.setValue(1, 1, Respuesta[8].temp);
+            data.setValue(1, 2, Respuesta[8].far);
+            data.setValue(2, 1, Respuesta[7].temp);
+            data.setValue(2, 2, Respuesta[7].far);
+            data.setValue(3, 1, Respuesta[6].temp);
+            data.setValue(3, 2, Respuesta[6].far);
+            data.setValue(4, 1, Respuesta[5].temp);
+            data.setValue(4, 2, Respuesta[5].far);
+            data.setValue(5, 1, Respuesta[4].temp);
+            data.setValue(5, 2, Respuesta[4].far);
+            data.setValue(6, 1, Respuesta[3].temp);
+            data.setValue(6, 2, Respuesta[3].far);
+            data.setValue(7, 1, Respuesta[2].temp);
+            data.setValue(7, 2, Respuesta[2].far);
+            data.setValue(8, 1, Respuesta[1].temp);
+            data.setValue(8, 2, Respuesta[1].far);
+            data.setValue(9, 1, Respuesta[0].temp);
+            data.setValue(9, 2, Respuesta[0].far);
+            chart.draw(data, options);
+        }, 1300);
+    }
+</script>
 <!-- Gráfica de vibración -->
 <div class="contenedor">
     <header>
@@ -77,28 +136,53 @@
     </header>
     <main class="graficas">
         <div class="grafica">
+            <h2 class="titulo">Vibración</h2>
             <canvas id="myChart"></canvas>
         </div>
         <div class="grafica">
+            <h2 class="titulo">Temperatura</h2>
             <div id="medidores">
             </div>
         </div>
         <div class="grafica">
+            <h2 class="titulo">Energía</h2>
             <div class="a" href="#">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <div class="num" id="indicador"></div>
+                <div class="num" id="indicador10"></div>
 
-                <hr> FASE 1A (A)
+                <hr> Energia activa (KWH)
             </div>
         </div>
         <div class="grafica">
+            <h2 class="titulo">Energía</h2>
+            <div class="a" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="num" id="indicador6"></div>
+
+                <hr> Frecuencia (Hz)
+            </div>
         </div>
         <div class="grafica">
+            <h2 class="titulo">Gráfica de temp</h2>
+            <div id="chart_div"></div>
         </div>
         <div class="grafica">
+            <h2 class="titulo">Energía</h2>
+            <div class="a" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="num" id="indicador11"></div>
+
+                <hr> Energia reactiva (KVARH)
+            </div>
         </div>
     </main>
 </div>
@@ -139,7 +223,6 @@
             }]
         },
         options: {
-            responsive: true,
             animations: {
                 radius: {
                     duration: 400,

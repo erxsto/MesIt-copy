@@ -20,7 +20,6 @@
   body {
     font-family: 'Open Sans', sans-serif;
     background: ;
-    padding: 40px 0;
   }
   h1, h2, h3, h4, h5, h6 {
 	font-family: 'Raleway', sans-serif;
@@ -59,6 +58,49 @@ header h1 {
 }
 @media screen and (max-width: 850px) {
 	
+}
+.publicacion .titulo {
+	color: #C00000;
+	font-size: 32px;
+	margin: 0;
+	
+}
+.tooltip {
+	font-weight: normal;
+	color: #3c48e5;
+	text-decoration: none;
+	position: relative;
+  opacity: 1;
+  font-size: 1.200rem;
+}
+.tooltip:hover .tooltip-box {
+	display: inline-block;
+}
+
+.tooltip-box {
+	display: none;
+	position: absolute;
+	background: #000;
+	line-height: 13px;
+	z-index: 500;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	left: 0;
+	bottom: 39px;
+}
+
+.tooltip-box::after {
+	content: "";
+	display: block;
+	border-top: 7px solid #000;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	position: absolute;
+	bottom: -6px;
+	left: calc(50% - 32px);
 }
   .container {
     width: 90%;

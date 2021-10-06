@@ -12,13 +12,13 @@
         <a class="hoverit nav-link btn-lg navbar-custom" href="./"><i class="bi bi-house"></i></a>
       </li>
       <li class="nav-item active" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom" href="./vibracion"><i class="bi bi-bezier2"></i></a>
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./vibracion"><i class="bi bi-bezier2"></i><span class="tooltip-box">Vibración</span></a>
       </li>
       <li class="nav-item active" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom" href="./energia"><i class="fa fa-car-battery"></i></a>
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./energia"><i class="fa fa-car-battery"></i><span class="tooltip-box">Energía</span></a>
       </li>
       <li class="nav-item active" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom" href="./temperatura"><i class="bi bi-speedometer2"></i></a>
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer2"></i><span class="tooltip-box">Temperatura</span></a>
       </li>
       <!-- <input type="checkbox" class="checkbox" id="checkbox">
       <label for="checkbox" class="label">
