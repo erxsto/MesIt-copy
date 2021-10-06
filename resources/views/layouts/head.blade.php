@@ -54,7 +54,7 @@ header h1 {
 	background: #fff;
 	box-shadow: 0 4px 20px rgba(194,194,194,.25);
 	border-radius: 5px;
-background-color: ;
+  border:solid 1px;
 	display: grid;
 }
 @media screen and (max-width: 850px) {
