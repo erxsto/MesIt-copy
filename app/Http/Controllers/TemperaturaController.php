@@ -21,4 +21,12 @@ class TemperaturaController extends Controller
             $temps
         ); 
     }
+    public function datacharttemp(){
+
+
+        $charttemps = \DB::select('select top 10 id,cast((temp*1.8+32) as numeric(36,2)) far,cast(temp as numeric(36,2)) temp from temperatura order by id desc');
+        return response()->json(
+            $charttemps
+        ); 
+    }
 }

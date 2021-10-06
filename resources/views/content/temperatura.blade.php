@@ -47,27 +47,56 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Director (Year)',  'Rotten Tomatoes', 'IMDB'],
-          ['Alfred Hitchcock (1935)', 8.4,         7.9],
-          ['Ralph Thomas (1959)',     6.9,         6.5],
-          ['Don Sharp (1978)',        6.5,         6.4],
-          ['James Hawes (2008)',      4.4,         6.2]
+          ['Temperatura',  'Celcius', 'Farenheit'],
+          ['1', 8.4,         7.9],
+          ['2', 8.4,         7.9],
+          ['3', 8.4,         7.9],
+          ['4', 8.4,         7.9],
+          ['5', 8.4,         7.9],
+          ['6', 8.4,         7.9],
+          ['7', 8.4,         7.9],
+          ['8', 8.4,         7.9],
+          ['9', 8.4,         7.9],
+          ['10', 8.4,         7.9],
         ]);
 
         var options = {
           title: 'Histograma de Temperatura',
-          vAxis: {title: 'Temperatura (°C)'},
+          vAxis: {title: 'Grados de Temperatura'},
           isStacked: true
         };
 
         var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
-
         chart.draw(data, options);
-      }
+
+      setInterval(function() {
+      var JSON = $.ajax({
+        url: "/api/datacharttemp",
+        dataType: 'json',
+        method: 'GET',
+        async: false
+      }).responseText;
+      var Respuesta = jQuery.parseJSON(JSON);
+      
+        for(var i=0; i<=9;+i++){
+          data.setValue(i,1,Respuesta[i].temp);
+          data.setValue(i,2,Respuesta[i].far);
+        }
+      // data.setValue(0, 1, Respuesta[0].temp);
+      // data.setValue(0, 2, Respuesta[0].far);
+      // data.setValue(1, 1, Respuesta[1].temp);
+      // data.setValue(1, 2, Respuesta[1].far);
+        
+      chart.draw(data, options);
+    }, 1300);
+  }
+      
     </script>
-    <section class="columns">
-<div class="column" id="medidores">
+<div class="contenedor">
+<main class="graficas">
+<div class="grafica" id="medidores">
 </div>
-<div class="column" id="chart_div" style="width: 900px; height: 500px;"></div>
-    </section>
+<div class="grafica" id="chart_div" style="width: 900px; height: 500px;"></div>
+    </main>
+    </div>
 @endsection
