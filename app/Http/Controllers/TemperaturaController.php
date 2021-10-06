@@ -16,7 +16,7 @@ class TemperaturaController extends Controller
     public function datatemp(){
 
 
-        $temps = \DB::select('SELECT TOP 1 id,temp FROM temperatura ORDER BY id DESC');
+        $temps = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
         return response()->json(
             $temps
         ); 

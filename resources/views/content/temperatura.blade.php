@@ -57,7 +57,7 @@
           ['7', 8.4,         7.9],
           ['8', 8.4,         7.9],
           ['9', 8.4,         7.9],
-          ['10', 8.4,         7.9],
+          ['(ACTUAL) 10', 8.4,         7.9],
         ]);
 
         var options = {
@@ -78,15 +78,30 @@
       }).responseText;
       var Respuesta = jQuery.parseJSON(JSON);
       
-        for(var i=0; i<=9;+i++){
-          data.setValue(i,1,Respuesta[i].temp);
-          data.setValue(i,2,Respuesta[i].far);
-        }
-      // data.setValue(0, 1, Respuesta[0].temp);
-      // data.setValue(0, 2, Respuesta[0].far);
-      // data.setValue(1, 1, Respuesta[1].temp);
-      // data.setValue(1, 2, Respuesta[1].far);
-        
+        // for(var i=0; i<=9;+i++){
+        //   data.setValue(i,1,Respuesta[i].temp);
+        //   data.setValue(i,2,Respuesta[i].far);
+        // }
+      data.setValue(0, 1, Respuesta[9].temp);
+      data.setValue(0, 2, Respuesta[9].far);
+      data.setValue(1, 1, Respuesta[8].temp);
+      data.setValue(1, 2, Respuesta[8].far);
+      data.setValue(2, 1, Respuesta[7].temp);
+      data.setValue(2, 2, Respuesta[7].far);
+      data.setValue(3, 1, Respuesta[6].temp);
+      data.setValue(3, 2, Respuesta[6].far);
+      data.setValue(4, 1, Respuesta[5].temp);
+      data.setValue(4, 2, Respuesta[5].far);
+      data.setValue(5, 1, Respuesta[4].temp);
+      data.setValue(5, 2, Respuesta[4].far);
+      data.setValue(6, 1, Respuesta[3].temp);
+      data.setValue(6, 2, Respuesta[3].far);
+      data.setValue(7, 1, Respuesta[2].temp);
+      data.setValue(7, 2, Respuesta[2].far);
+      data.setValue(8, 1, Respuesta[1].temp);
+      data.setValue(8, 2, Respuesta[1].far);
+      data.setValue(9, 1, Respuesta[0].temp);
+      data.setValue(9, 2, Respuesta[0].far);
       chart.draw(data, options);
     }, 1300);
   }
