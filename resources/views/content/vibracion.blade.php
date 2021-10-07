@@ -168,7 +168,6 @@
             },
             success: function(data) {
                 if (data.data[0] >= 2.9) {
-                    document.getElementById('xyz').play();
                     Swal.fire({
                         icon: 'error',
                         title: 'Alerta crítica',
@@ -181,8 +180,9 @@
                         no-repeat
                         `
                     });
-                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
+                    document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
+                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     Swal.fire({
                         icon: 'warning',
                         title: '¡Advertencia!',
@@ -198,6 +198,8 @@
                         no-repeat
                         `
                     });
+                    document.getElementById('xyz').muted = false;
+                    document.getElementById('xyz').play();
                 }
 
             },
@@ -209,7 +211,7 @@
     setData();
     setInterval(() => {
         setData();
-    }, 1000);
+    }, 3000);
 </script>
 <!-- Script alerta del eje Y -->
 <script type="text/javascript">
@@ -256,6 +258,7 @@
                         no-repeat
                         `
                     });
+                    document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
                 }
 
@@ -265,7 +268,7 @@
     setData();
     setInterval(() => {
         setData();
-    }, 1000);
+    }, 3000);
 </script>
 <!-- Script alerta del eje Z -->
 <script type="text/javascript">
@@ -279,10 +282,12 @@
             },
             success: function(data) {
                 if (data.data[0] >= 2.9) {
-                    document.getElementById('xyz').play();
                     Swal.fire({
                         icon: 'error',
                         title: 'Alerta crítica',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
                         text: 'Ha sobresalido el Eje Z a más de 2.9',
                         width: 600,
                         padding: '3em',
@@ -292,11 +297,15 @@
                         no-repeat
                         `
                     });
-                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
+                    document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
+                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     Swal.fire({
                         icon: 'warning',
                         title: '¡Advertencia!',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
                         text: 'Ha sobresalido el Eje Z a más de 1.5',
                         width: 600,
                         padding: '3em',
@@ -306,6 +315,8 @@
                         no-repeat
                         `
                     });
+                    document.getElementById('xyz').muted = false;
+                    document.getElementById('xyz').play();
                 }
 
             },
@@ -317,6 +328,6 @@
     setData();
     setInterval(() => {
         setData();
-    }, 1000);
+    }, 3000);
 </script>
 @endsection
