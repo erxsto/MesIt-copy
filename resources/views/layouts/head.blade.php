@@ -43,7 +43,7 @@ header h1 {
 }
 .graficas {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fR;
 	
 	gap: 20px;
 }
@@ -51,10 +51,11 @@ header h1 {
 .grafica {
 	padding: 20px;
 	background: #fff;
-	box-shadow: 0 4px 20px rgba(194,194,194,.25);
+
 	border-radius: 5px;
   border:solid 1px;
 	display: grid;
+  box-shadow: 5px 5px 50px rgba(0,0,0,.20);
 }
 @media screen and (max-width: 850px) {
 	

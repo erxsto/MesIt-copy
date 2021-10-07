@@ -153,4 +153,44 @@
         updateChart();
     }, 1000);
 </script>
+<!-- Script advertencia-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+    var setData = function() {
+        $.ajax({
+            url: "/api/datavibracion",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                if (data >= 1.5) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: '¡Advertencia!',
+                        text: 'Ha sobresalido de 1.5',
+                    });
+                } else if (data >= 2.9) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Alerta crítica',
+                        text: 'Ha sobresalido de 2.9',
+                        width: 600,
+                        padding: '3em',
+                        backdrop: `
+                        rgba(178, 34, 34,0.25)
+                        left top
+                        no-repeat
+                        `
+                    })
+                };
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
+    setData();
+</script>
 @endsection

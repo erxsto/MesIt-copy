@@ -13,9 +13,7 @@
             async: false
         }).responseText;
         var Respuesta = jQuery.parseJSON(JSON);
-        document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
-        document.getElementById("indicador10").innerHTML = (Respuesta[0].energiaa) / 10;
-        document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar) / 10;
+        document.getElementById("indicador3").innerHTML = (Respuesta[0].voltsL1) / 10;
 
 
     }, 1700);
@@ -130,62 +128,37 @@
     }
 </script>
 <!-- Gráfica de vibración -->
-<div class="contenedor">
-    <header>
-        <h1></h1>
-    </header>
-    <main class="graficas">
-        <div class="grafica">
-            <h2 class="titulo">Vibración</h2>
-            <canvas id="myChart"></canvas>
+<main class="graficas">
+    <div class="grafica">
+        <h2 class="titulo">Energía</h2>
+        <div class="a" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="num" id="indicador3"> </div>
+
+            <hr> VOLTS L1 (V)
         </div>
-        <div class="grafica">
-            <h2 class="titulo">Temperatura</h2>
+    </div>
+    <div class="grafica">
+        <h2 class="titulo">Temperatura</h2>
+        <center>
             <div id="medidores">
             </div>
-        </div>
-        <div class="grafica">
-            <h2 class="titulo">Energía</h2>
-            <div class="a" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="num" id="indicador10"></div>
+        </center>
+    </div>
 
-                <hr> Energia activa (KWH)
-            </div>
-        </div>
-        <div class="grafica">
-            <h2 class="titulo">Energía</h2>
-            <div class="a" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="num" id="indicador6"></div>
+    <div class="grafica">
+        <h2 class="titulo">Vibración</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="grafica">
+        <h2 class="titulo">Gráfica Temp.</h2>
+        <div id="chart_div"></div>
+    </div>
+</main>
 
-                <hr> Frecuencia (Hz)
-            </div>
-        </div>
-        <div class="grafica">
-            <h2 class="titulo">Gráfica de temp</h2>
-            <div id="chart_div"></div>
-        </div>
-        <div class="grafica">
-            <h2 class="titulo">Energía</h2>
-            <div class="a" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="num" id="indicador11"></div>
-
-                <hr> Energia reactiva (KVARH)
-            </div>
-        </div>
-    </main>
-</div>
 <!-- Script de la gráfica de vibración -->
 <script>
     var ctx = document.getElementById("myChart");
