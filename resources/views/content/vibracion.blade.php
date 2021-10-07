@@ -158,20 +158,14 @@
 <script type="text/javascript">
     var setData = function() {
         $.ajax({
-            url: "/api/datavibracion",
+            url: "/api/dataalertv",
             type: 'GET',
             dataType: 'json',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(data) {
-                if (data >= 1.5) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: '¡Advertencia!',
-                        text: 'Ha sobresalido de 1.5',
-                    });
-                } else if (data >= 2.9) {
+                if (data.data[0] >= 2.9) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Alerta crítica',
@@ -183,14 +177,23 @@
                         left top
                         no-repeat
                         `
-                    })
-                };
-            },
-            error: function(data) {
+                    });
+                }
+                 else if (data.data[0] >=1.5 && data.data[0]< 2.9 ) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: '¡Advertencia!',
+                        text: 'Ha sobresalido de 1.5',
+                    });
+            }
+            
+        },error: function(data) {
                 console.log(data);
             }
         });
     }
-    setData();
+    setData();setInterval(() => {
+        setData();
+    }, 3000);
 </script>
 @endsection

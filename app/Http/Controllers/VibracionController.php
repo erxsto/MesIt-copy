@@ -22,4 +22,12 @@ class VibracionController extends Controller
         $dataz = $graficas->pluck('ejez');
         return response()->json(compact('labels', 'data', 'datay', 'dataz'));
     }
+    public function dataalertv(){
+
+ $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
+        $labels = $graficas->pluck('id');
+        $data = $graficas->pluck('ejex');
+        return response()->json(compact('labels', 'data'));
+        
+    }
 }
