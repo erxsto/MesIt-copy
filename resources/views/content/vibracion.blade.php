@@ -171,6 +171,9 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Alerta crítica',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
                         text: 'Ha sobresalido el Eje X a más de 2.9',
                         width: 600,
                         padding: '3em',
@@ -211,7 +214,7 @@
     setData();
     setInterval(() => {
         setData();
-    }, 3000);
+    }, 5000);
 </script>
 <!-- Script alerta del eje Y -->
 <script type="text/javascript">
@@ -262,13 +265,16 @@
                     document.getElementById('xyz').play();
                 }
 
+            },
+            error: function(data) {
+                console.log(data);
             }
         });
     }
     setData();
     setInterval(() => {
         setData();
-    }, 3000);
+    }, 5000);
 </script>
 <!-- Script alerta del eje Z -->
 <script type="text/javascript">
@@ -328,6 +334,6 @@
     setData();
     setInterval(() => {
         setData();
-    }, 3000);
+    }, 5000);
 </script>
 @endsection

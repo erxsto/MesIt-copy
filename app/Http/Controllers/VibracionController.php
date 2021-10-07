@@ -15,7 +15,7 @@ class VibracionController extends Controller
     }
     public function datavibracion()
     {
-        $graficas = grafica_ejes::latest()->take(30)->get()->sortBy('id');
+        $graficas = grafica_ejes::latest()->take(20)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
         $data = $graficas->pluck('ejex');
         $datay = $graficas->pluck('ejey');
