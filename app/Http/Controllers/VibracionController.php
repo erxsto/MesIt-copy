@@ -22,6 +22,14 @@ class VibracionController extends Controller
         $dataz = $graficas->pluck('ejez');
         return response()->json(compact('labels', 'data', 'datay', 'dataz'));
     }
+    public function dataalertz()
+    {
+
+        $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
+        $labels = $graficas->pluck('id');
+        $data = $graficas->pluck('ejez');
+        return response()->json(compact('labels', 'data'));
+    }
     public function dataalertx()
     {
 
@@ -36,14 +44,6 @@ class VibracionController extends Controller
         $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
         $data = $graficas->pluck('ejey');
-        return response()->json(compact('labels', 'data'));
-    }
-    public function dataalertz()
-    {
-
-        $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
-        $labels = $graficas->pluck('id');
-        $data = $graficas->pluck('ejez');
         return response()->json(compact('labels', 'data'));
     }
 }

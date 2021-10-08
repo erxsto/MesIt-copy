@@ -1,5 +1,7 @@
 @extends('layouts.index')
 @section('content')
+<!-- Script advertencia-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <audio id="xyz" src="error.mp3" preload="auto"></audio>
@@ -69,13 +71,13 @@
             hoverRadius: 10,
             hoverBackgroundColor: 'black',
             interaction: {
-                mode: 'nearest',
+                mode: 'point',
                 intersect: false,
                 axis: 'x'
             },
             plugins: {
                 tooltip: {
-                    enabled: false
+                    enabled: true
                 },
                 title: {
                     text: 'EJES',
@@ -154,8 +156,6 @@
         updateChart();
     }, 1000);
 </script>
-<!-- Script advertencia-->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Script alerta del eje X -->
 <script type="text/javascript">
     var setData = function() {
@@ -204,7 +204,6 @@
                     document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
                 }
-
             },
             error: function(data) {
                 console.log(data);
@@ -214,67 +213,7 @@
     setData();
     setInterval(() => {
         setData();
-    }, 5000);
-</script>
-<!-- Script alerta del eje Y -->
-<script type="text/javascript">
-    var setData = function() {
-        $.ajax({
-            url: "/api/dataalerty",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(data) {
-                if (data.data[0] >= 2.9) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Alerta crítica',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false,
-                        text: 'Ha sobresalido el Eje Y a más de 2.9',
-                        width: 600,
-                        padding: '3em',
-                        backdrop: `
-                        rgba(178, 34, 34,0.25)
-                        left top
-                        no-repeat
-                        `
-                    });
-                    document.getElementById('xyz').muted = false;
-                    document.getElementById('xyz').play();
-                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: '¡Advertencia!',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false,
-                        text: 'Ha sobresalido el Eje Y a más de 1.5',
-                        width: 600,
-                        padding: '3em',
-                        backdrop: `
-                        rgba(255, 223, 0,0.25)
-                        left top
-                        no-repeat
-                        `
-                    });
-                    document.getElementById('xyz').muted = false;
-                    document.getElementById('xyz').play();
-                }
-
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    }
-    setData();
-    setInterval(() => {
-        setData();
-    }, 5000);
+    }, 3000);
 </script>
 <!-- Script alerta del eje Z -->
 <script type="text/javascript">
@@ -288,6 +227,8 @@
             },
             success: function(data) {
                 if (data.data[0] >= 2.9) {
+                    document.getElementById('xyz').muted = false;
+                    document.getElementById('xyz').play();
                     Swal.fire({
                         icon: 'error',
                         title: 'Alerta crítica',
@@ -303,9 +244,9 @@
                         no-repeat
                         `
                     });
+                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
-                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     Swal.fire({
                         icon: 'warning',
                         title: '¡Advertencia!',
@@ -321,8 +262,6 @@
                         no-repeat
                         `
                     });
-                    document.getElementById('xyz').muted = false;
-                    document.getElementById('xyz').play();
                 }
 
             },
@@ -334,6 +273,66 @@
     setData();
     setInterval(() => {
         setData();
-    }, 5000);
+    }, 3000);
+</script>
+<!-- Script alerta del eje Y -->
+<script type="text/javascript">
+    var setData = function() {
+        $.ajax({
+            url: "/api/dataalerty",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                if (data.data[0] >= 2.9) {
+                    document.getElementById('xyz').muted = false;
+                    document.getElementById('xyz').play();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Alerta crítica',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        text: 'Ha sobresalido el Eje Y a más de 2.9',
+                        width: 600,
+                        padding: '3em',
+                        backdrop: `
+                        rgba(178, 34, 34,0.25)
+                        left top
+                        no-repeat
+                        `
+                    });
+                } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
+                    document.getElementById('xyz').muted = false;
+                    document.getElementById('xyz').play();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: '¡Advertencia!',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        text: 'Ha sobresalido el Eje Y a más de 1.5',
+                        width: 600,
+                        padding: '3em',
+                        backdrop: `
+                        rgba(255, 223, 0,0.25)
+                        left top
+                        no-repeat
+                        `
+                    });
+                }
+
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
+    setData();
+    setInterval(() => {
+        setData();
+    }, 3000);
 </script>
 @endsection

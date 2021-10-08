@@ -158,7 +158,6 @@
         <div id="chart_div"></div>
     </div>
 </main>
-
 <!-- Script de la gráfica de vibración -->
 <script>
     var ctx = document.getElementById("myChart");
@@ -196,6 +195,7 @@
             }]
         },
         options: {
+            responsive: true,
             animations: {
                 radius: {
                     duration: 400,
@@ -206,13 +206,13 @@
             hoverRadius: 10,
             hoverBackgroundColor: 'black',
             interaction: {
-                mode: 'nearest',
+                mode: 'point',
                 intersect: false,
                 axis: 'x'
             },
             plugins: {
                 tooltip: {
-                    enabled: false
+                    enabled: true
                 },
                 title: {
                     text: 'EJES',
@@ -227,7 +227,7 @@
                 }
             },
             scales: {
-                x: {
+                xAxes: {
                     title: {
                         display: true,
                         text: 'ID',
@@ -240,9 +240,10 @@
                     },
                     ticks: {
                         color: 'black',
+                        beginAtZero: true
                     }
                 },
-                y: {
+                yAxes: {
                     title: {
                         display: true,
                         text: 'VALORES',
