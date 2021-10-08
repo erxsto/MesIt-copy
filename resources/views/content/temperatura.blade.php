@@ -15,16 +15,44 @@
       ['Label', 'Value'],
       ['Temperatura', 0]
     ]);
-
-    var options = {
-      width: 250,
-      height: 250,
+    var ancho = screen.width;
+ 
+    if(ancho <= 480){
+      var options = {
+      width: 170,
+      height: 170,
       redFrom: 90,
       redTo: 100,
       yellowFrom: 75,
       yellowTo: 90,
       minorTicks: 5
-    };
+      };
+    } 
+    else if( ancho <= 900) {
+      
+       var options = {
+      width: 200,
+      height: 200,
+      redFrom: 90,
+      redTo: 100,
+      yellowFrom: 75,
+      yellowTo: 90,
+      minorTicks: 5
+      };
+              
+      }else {
+      
+        var options = {
+      width: 300,
+      height: 300,
+      redFrom: 90,
+      redTo: 100,
+      yellowFrom: 75,
+      yellowTo: 90,
+      minorTicks: 5
+       };
+      }
+    
 
     var chart = new google.visualization.Gauge(document.getElementById('medidores'));
     chart.draw(data, options);
@@ -39,6 +67,10 @@
       data.setValue(0, 1, Respuesta[0].temp);
       chart.draw(data, options);
     }, 1300);
+
+    
+
+
   }
 </script>
 <script type="text/javascript">
@@ -108,10 +140,10 @@
       
     </script>
 <div class="contenedor">
-<main class="graficas">
+<main class="graficas chart_div1">
 <div class="grafica" id="medidores">
 </div>
-<div class="grafica" id="chart_div" style="width: 900px; height: 500px;"></div>
+<div class="grafica chart_div" id="chart_div"></div>
     </main>
     </div>
 @endsection

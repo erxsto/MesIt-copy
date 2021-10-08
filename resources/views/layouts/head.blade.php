@@ -52,9 +52,8 @@ header h1 {
 .grafica {
 	padding: 20px;
 	background: #fff;
-
+  border: solid 1px;
 	border-radius: 5px;
-  border:solid 1px;
 	display: grid;
   box-shadow: 5px 5px 50px rgba(0,0,0,.20);
 }
@@ -119,18 +118,9 @@ header h1 {
     display: grid;
     grid.gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: repeat(); */
-    grid-template-areas: "num1 num2 num3 num4 "
-      "num5 num6 num7 num8 "
-      "num9 num10 num11 num12 "
-      "num13 num14 num15 num16 "
-      "num17 num18 num19 num20 "
-
+    
   }
 
-  .energy .a1 {
-    grid-area: num1;
-  }
 
 
   .container>div,
@@ -211,6 +201,7 @@ header h1 {
     -webkit-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
     -moz-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
     width:45%;
+    font-size:1rem;
     border:solid 1px;
     border-radius:90px;
     display:inline-block;
@@ -229,7 +220,7 @@ header h1 {
     letter-spacing: 0.25rem;
     overflow: hidden;
     margin-right: 1.2rem;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     background: ;
     color: black;
@@ -340,7 +331,64 @@ header h1 {
 
   /* END ENERGY */
 
+  .izqlog{
+    margin-left:250px;
+  }
+  .izqitem{
+      margin-left:300px;
+    }
+  .chart_div{
+    width: 700px; height: 500px;
+  }
+
   /* MEDIA SCREEN */
+  @media (max-width:1267px) { 
+      .izqlog{
+        margin-left:120px;
+      }
+      .izqitem{
+        margin-left:50px;
+      }
+      .graficas {
+      	display: grid;
+      	grid-template-columns: 1fr 1fr;
+
+      	gap: 20px;
+      } 
+      /* TEMPERATURA */
+      .chart_div{
+      width: 450px; height: 450px;
+    }
+    .chart_div1{
+      display: grid;
+      align-items:center;
+	    grid-template-columns: 1fr 1fr;
+    }
+   }
+  @media (max-width:1025px) { 
+    .izqlog{
+      margin-left:120px;
+    }
+    .izqitem{
+      margin-left:220px;
+    }
+    .topitem{
+      margin-top:20px;
+
+    }
+    /* TEMPERATURA */
+    .chart_div{
+      width: 350px; height: 350px;
+    }
+    .chart_div1{
+      display: grid;
+      align-items:center;
+	    grid-template-columns: 1fr 1fr;
+    }
+      
+    }    
+  
+      
 
   @media screen and (max-width:900px) {
     body {
@@ -350,9 +398,34 @@ header h1 {
     .navbar .navbar-brand {
       font-size: 14px;
     }
-
+    .izqlog{
+      margin-left:80px;
+    }
+    .izqitem{
+      margin-left:40px;
+    }
+    /* Dash y temp graficas */
+    .graficas {
+    	display: grid;
+    	grid-template-columns: 1fr ;
+        
+    	gap: 20px;
+    }
     .nav-link {
       font-size: 14px;
+    }
+    /* Energia */
+    .a{
+      font-size:10px;
+    }
+    .num{
+      font-size:10px;
+    }
+    /* Temperatura */
+    .chart_div1{
+      display: grid;
+      align-items:center;
+	    grid-template-columns: 1fr 1fr;
     }
 
   }
@@ -361,16 +434,90 @@ header h1 {
     body {
       font-size: 9px;
     }
-
-    .navbar .navbar-brand {
-      font-size: 9px;
-    }
-
     .nav-link {
-      font-size: 9px;
+      
+      font-size: 20px;
+    }
+    .grafica{
+      font-size:10px;
+    }
+    .navbar .navbar-brand {
+      font-size: 15px;
     }
 
-    /* Falta tamaño de cada item */
-
+    /* Energia */
+    .energy{
+      display: grid;
+      justfy-content:center;
+    	grid-template-columns: 1fr 1fr;
+      
+    }
+    
+    .a{
+      font-size:17px;
+    }
+    .num{
+      font-size:16px;
+    }
+    
+    /* temp */
+    .chart_div{
+      width: 420px; height: 250px;
+    }
+    .chart_div1{
+      margin-right:120px;
+      display: grid;
+      align-items:center;
+	  grid-template-columns: 1fr;
+    }
+  }    
+    @media screen and (max-width:570px) {
+      /* Centrar nav-links */
+    .nav-link {
+      margin-left:130px;
+      font-size: 25px;
+    }
+    .izqitem{
+      margin-left:12px;
+    }
+    .mesit{
+      margin-left:50px;
+    }
+    }
   }
+  @media screen and (max-width:480px) {
+    .nav-link {
+      margin-left:130px;
+      font-size: 25px;
+    }
+    .izqitem{
+      margin-left:12px;
+    }
+    .mesit{
+      margin-left:50px;
+    }
+    /* dash */
+
+    .grafica{
+      font-size:6px;
+    }
+    /* Energía */
+    .energy{
+      display: grid;
+    	grid-template-columns: 1fr;
+      
+    }
+    /* TEMPERATURA */
+    .chart_div{
+      width: 250px; height: 250px;
+    }
+    .chart_div1{
+      
+      display: grid;
+      align-items:center;
+	    grid-template-columns: 1fr;
+  
+    }
+  }
+  
 </style>
