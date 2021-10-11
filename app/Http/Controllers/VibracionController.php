@@ -12,8 +12,9 @@ class VibracionController extends Controller
     {
         $fi = $request->fecha_ini.' 00:00:00';
         $ff = $request->fecha_fin.' 23:59:59';
-        $query = grafica_ejes::whereBetween('created_at', [$fi, $ff])->get();
-        return view('content.vibracion', ['graficas' => $query]);
+        $graficas = grafica_ejes::whereBetween('created_at', [$fi, $ff])->get();
+        return view('content.vibracion')
+        ->with(['graficas' => $graficas]);
     }
     public function datavibracion()
     {

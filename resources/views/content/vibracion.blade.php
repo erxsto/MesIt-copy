@@ -11,7 +11,9 @@
     <label>Hasta</label>
     <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
     <button class="btn btn-primary" name="search"><span class="glyphicon glyphicon-search">Consultar</span></button>
-    <br><div class="table-responsive">
+    <a class="btn btn-dark" href="{{ route('descargarPDF') }}"><i class="fa fa-download"></i></a>
+    <br>
+    <div class="table-responsive">
         <table class="table table-bordered" id="order-listing" width="100%" cellspacing="0">
             <thead class="thead-dark">
                 <tr>
@@ -26,9 +28,9 @@
                 @foreach ($graficas as $grafica)
                 <tr>
                     <td>{{$grafica->id}}</td>
-                    <td>{{$grafica->ejex}}</td>
-                    <td>{{$grafica->ejey}}</td>
-                    <td>{{$grafica->ejez}}</td>
+                    <td>{{ number_format($grafica->ejex,1) }}</td>
+                    <td>{{ number_format($grafica->ejey,1) }}</td>
+                    <td>{{ number_format($grafica->ejez,1) }}</td>
                     <td>{{$grafica->created_at}}</td>
                 </tr>
                 @endforeach
