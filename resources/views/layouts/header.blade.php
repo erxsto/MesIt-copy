@@ -1,3 +1,4 @@
+<!-- Menú -->
 <nav class="navbar navbar-expand-sm navbar-custom">
   <a class="navbar-brand izqlog">
     <img style="width:9.375em;" class="logo" src="http://amats.com.mx/images/logo-amats-electric-r.svg" alt="amats_logo">

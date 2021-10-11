@@ -8,10 +8,13 @@ use App\Models\grafica_ejes;
 
 class VibracionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $query = \DB::select('SELECT TOP 5 id,ejex,ejey,ejez FROM dbo.grafica_ejes ORDER BY id DESC');
-        return view('content.vibracion', ['grafica' => $query]);
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = grafica_ejes::whereBetween('created_at', [$fi, $ff])->get();
+        return view('content.vibracion')
+        ->with(['graficas' => $graficas]);
     }
     public function datavibracion()
     {
