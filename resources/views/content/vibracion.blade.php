@@ -5,24 +5,59 @@
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <audio id="xyz" src="error.mp3" preload="auto"></audio>
-<!-- <table>
-        <thead>
-            <th>Id</th>
-            <th>Eje X</th>
-            <th>Eje Y</th>
-            <th>Eje Z</th>
-        </thead>
-        <tbody>
-            @foreach($grafica as $graficas)
-            <tr>
-                <td>{{$graficas->id}}</td>
-                <td>{{$graficas->ejex}}</td>
-                <td>{{$graficas->ejey}}</td>
-                <td>{{$graficas->ejez}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table> -->
+<div class="row">
+    <div class="col-12 col-md-3">
+        <span>Fecha inicial</span>
+        <div class="form-group">
+            <input class="form-group" type="date"
+            value="{{old('fecha_ini')}}"
+            name="fecha_ini" id="fecha_ini">
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+        <span>Fecha final</span>
+        <div class="form-group">
+            <input class="form-group" type="date"
+            value="{{old('fecha_fin')}}"
+            name="fecha_fin" id="fecha_fin">
+        </div>
+    </div>
+    <div class="col-12 col-md-3 text-center mt-4">
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
+        </div>
+    </div>
+    <div class="col-12 col-md-3 text-center">
+        <span>Total<b></b></span>
+        <div class="form-group">
+            <strong>{{$total}}</strong>
+        </div>
+    </div>
+</div>
+!! Form::close() !!
+<div class="table-responsive">
+<table class="table table-bordered" id="order-listing" width="100%" cellspacing="0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Eje X</th>
+            <th scope="col">Eje Y</th>
+            <th scope="col">Eje Z</th>
+            <th scope="col">Fecha de creación</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($graficas as $grafica)
+        <tr>
+            <td>{{$grafica->id}}</td>
+            <td>{{$grafica->ejex}}</td>
+            <td>{{$grafica->ejey}}</td>
+            <td>{{$grafica->ejez}}</td>
+            <td>{{$grafica->created_at}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {

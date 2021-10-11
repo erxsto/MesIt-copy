@@ -1,3 +1,4 @@
+<!-- Footer de la página "Lo que va hasta abajo:)" -->
 <div class="container text-center text-md-left">
     <div class="row text-center text-md-left" style="background-color: rgba(0, 0, 0, 0.0);">
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
@@ -13,6 +14,7 @@
                 <a href="#" class="text-white" style="text-decoration: none;"> Developers</a>
             </p>
         </div>
+        <!-- Lo comentado puede usarse más adelante para agregar más apartados al footer-->
         <!-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
 				<h5 class="text-uppercase mb-4 font-weight-bold text-warning">Useful links</h5>
 			    <p>
@@ -31,13 +33,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 class="text-uppercase mb-4 font-weight-bold text-info">Contacto</h5>
             <p>
-                <i class="fas fa-home mr-3"></i>  C. Miguel Alemán 1100, Buenavista, 52105 San Mateo Atenco, Méx.
+                <i class="fas fa-home mr-3"></i> C. Miguel Alemán 1100, Buenavista, 52105 San Mateo Atenco, Méx.
             </p>
             <p>
-                <i class="fas fa-envelope mr-3"></i>  atencionaclientes@amats.com.mx
+                <i class="fas fa-envelope mr-3"></i> atencionaclientes@amats.com.mx
             </p>
             <p>
-                <i class="fas fa-phone mr-3"></i>  722 541 4584
+                <i class="fas fa-phone mr-3"></i> 722 541 4584
             </p>
             <p>
                 <i class="fas fa-phone mr-3"></i> 722 508 0234
@@ -45,7 +47,7 @@
         </div>
 
     </div>
-    <hr style="color: cyan;"class="mb-1">
+    <hr style="color: cyan;" class="mb-1">
     <div class="row align-items-center" style="background-color: rgba(0, 0, 0, 0.0);">
         <div id="copyright" class="col-md-7 col-lg-8">
             <p> Copyright ©2021 Todos los derechos reservados por:
@@ -75,11 +77,11 @@
         </div>
     </div>
 </div>
-<!-- GetButton.io widget -->
+<!-- Botón de whatsapp -->
 <script type="text/javascript">
     (function() {
         var options = {
-            whatsapp: "7227749519", // WhatsApp number
+            whatsapp: "7225414584", // WhatsApp number
             call_to_action: "Envíanos un mensaje", // Call to action
             position: "right", // Position may be 'right' or 'left'
         };
@@ -99,7 +101,7 @@
 </script>
 
 
-<!-- /GetButton.io widget -->
+<!-- Botón el cual cambia la página de blanco y negro "en desarrollo" -->
 <script>
     const toggleSwitch = document.querySelector('input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');

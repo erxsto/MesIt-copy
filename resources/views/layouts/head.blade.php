@@ -1,7 +1,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Título de la página -->
 <title>AMATS ELECTRIC - MESit</title>
+<!-- Scripts  -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -11,8 +13,9 @@
 <!-- ICONS -->
 <script src="https://kit.fontawesome.com/e815cd1bb7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
-<!--Estilos de cada página dependiendo su clase -->
+<!-- Logo de la página -->
 <link rel="shortcut icon" href="{{ asset('img/logo-AE.png') }}">
+<!--Estilos de cada página dependiendo su clase -->
 <style>
   * {
     box-sizing: border-box;
@@ -22,87 +25,100 @@
     font-family: 'Open Sans', sans-serif;
     background: ;
   }
-  h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', sans-serif;
-	margin: 0;
-}
-.contenedor {
-	max-width: 1000px;
-	width: 90%;
-	margin: auto;
-}
-header {
-	margin-bottom: 40px;
-}
-header h3 {
-	color: #5A5A5A;
-}
 
-header h1 {
-	font-size: 60px;
-	font-weight: normal;
-}
-.graficas {
-	display: grid;
-	grid-template-columns: 1fr 1fR;
-	
-	gap: 20px;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+  }
 
-.grafica {
-	padding: 20px;
-	background: #fff;
-  border: solid 1px;
-	border-radius: 5px;
-	display: grid;
-  box-shadow: 5px 5px 50px rgba(0,0,0,.20);
-}
-@media screen and (max-width: 850px) {
-	
-}
-.publicacion .titulo {
-	color: #C00000;
-	font-size: 32px;
-	margin: 0;
-	
-}
-.tooltip {
-	font-weight: normal;
-	color: #3c48e5;
-	text-decoration: none;
-	position: relative;
-  opacity: 1;
-  font-size: 1.200rem;
-}
-.tooltip:hover .tooltip-box {
-	display: inline-block;
-}
+  .contenedor {
+    max-width: 1000px;
+    width: 90%;
+    margin: auto;
+  }
 
-.tooltip-box {
-	display: none;
-	position: absolute;
-	background: #000;
-	line-height: 13px;
-	z-index: 500;
-	text-align: center;
-	color: #fff;
-	font-size: 14px;
-	padding: 5px 10px;
-	border-radius: 5px;
-	left: 0;
-	bottom: 39px;
-}
+  header {
+    margin-bottom: 40px;
+  }
 
-.tooltip-box::after {
-	content: "";
-	display: block;
-	border-top: 7px solid #000;
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
-	position: absolute;
-	bottom: -6px;
-	left: calc(50% - 32px);
-}
+  header h3 {
+    color: #5A5A5A;
+  }
+
+  header h1 {
+    font-size: 60px;
+    font-weight: normal;
+  }
+
+  .graficas {
+    display: grid;
+    grid-template-columns: 1fr 1fR;
+
+    gap: 20px;
+  }
+
+  .grafica {
+    padding: 20px;
+    background: #fff;
+    border: solid 1px;
+    border-radius: 5px;
+    display: grid;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, .20);
+  }
+
+  @media screen and (max-width: 850px) {}
+
+  .publicacion .titulo {
+    color: #C00000;
+    font-size: 32px;
+    margin: 0;
+
+  }
+
+  .tooltip {
+    font-weight: normal;
+    color: #3c48e5;
+    text-decoration: none;
+    position: relative;
+    opacity: 1;
+    font-size: 1.200rem;
+  }
+
+  .tooltip:hover .tooltip-box {
+    display: inline-block;
+  }
+
+  .tooltip-box {
+    display: none;
+    position: absolute;
+    background: #000;
+    line-height: 13px;
+    z-index: 500;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    left: 0;
+    bottom: 39px;
+  }
+
+  .tooltip-box::after {
+    content: "";
+    display: block;
+    border-top: 7px solid #000;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    position: absolute;
+    bottom: -6px;
+    left: calc(50% - 32px);
+  }
+
   .container {
     width: 90%;
     max-width: 1200px;
@@ -118,7 +134,7 @@ header h1 {
     display: grid;
     grid.gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
+
   }
 
 
@@ -196,18 +212,20 @@ header h1 {
     padding: 0;
     box-sizing: border-box;
   }
-  .num{
-    box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
-    -webkit-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
-    -moz-box-shadow: 0px 18px 9px -2px rgba(179,206,230,0.78);
-    width:45%;
-    font-size:1rem;
-    border:solid 1px;
-    border-radius:90px;
-    display:inline-block;
-    font-weight:bold;
-    
+
+  .num {
+    box-shadow: 0px 18px 9px -2px rgba(179, 206, 230, 0.78);
+    -webkit-box-shadow: 0px 18px 9px -2px rgba(179, 206, 230, 0.78);
+    -moz-box-shadow: 0px 18px 9px -2px rgba(179, 206, 230, 0.78);
+    width: 45%;
+    font-size: 1rem;
+    border: solid 1px;
+    border-radius: 90px;
+    display: inline-block;
+    font-weight: bold;
+
   }
+
   /* ETIQUETA <a> */
   .a {
     position: relative;
@@ -225,9 +243,9 @@ header h1 {
     background: ;
     color: black;
     margin-left: 1.5rem;
-    box-shadow:-1px 1px 5px 3px rgba(0,89,153,0.59);
--webkit-box-shadow: -1px 1px 5px 3px rgba(0,89,153,0.59);
--moz-box-shadow: -1px 1px 5px 3px rgba(0,89,153,0.59); 
+    box-shadow: -1px 1px 5px 3px rgba(0, 89, 153, 0.59);
+    -webkit-box-shadow: -1px 1px 5px 3px rgba(0, 89, 153, 0.59);
+    -moz-box-shadow: -1px 1px 5px 3px rgba(0, 89, 153, 0.59);
 
     /* -webkit-box-reflect: below 0.0625em linear-gradient(transparent, #0005); */
   }
@@ -331,64 +349,78 @@ header h1 {
 
   /* END ENERGY */
 
-  .izqlog{
-    margin-left:250px;
+  .izqlog {
+    margin-left: 250px;
   }
-  .izqitem{
-      margin-left:300px;
-    }
-  .chart_div{
-    width: 700px; height: 500px;
+
+  .izqitem {
+    margin-left: 300px;
+  }
+
+  .chart_div {
+    width: 700px;
+    height: 500px;
   }
 
   /* MEDIA SCREEN */
-  @media (max-width:1267px) { 
-      .izqlog{
-        margin-left:120px;
-      }
-      .izqitem{
-        margin-left:50px;
-      }
-      .graficas {
-      	display: grid;
-      	grid-template-columns: 1fr 1fr;
-
-      	gap: 20px;
-      } 
-      /* TEMPERATURA */
-      .chart_div{
-      width: 450px; height: 450px;
+  @media (max-width:1267px) {
+    .izqlog {
+      margin-left: 120px;
     }
-    .chart_div1{
+
+    .izqitem {
+      margin-left: 50px;
+    }
+
+    .graficas {
       display: grid;
-      align-items:center;
-	    grid-template-columns: 1fr 1fr;
-    }
-   }
-  @media (max-width:1025px) { 
-    .izqlog{
-      margin-left:120px;
-    }
-    .izqitem{
-      margin-left:220px;
-    }
-    .topitem{
-      margin-top:20px;
+      grid-template-columns: 1fr 1fr;
 
+      gap: 20px;
     }
+
     /* TEMPERATURA */
-    .chart_div{
-      width: 350px; height: 350px;
+    .chart_div {
+      width: 450px;
+      height: 450px;
     }
-    .chart_div1{
+
+    .chart_div1 {
       display: grid;
-      align-items:center;
-	    grid-template-columns: 1fr 1fr;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
     }
-      
-    }    
-  
-      
+  }
+
+  @media (max-width:1025px) {
+    .izqlog {
+      margin-left: 120px;
+    }
+
+    .izqitem {
+      margin-left: 220px;
+    }
+
+    .topitem {
+      margin-top: 20px;
+
+    }
+
+    /* TEMPERATURA */
+    .chart_div {
+      width: 350px;
+      height: 350px;
+    }
+
+    .chart_div1 {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
+
+  }
+
+
 
   @media screen and (max-width:900px) {
     body {
@@ -398,34 +430,41 @@ header h1 {
     .navbar .navbar-brand {
       font-size: 14px;
     }
-    .izqlog{
-      margin-left:80px;
+
+    .izqlog {
+      margin-left: 80px;
     }
-    .izqitem{
-      margin-left:40px;
+
+    .izqitem {
+      margin-left: 40px;
     }
+
     /* Dash y temp graficas */
     .graficas {
-    	display: grid;
-    	grid-template-columns: 1fr ;
-        
-    	gap: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+
+      gap: 20px;
     }
+
     .nav-link {
       font-size: 14px;
     }
+
     /* Energia */
-    .a{
-      font-size:10px;
+    .a {
+      font-size: 10px;
     }
-    .num{
-      font-size:10px;
+
+    .num {
+      font-size: 10px;
     }
+
     /* Temperatura */
-    .chart_div1{
+    .chart_div1 {
       display: grid;
-      align-items:center;
-	    grid-template-columns: 1fr 1fr;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
     }
 
   }
@@ -434,90 +473,107 @@ header h1 {
     body {
       font-size: 9px;
     }
+
     .nav-link {
-      
+
       font-size: 20px;
     }
-    .grafica{
-      font-size:10px;
+
+    .grafica {
+      font-size: 10px;
     }
+
     .navbar .navbar-brand {
       font-size: 15px;
     }
 
     /* Energia */
-    .energy{
+    .energy {
       display: grid;
-      justfy-content:center;
-    	grid-template-columns: 1fr 1fr;
-      
+      justfy-content: center;
+      grid-template-columns: 1fr 1fr;
+
     }
-    
-    .a{
-      font-size:17px;
+
+    .a {
+      font-size: 17px;
     }
-    .num{
-      font-size:16px;
+
+    .num {
+      font-size: 16px;
     }
-    
+
     /* temp */
-    .chart_div{
-      width: 420px; height: 250px;
+    .chart_div {
+      width: 420px;
+      height: 250px;
     }
-    .chart_div1{
-      margin-right:120px;
+
+    .chart_div1 {
+      margin-right: 120px;
       display: grid;
-      align-items:center;
-	  grid-template-columns: 1fr;
-    }
-  }    
-    @media screen and (max-width:570px) {
-      /* Centrar nav-links */
-    .nav-link {
-      margin-left:130px;
-      font-size: 25px;
-    }
-    .izqitem{
-      margin-left:12px;
-    }
-    .mesit{
-      margin-left:50px;
-    }
+      align-items: center;
+      grid-template-columns: 1fr;
     }
   }
+
+  @media screen and (max-width:570px) {
+
+    /* Centrar nav-links */
+    .nav-link {
+      margin-left: 130px;
+      font-size: 25px;
+    }
+
+    .izqitem {
+      margin-left: 12px;
+    }
+
+    .mesit {
+      margin-left: 50px;
+    }
+  }
+  }
+
   @media screen and (max-width:480px) {
     .nav-link {
-      margin-left:130px;
+      margin-left: 130px;
       font-size: 25px;
     }
-    .izqitem{
-      margin-left:12px;
+
+    .izqitem {
+      margin-left: 12px;
     }
-    .mesit{
-      margin-left:50px;
+
+    .mesit {
+      margin-left: 50px;
     }
+
     /* dash */
 
-    .grafica{
-      font-size:6px;
+    .grafica {
+      font-size: 6px;
     }
+
     /* Energía */
-    .energy{
+    .energy {
       display: grid;
-    	grid-template-columns: 1fr;
-      
+      grid-template-columns: 1fr;
+
     }
+
     /* TEMPERATURA */
-    .chart_div{
-      width: 250px; height: 250px;
+    .chart_div {
+      width: 250px;
+      height: 250px;
     }
-    .chart_div1{
-      
+
+    .chart_div1 {
+
       display: grid;
-      align-items:center;
-	    grid-template-columns: 1fr;
-  
+      align-items: center;
+      grid-template-columns: 1fr;
+
     }
   }
-  
 </style>
