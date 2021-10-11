@@ -117,10 +117,32 @@ header h1 {
   .energy {
     display: grid;
     grid.gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     
   }
 
+  .botongrafica{
+    display:grid;
+    grid-template-columns: 1fr;
+  }
+  .linkboton{
+    height:140%;
+    font-weight:bold;
+    color:white;
+    margin-left:9.37rem;
+    width:70%;
+    border:solid 0.16em #0d3361;
+    border-radius: 80px;
+    background: rgb(29,79,140);
+    background: linear-gradient(90deg, rgba(29,79,140,0.42) 0%, rgba(58,109,171,0.7959558823529411) 52%, rgba(29,79,140,0.42) 100%);
+    box-shadow: 1px 2px 8px 1px rgba(11,99,138,0.95);
+-webkit-box-shadow: 1px 2px 8px 1px rgba(11,99,138,0.95);
+-moz-box-shadow: 1px 2px 8px 1px rgba(11,99,138,0.95);
+    text-align:center;
+    padding-top:0.62rem;
+    font-size:1rem;
+  }
+  a { text-decoration:none; color:white; } 
 
 
   .container>div,
@@ -341,6 +363,7 @@ header h1 {
     width: 700px; height: 500px;
   }
 
+
   /* MEDIA SCREEN */
   @media (max-width:1267px) { 
       .izqlog{
@@ -449,7 +472,7 @@ header h1 {
     .energy{
       display: grid;
       justfy-content:center;
-    	grid-template-columns: 1fr 1fr;
+    	grid-template-columns: 1fr;
       
     }
     
@@ -470,21 +493,14 @@ header h1 {
       align-items:center;
 	  grid-template-columns: 1fr;
     }
+    .linkboton{
+
+    margin-left:20px;}
+    }
   }    
-    @media screen and (max-width:570px) {
-      /* Centrar nav-links */
-    .nav-link {
-      margin-left:130px;
-      font-size: 25px;
-    }
-    .izqitem{
-      margin-left:12px;
-    }
-    .mesit{
-      margin-left:50px;
-    }
-    }
-  }
+    
+    
+  
   @media screen and (max-width:480px) {
     .nav-link {
       margin-left:130px;
@@ -518,6 +534,4 @@ header h1 {
 	    grid-template-columns: 1fr;
   
     }
-  }
-  
 </style>

@@ -25,3 +25,6 @@ Route::get('dataalertz', 'App\Http\Controllers\VibracionController@dataalertz')-
 Route::get('datatemp', 'App\Http\Controllers\TemperaturaController@datatemp')->name('datatemp');
 Route::get('datacharttemp', 'App\Http\Controllers\TemperaturaController@datacharttemp')->name('datacharttemp');
 Route::get('dataenergia', 'App\Http\Controllers\EnergiaController@dataenergia')->name('dataenergia');
+
+//Graficas energia
+Route::get('grafs', 'App\Http\Controllers\EnergiaController@grafs')->name('grafs');

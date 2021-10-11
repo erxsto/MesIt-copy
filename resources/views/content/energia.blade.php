@@ -30,6 +30,7 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
 }, 1700);
 
+
 </script>
 <div class="energy">
  <div class="a" href="#">
@@ -59,6 +60,14 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
         <hr> FASE 3A (A)
     </div>
+    </div>
+    <div class="botongrafica">
+        <div class="linkboton"> <a href="./gfases"> Grafica Fases.</a></div>
+    </div>
+    <br> <hr class="hrcss">
+
+    <div class="energy">
+
     <div class="a" href="#">
         <span></span>
         <span></span>
@@ -86,15 +95,21 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
         <hr> VOLTS L3 (V)
     </div>
+    </div>
+    <div class="botongrafica">
+        <div class="linkboton"> <a href="./gvolts"> Grafica Volts.</a></div>
+    </div>
+    <br> <hr>
+    <div class="energy">    
     
     <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <div class="num"id="indicador6"></div>
-
-        <hr> Frecuencia (Hz)
+        <div class="num"id="indicador9"></div>
+           
+      <hr>  Potencia total reactiva (KVAR)
     </div>
     <div class="a" href="#">
         <span></span>
@@ -114,15 +129,23 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
         <hr> Potencia total activa (KW)
     </div>
+    </div>
+    
+    <div class="botongrafica">
+        <div class="linkboton" > <a href="./gpotencias"> Grafica Potencias. </a></div>
+    </div>
+<br> <hr>
+    <div class="energy">
+        
     <div class="a" href="#">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        <div class="num"id="indicador9"></div>
+        <div class="num"id="indicador6"></div>
 
-      <hr>  Potencia total reactiva (KVAR)
-    </div> 
+        <hr> Frecuencia (Hz)
+    </div>
     <div class="a" href="#">
         <span></span>
         <span></span>
@@ -141,5 +164,10 @@ document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar)/10;
 
         <hr> Energia reactiva (KVARH)
     </div>
+    </div>
+    <div class="botongrafica">
+        <div class="linkboton"> <a href="./gfye">Grafica Frecuencia y Energia (act/react). </a></div>
+    </div>
+    <br> <hr>
 </div>
 @endsection
