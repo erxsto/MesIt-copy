@@ -118,8 +118,11 @@
 }
     
   </script>
+<div class="gfases container-fluid">
+
 <div id="chart_div" style="width: 900px; height: 300px;"></div>
 <BR>
 <div id="chart_div2" style="width: 900px; height: 300px;"></div>
+</div>
 
 @endsection

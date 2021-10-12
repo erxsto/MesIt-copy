@@ -128,7 +128,7 @@
     }
 </script>
 <!-- Gráfica de vibración -->
-<main class="graficas">
+<main class="graficas container-fluid align-content-center">
     <div class="grafica">
         <h2 class="titulo">Energía</h2>
         <div class="a" href="#">

@@ -19,3 +19,9 @@ Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionContr
 Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\TemperaturaController@index');
 Route::name('energia')->get('energia/', 'App\Http\Controllers\EnergiaController@index');
 Route::name('descargarPDF')->get('pdf/', 'App\Http\Controllers\PDFController@PDF');
+
+//RUTAS Graficas Energia.
+Route::name('gfases')->get('gfases/', 'App\Http\Controllers\EnergiaController@gfases');
+Route::name('gvolts')->get('gvolts/', 'App\Http\Controllers\EnergiaController@gvolts');
+Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
+Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');

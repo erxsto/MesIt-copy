@@ -133,13 +133,8 @@
   .energy {
     display: grid;
     grid.gap: 20px;
-<<<<<<< HEAD
     grid-template-columns: 1fr 1fr 1fr ;
     
-=======
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-
->>>>>>> 6adb3083f980a64a284fae84713cd8181a50644a
   }
 
   .botongrafica{
@@ -389,6 +384,11 @@
     height: 500px;
   }
 
+  .gfases{
+    display: flex;        
+        justify-content: center;
+
+  }
 
   /* MEDIA SCREEN */
   @media (max-width:1267px) {
@@ -518,15 +518,8 @@
     /* Energia */
     .energy {
       display: grid;
-<<<<<<< HEAD
-      justfy-content:center;
     	grid-template-columns: 1fr;
       
-=======
-      justfy-content: center;
-      grid-template-columns: 1fr 1fr;
-
->>>>>>> 6adb3083f980a64a284fae84713cd8181a50644a
     }
 
     .a {
@@ -549,37 +542,12 @@
       align-items: center;
       grid-template-columns: 1fr;
     }
-<<<<<<< HEAD
     .linkboton{
-
-    margin-left:20px;}
+      margin-left:80px;
     }
-  }    
-    
+    }    
     
   
-=======
-  }
-
-  @media screen and (max-width:570px) {
-
-    /* Centrar nav-links */
-    .nav-link {
-      margin-left: 130px;
-      font-size: 25px;
-    }
-
-    .izqitem {
-      margin-left: 12px;
-    }
-
-    .mesit {
-      margin-left: 50px;
-    }
-  }
-  }
-
->>>>>>> 6adb3083f980a64a284fae84713cd8181a50644a
   @media screen and (max-width:480px) {
     .nav-link {
       margin-left: 130px;
@@ -620,8 +588,14 @@
       grid-template-columns: 1fr;
 
     }
-<<<<<<< HEAD
-=======
+    .linkboton{
+
+    margin-left: 60px;
+    
+    }
+    a{
+      font-size:13px;
+    }
   }
->>>>>>> 6adb3083f980a64a284fae84713cd8181a50644a
+
 </style>

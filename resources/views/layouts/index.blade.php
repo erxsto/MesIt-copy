@@ -12,11 +12,10 @@
         @include('layouts.header')
     </header>
     <!-- Mandamos a llamar al content -->
-    <div class="container">
-        <main class="py-4">
+
+    <main class="py-4 container-sm">
             @yield('content')
         </main>
-    </div>
     <!-- Mandamos a llamar al footer  -->
     <footer class="bg-dark text-center text-white pt-5 pb-1">
         @include('layouts.footer')
