@@ -385,8 +385,9 @@
   }
 
   .gfases{
-    display: flex;        
-        justify-content: center;
+    display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
 
   }
 
@@ -444,6 +445,9 @@
       display: grid;
       align-items: center;
       grid-template-columns: 1fr 1fr;
+    }
+    .ch1{
+      grid-column: x0 / x3;
     }
 
   }
