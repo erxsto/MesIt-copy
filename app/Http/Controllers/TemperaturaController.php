@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\temperatura;
 
 class TemperaturaController extends Controller
 {
+    public function fecha(Request $request)
+    {
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = temperatura::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.temperatura')
+        ->with(['graficas' => $graficas]);
+    }
     public function index(){
         $temps=DB::table('dbo.temperatura')->limit(5)
         ->get();

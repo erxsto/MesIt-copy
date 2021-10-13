@@ -11,7 +11,7 @@
     <label>Hasta</label>
     <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
     <button class="btn btn-primary" name="search"><span class="glyphicon glyphicon-search">Consultar</span></button>
-    <a class="btn btn-dark" href="{{ route('descargarPDF') }}"><i class="fa fa-download"></i></a>
+    <a class="btn btn-dark" href="{{ route('descargarPDFv') }}"><i class="fa fa-download"></i></a>
     <br>
     <div class="table-responsive">
         <table class="table table-bordered" id="order-listing" width="100%" cellspacing="0">

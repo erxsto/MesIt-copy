@@ -17,8 +17,10 @@ use App\Http\Controllers\VibracionController;
 Route::name('/')->get('/', 'App\Http\Controllers\DashboardController@index');
 Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionController@index');
 Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\TemperaturaController@index');
+Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\TemperaturaController@fecha');
 Route::name('energia')->get('energia/', 'App\Http\Controllers\EnergiaController@index');
-Route::name('descargarPDF')->get('pdf/', 'App\Http\Controllers\PDFController@PDF');
+Route::name('descargarPDFv')->get('pdfv/', 'App\Http\Controllers\PDFController@PDFv');
+Route::name('descargarPDFt')->get('pdft/', 'App\Http\Controllers\PDFController@PDFt');
 
 //RUTAS Graficas Energia.
 Route::name('gfases')->get('gfases/', 'App\Http\Controllers\EnergiaController@gfases');
