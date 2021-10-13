@@ -23,13 +23,26 @@
           ['ACTUAL (10)',  6.1  ],
         
         ]);
+        var ancho = screen.width;
+        if(ancho <= 480){
 
         var options = {
           title: 'Fase1A',
           hAxis: { minValue: 0, maxValue: 9 },
           curveType: 'function',
-          pointSize: 15,
+          pointSize: 5,
         };
+        
+        }else{
+        
+          var options = {
+          title: 'Fase1A',
+          hAxis: { minValue: 0, maxValue: 9 },
+          curveType: 'function',
+          pointSize: 12,
+        };
+        
+        }
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -81,13 +94,29 @@
         
         ]);
 
+        var ancho = screen.width;
+
+        if(ancho <= 480){
+
         var options = {
           title: 'Fase2A',
           hAxis: { minValue: 0, maxValue: 9 },
           curveType: 'function',
-          pointSize: 15,
+          pointSize: 5,
           colors: ['gold']
         };
+
+        }else{
+
+          var options = {
+          title: 'Fase2A',
+          hAxis: { minValue: 0, maxValue: 9 },
+          curveType: 'function',
+          pointSize: 12,
+          colors: ['gold']
+        };
+
+        }
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
         chart.draw(data, options);
