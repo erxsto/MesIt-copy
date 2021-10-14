@@ -11,16 +11,7 @@
     <label>Hasta</label>
     <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
     <button class="btn btn-primary" name="search"><span class="glyphicon glyphicon-search">Consultar</span></button>
-</form>
-<form class="form-inline" method="get" action="{{route('descargarPDFv')}}">
-    <label>Fecha Desde:</label>
-    <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
-    <label>Hasta</label>
-    <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
-    <button class="btn btn-primary" name="search"><span class="glyphicon glyphicon-search"><i class="fa fa-download"></i>Consultar</span></button>
-    
-    <br>
-</form>
+</form><br>
 <div class="table-responsive">
     <table class="table table-bordered" id="order-listing" width="100%" cellspacing="0">
         <thead class="thead-dark">
@@ -44,6 +35,19 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
+<div class="alert alert-dark alert-sm" role="alert">
+    <h4 class="alert-heading">Descarga el reporte.</h4><br>
+    <form class="form-inline" method="get" action="{{route('descargarPDFv')}}">
+        <label>Fecha Desde:</label>
+        <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
+        <label>Hasta</label>
+        <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
+        <button class="btn btn-dark" name="search">
+            <i class="fa fa-download"></i></button>
+        <br>
+    </form>
 </div>
 <script>
     window.onload = function() {
