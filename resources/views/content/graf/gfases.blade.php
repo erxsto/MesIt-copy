@@ -75,7 +75,7 @@
       data.setValue(9, 1, Respuesta[0].fase1A);
 
       chart.draw(data, options);
-    }, 1300);
+    }, 1000);
 
   }
 </script>
@@ -253,14 +253,13 @@
 </div>
 <div class="ch3" id="chart_div3" style="width: 450px; height: 300px;"></div>
 </div>
-<form class="form-inline" method="get" action="{{route('gfases')}}">
+<form class="form-inline" method="get" action="{{route('temperatura')}}">
   <label>Fecha Desde:</label>
-  <input type="date" class="form-control" placeholder="Start" name="fecha_ini" />
+  <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
   <label>Hasta</label>
   <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
   <button class="btn btn-primary" name="search"><span class="glyphicon glyphicon-search">Consultar</span></button>
-  <a class="btn btn-dark" href="{{ route('descargarPDFef') }}"><i class="fa fa-download"></i></a>
-  <br>
+</form><br>
   <div class="table-responsive">
     <table class="table table-bordered" id="order-listing" width="100%" cellspacing="0">
       <thead class="thead-dark">

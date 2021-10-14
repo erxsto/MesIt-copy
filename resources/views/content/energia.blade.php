@@ -27,7 +27,7 @@
         document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar) / 10;
 
 
-    }, 1700);
+    }, 1000);
 </script>
 <div class="energy">
     <div class="a" href="#">

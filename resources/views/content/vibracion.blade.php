@@ -254,7 +254,7 @@
     setData1();
     setInterval(() => {
         setData1();
-    }, 3000);
+    }, 1000);
 </script>
 <!-- Script alerta del eje Z -->
 <script type="text/javascript">
@@ -314,7 +314,7 @@
     setData2();
     setInterval(() => {
         setData2();
-    }, 3000);
+    }, 1000);
 </script>
 <!-- Script alerta del eje Y -->
 <script type="text/javascript">
@@ -374,6 +374,6 @@
     setData3();
     setInterval(() => {
         setData3();
-    }, 3000);
+    }, 1000);
 </script>
 @endsection
