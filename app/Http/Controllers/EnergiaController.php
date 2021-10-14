@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\variador;
+
 class EnergiaController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        return view('content.energia');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.energia')
+        ->with(['graficas' => $graficas]);
     }
 
     
@@ -30,23 +36,39 @@ class EnergiaController extends Controller
         ); 
     }
 
-    public function gfases(){
+    public function gfases(Request $request){
 
-        return view('content.graf.gfases');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.graf.gfases')
+        ->with(['graficas' => $graficas]);
     }
 
-    public function gvolts(){
+    public function gvolts(Request $request){
 
-        return view('content.graf.gvolts');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.graf.gvolts')
+        ->with(['graficas' => $graficas]);
     }
 
-    public function gpotencias(){
+    public function gpotencias(Request $request){
 
-        return view('content.graf.gpotencias');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.graf.gpotencias')
+        ->with(['graficas' => $graficas]);
     }
 
-    public function gfye(){
+    public function gfye(Request $request){
 
-        return view('content.graf.gfye');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
+        return view('content.graf.gfye')
+        ->with(['graficas' => $graficas]);
     }
 }
