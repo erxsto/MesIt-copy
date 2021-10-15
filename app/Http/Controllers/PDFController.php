@@ -25,25 +25,38 @@ class PDFController extends Controller
         $pdf = PDF::loadView('content.PDFtemperatura', compact('graficas'));
         return $pdf->download('Temperatura.pdf');
     }
+    public function PDFe(Request $request){
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::whereBetween('created_at', [$fi, $ff])->get();
+        $pdf = PDF::loadView('content.PDFenergia', compact('graficas'));
+        return $pdf->download('Energia.pdf');
+    }
     public function PDFef(Request $request){
         $fi = $request->fecha_ini.' 00:00:00';
         $ff = $request->fecha_fin.' 23:59:59';
-        $graficas = temperatura::select('id','fase1A','fase2A','fase3A')->whereBetween('created_at', [$fi, $ff])->get();
+        $graficas = variador::select('id','fase1A','fase2A','fase3A','created_at')->whereBetween('created_at', [$fi, $ff])->get();
         $pdf = PDF::loadView('content.PDFenergiaf', compact('graficas'));
         return $pdf->download('Fases.pdf');
     }
     public function PDFev(Request $request){
-        $graficas = \DB::select('SELECT id,voltsL1,voltsL2,voltsL3,created_at FROM dbo.variador ORDER BY id ASC');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::select('id','voltsL1','voltsL2','voltsL3','created_at')->whereBetween('created_at', [$fi, $ff])->get();
         $pdf = PDF::loadView('content.PDFenergiav', compact('graficas'));
         return $pdf->download('Volts.pdf');
     }
     public function PDFep(Request $request){
-        $graficas = \DB::select('SELECT id,pottreactiva,facpotencia,pottactiva,created_at FROM dbo.variador ORDER BY id ASC');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::select('id','pottreactiva','facpotencia','pottactiva','created_at')->whereBetween('created_at', [$fi, $ff])->get();
         $pdf = PDF::loadView('content.PDFenergiap', compact('graficas'));
         return $pdf->download('Potencias.pdf');
     }
     public function PDFefe(Request $request){
-        $graficas = \DB::select('SELECT id,hz,energiaa,energiar,created_at FROM dbo.variador ORDER BY id ASC');
+        $fi = $request->fecha_ini.' 00:00:00';
+        $ff = $request->fecha_fin.' 23:59:59';
+        $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->get();
         $pdf = PDF::loadView('content.PDFenergiafe', compact('graficas'));
         return $pdf->download('Frecuencia y energía.pdf');
     }
