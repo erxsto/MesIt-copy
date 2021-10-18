@@ -23,6 +23,7 @@ Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\Temperatur
 Route::name('energia')->get('energia/', 'App\Http\Controllers\EnergiaController@index');
 Route::name('descargarPDFv')->get('pdfv/', 'App\Http\Controllers\PDFController@PDFv');
 Route::name('descargarPDFt')->get('pdft/', 'App\Http\Controllers\PDFController@PDFt');
+Route::name('descargarPDFe')->get('pdfe/', 'App\Http\Controllers\PDFController@PDFe');
 Route::name('descargarPDFef')->get('pdfef/', 'App\Http\Controllers\PDFController@PDFef');
 Route::name('descargarPDFev')->get('pdfev/', 'App\Http\Controllers\PDFController@PDFev');
 Route::name('descargarPDFep')->get('pdfep/', 'App\Http\Controllers\PDFController@PDFep');

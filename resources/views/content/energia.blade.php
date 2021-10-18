@@ -27,7 +27,7 @@
         document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar) / 10;
 
 
-    }, 1700);
+    }, 1000);
 </script>
 <div class="energy">
     <div class="a" href="#">
@@ -169,8 +169,19 @@
 </div>
 <div class="botongrafica">
     <div class="linkboton"> <a href="./gfye">Grafica Frecuencia y Energia (act/react). </a></div>
+</div><br>
+<div class="alert alert-dark alert-sm" role="alert">
+    <h4 class="alert-heading">Descarga el reporte.</h4><br>
+    <form class="form-inline" method="get" action="{{route('descargarPDFe')}}">
+        <label>Fecha Desde:</label>
+        <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
+        <label>Hasta</label>
+        <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
+        <button class="btn btn-dark" name="search">
+            <i class="fa fa-download"></i></button>
+        <br>
+    </form>
 </div>
-
 <br>
 <hr>
 </div>
