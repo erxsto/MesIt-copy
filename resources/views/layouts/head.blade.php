@@ -446,9 +446,7 @@
       align-items: center;
       grid-template-columns: 1fr 1fr;
     }
-    .ch1{
-      grid-column: x0 / x3;
-    }
+    
 
   }
 

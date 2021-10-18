@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VibracionController;
+use App\Mail\AlertaVibracionMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +33,10 @@ Route::name('gfases')->get('gfases/', 'App\Http\Controllers\EnergiaController@gf
 Route::name('gvolts')->get('gvolts/', 'App\Http\Controllers\EnergiaController@gvolts');
 Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
 Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');
+
+//Ruta correo
+Route::get('alertavibracion', function(){
+    $correo = new AlertaVibracionMailable;
+    Mail::to('amats@gmail.com')->send($correo);
+    return "Mensaje enviado.";
+});
