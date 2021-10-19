@@ -244,6 +244,89 @@
 
   }
 </script>
+<script type="text/javascript">
+  google.charts.load("current", {
+    packages: ["corechart"]
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Ampers', 'Consumo total', {
+        role: 'style'
+      }],
+      ['1', 2.5, 'red'],
+      ['2', 4.8, 'red'],
+      ['3', 5.375, 'red'],
+      ['4', 6.1, 'red'],
+      ['5', 6.1, 'red'],
+      ['6', 6.1, 'red'],
+      ['7', 6.1, 'red'],
+      ['8', 6.1, 'red'],
+      ['9', 6.1, 'red'],
+      ['ACTUAL (10)', 6.1, 'red'],
+
+    ]);
+
+    var ancho = screen.width;
+
+    if (ancho <= 480) {
+
+      var options = {
+
+        hAxis: {
+          minValue: 0,
+          maxValue: 9
+        },
+        curveType: 'function',
+        pointSize: 5,
+        colors: ['red']
+      };
+
+    } else {
+
+      var options = {
+
+        hAxis: {
+          minValue: 0,
+          maxValue: 9
+        },
+        curveType: 'function',
+        pointSize: 12,
+        colors: ['red']
+      };
+
+    }
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div4'));
+    chart.draw(data, options);
+
+    setInterval(function() {
+      var JSON = $.ajax({
+        url: "/api/grafs",
+        dataType: 'json',
+        method: 'GET',
+        async: false
+      }).responseText;
+      var Respuesta = jQuery.parseJSON(JSON);
+
+      data.setValue(0, 1, (Respuesta[9].consumo_total) / 10);
+      data.setValue(1, 1, (Respuesta[8].consumo_total) / 10);
+      data.setValue(2, 1, (Respuesta[7].consumo_total) / 10);
+      data.setValue(3, 1, (Respuesta[6].consumo_total) / 10);
+      data.setValue(4, 1, (Respuesta[5].consumo_total) / 10);
+      data.setValue(5, 1, (Respuesta[4].consumo_total) / 10);
+      data.setValue(6, 1, (Respuesta[3].consumo_total) / 10);
+      data.setValue(7, 1, (Respuesta[2].consumo_total) / 10);
+      data.setValue(8, 1, (Respuesta[1].consumo_total) / 10);
+      data.setValue(9, 1, (Respuesta[0].consumo_total) / 10);
+
+      chart.draw(data, options);
+    }, 1300);
+
+  }
+</script>
 <div class="gfases ">
 
   <div class="ch1" id="chart_div" style="width:1000px; height: 500px;"></div>
@@ -251,6 +334,8 @@
   <div class="ch2" id="chart_div2" style="width: 1000px; height: 500px;"></div>
 </div>
 <div class="ch3" id="chart_div3" style="width: 1000px; height: 500px;"></div>
+</div>
+<div class="ch4" id="chart_div4" style="width: 1000px; height: 500px;"></div>
 </div>
 <!-- CONSULTAS -->
 <form class="form-inline" method="get" action="{{route('gpotencias')}}">
