@@ -29,7 +29,6 @@ class TemperaturaController extends Controller
 
         $temps = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
         if ($temps[0]->temp >=30) {
-
             require_once '../vendor/autoload.php';
             $sid    = "ACbd8d939516cbd568851aad8dabe03eb9"; 
             $token  = "ef2fca51d4eb54b9f1cd40004893b38d"; 
@@ -46,10 +45,10 @@ class TemperaturaController extends Controller
                 return response()->json(
                     $temps
                 ); 
-                return response()->json(
+                
+                }return response()->json(
                     $temps
                 ); 
-                     }
         
     }
     public function d(){

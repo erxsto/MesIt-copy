@@ -2,7 +2,40 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script type="text/javascript">
+    setInterval(function() {
+      var JSON = $.ajax({
+        url: "/api/datatemp",
+        dataType: 'json',
+        method: 'GET',
+        async: false
+      }).responseText;
+      var Respuesta = jQuery.parseJSON(JSON);
+      if (Respuesta[0].temp >= 30) {
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Alerta crítica',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        text: 'Temperatura mayor a 30!',
+                        width: 600,
+                        padding: '3em',
+                        backdrop: `
+                        rgba(178, 34, 34,0.25)
+                        left top
+                        no-repeat
+                        `
+                    });
+      } else{
+
+      }
+    }, 3000);
+           
+</script>
 <script type="text/javascript">
   google.charts.load('current', {
     'packages': ['gauge']
