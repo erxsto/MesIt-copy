@@ -246,11 +246,11 @@
 </script>
 <div class="gfases ">
 
-  <div class="ch1" id="chart_div" style="width:450px; height: 300px;"></div>
-  <BR>
-  <div class="ch2" id="chart_div2" style="width: 450px; height: 300px;"></div>
+  <div class="ch1" id="chart_div" style="width:1000px; height: 500px;"></div>
+  <BR><BR>
+  <div class="ch2" id="chart_div2" style="width: 1000px; height: 500px;"></div>
 </div>
-<div class="ch3" id="chart_div3" style="width: 450px; height: 300px;"></div>
+<div class="ch3" id="chart_div3" style="width: 1000px; height: 500px;"></div>
 </div>
 <!-- CONSULTAS -->
 <form class="form-inline" method="get" action="{{route('gpotencias')}}">
