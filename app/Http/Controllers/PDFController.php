@@ -49,7 +49,7 @@ class PDFController extends Controller
     public function PDFep(Request $request){
         $fi = $request->fecha_ini.' 00:00:00';
         $ff = $request->fecha_fin.' 23:59:59';
-        $graficas = variador::select('id','pottreactiva','facpotencia','pottactiva','created_at')->whereBetween('created_at', [$fi, $ff])->get();
+        $graficas = variador::select('id','pottreactiva','facpotencia','pottactiva','consumo_total','created_at')->whereBetween('created_at', [$fi, $ff])->get();
         $pdf = PDF::loadView('content.PDFenergiap', compact('graficas'));
         return $pdf->download('Potencias.pdf');
     }

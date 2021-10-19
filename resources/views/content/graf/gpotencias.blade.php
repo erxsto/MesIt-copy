@@ -268,6 +268,7 @@
                 <th scope="col">Potencia Total Reactiva (KVAR)</th>
                 <th scope="col">Factor De Potencia (%)</th>
                 <th scope="col">Potencia Total Activa (KW)</th>
+                <th scope="col">Consumo Total (KW)</th>
                 <th scope="col">Fecha de creación</th>
             </tr>
         </thead>
@@ -278,6 +279,7 @@
                 <td>{{ number_format($grafica->pottreactiva,1) }}</td>
                 <td>{{ number_format($grafica->facpotencia,1) }}</td>
                 <td>{{ number_format($grafica->pottactiva,1) }}</td>
+                <td>{{ number_format($grafica->consumo_total,1) }}</td>
                 <td>{{$grafica->created_at}}</td>
             </tr>
             @endforeach
