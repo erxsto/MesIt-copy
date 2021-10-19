@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\temperatura;
+use Twilio\Rest\Client;
+
 
 class TemperaturaController extends Controller
 {
@@ -26,9 +28,37 @@ class TemperaturaController extends Controller
 
 
         $temps = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
-        return response()->json(
-            $temps
-        ); 
+        if ($temps[0]->temp >=30) {
+
+            require_once '../vendor/autoload.php';
+            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9"; 
+            $token  = "ef2fca51d4eb54b9f1cd40004893b38d"; 
+            $twilio = new Client($sid, $token); 
+             
+            $message = $twilio->messages 
+                              ->create("whatsapp:+5217225273757", // to 
+                                       array( 
+                                           "from" => "whatsapp:+14155238886",       
+                                           "body" => "Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30." 
+                                       ) 
+                              );
+            } else{
+                return response()->json(
+                    $temps
+                ); 
+                return response()->json(
+                    $temps
+                ); 
+                     }
+        
+    }
+    public function d(){
+    $te = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
+
+        
+                        return response()->json(
+                            $te
+                        ); 
     }
     public function datacharttemp(){
 

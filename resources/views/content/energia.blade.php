@@ -58,11 +58,7 @@
         <hr> FASE 3A (A)
     </div>
 </div>
-<div class="botongrafica">
-    <div class="linkboton"> <a href="./gfases"> Grafica Fases.</a></div>
-</div>
-<br>
-<hr class="hrcss">
+
 
 <div class="energy">
 
@@ -94,12 +90,9 @@
         <hr> VOLTS L3 (V)
     </div>
 </div>
-<div class="botongrafica">
-    <div class="linkboton"> <a href="./gvolts"> Grafica Volts.</a></div>
-</div>
 
-<br>
-<hr>
+
+
 <div class="energy">
 
     <div class="a" href="#">
@@ -131,12 +124,7 @@
     </div>
 </div>
 
-<div class="botongrafica">
-    <div class="linkboton"> <a href="./gpotencias"> Grafica Potencias. </a></div>
-</div>
 
-<br>
-<hr>
 <div class="energy">
 
     <div class="a" href="#">
@@ -166,10 +154,19 @@
 
         <hr> Energia reactiva (KVARH)
     </div>
-</div>
+</div><br><br>
+<div class="botongrafica">
+    <div class="linkboton"> <a href="./gfases"> Grafica Fases.</a></div>
+</div><br>
+<div class="botongrafica">
+    <div class="linkboton"> <a href="./gvolts"> Grafica Volts.</a></div>
+</div><br>
+<div class="botongrafica">
+    <div class="linkboton"> <a href="./gpotencias"> Grafica Potencias. </a></div>
+</div><br>
 <div class="botongrafica">
     <div class="linkboton"> <a href="./gfye">Grafica Frecuencia y Energia (act/react). </a></div>
-</div><br>
+</div><br><br>
 <div class="alert alert-dark alert-sm" role="alert">
     <h4 class="alert-heading">Descarga el reporte.</h4><br>
     <form class="form-inline" method="get" action="{{route('descargarPDFe')}}">

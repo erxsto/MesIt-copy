@@ -253,7 +253,7 @@
     position: relative;
     display: inline-block;
     padding: 1.5rem;
-    margin: 2.5rem 0;
+    margin: 1.5rem 0;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
