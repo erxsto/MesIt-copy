@@ -25,6 +25,7 @@
         document.getElementById("indicador9").innerHTML = (Respuesta[0].pottreactiva) / 10;
         document.getElementById("indicador10").innerHTML = (Respuesta[0].energiaa) / 10;
         document.getElementById("indicador11").innerHTML = (Respuesta[0].energiar) / 10;
+        document.getElementById("indicador12").innerHTML = (Respuesta[0].consumo_total) / 10;
 
 
     }, 1000);
@@ -153,6 +154,15 @@
         <div class="num" id="indicador11"></div>
 
         <hr> Energia reactiva (KVARH)
+    </div>
+    <div class="a" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="num" id="indicador12"></div>
+
+        <hr> Consumo Total (KW)
     </div>
 </div><br><br>
 <div class="botongrafica">
