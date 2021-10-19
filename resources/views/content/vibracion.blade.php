@@ -207,6 +207,7 @@
             },
             success: function(data) {
                 if (data.data[0] >= 2.9) {
+                    
                     document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
                     Swal.fire({

@@ -28,3 +28,4 @@ Route::get('dataenergia', 'App\Http\Controllers\EnergiaController@dataenergia')-
 
 //Graficas energia
 Route::get('grafs', 'App\Http\Controllers\EnergiaController@grafs')->name('grafs');
+Route::get('ok','App\Http\Controllers\TwilioController@ok')->name('ok');
