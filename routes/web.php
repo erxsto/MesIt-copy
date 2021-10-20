@@ -41,3 +41,5 @@ Route::get('alertavibracion', function(){
     Mail::to('amats@gmail.com')->send($correo);
     return "Mensaje enviado.";
 });
+
+Route::post('save_at', 'TemperaturaController@save_at');

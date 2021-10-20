@@ -14,7 +14,7 @@ class TwilioController extends Controller
     $twilio = new Client($sid, $token); 
      
     $message = $twilio->messages 
-                      ->create("whatsapp:+5217225273757", // to 
+                      ->create("whatsapp:+5217227749519", // to 
                                array( 
                                    "from" => "whatsapp:+14155238886",       
                                    "body" => "Alerta! , Revisa Tu módulo 'vibracion' en Eje x" 
