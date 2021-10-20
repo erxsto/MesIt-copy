@@ -33,9 +33,9 @@
                     
                    
                     
-                    var tabla = "temperatura";
-                    var descripcion "Alerta crítica , Temperatura mayor a 30!";
-                    document.getElementById("at").innerHTML = "<form action=''>"+ "<input type='text' name='tabla' value='"+tabla+"'"+ "<input type='text' name='descripcion' value='"+descripcion+"'"  +"</form>" ;
+                    // var tabla = "temperatura";
+                    // var descripcion "Alerta crítica , Temperatura mayor a 30!";
+                    // document.getElementById("at").innerHTML = "<form action=''>"+ "<input type='text' name='tabla' value='"+tabla+"'"+ "<input type='text' name='descripcion' value='"+descripcion+"'"  +"</form>" ;
       } else{
 
       }
