@@ -4,6 +4,10 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<form id="formsave_at"method="post" action="{{route('save_at')}}">
+
+</form>
+
 <script type="text/javascript">
     setInterval(function() {
       var JSON = $.ajax({
@@ -31,17 +35,51 @@
                         `
                     });
                     
-                   
+                  
+                    var tabla = "temperatura";
+                      var descripcion= "Alerta crítica Temperatura: "+Respuesta[0].temp;
                     
-                    // var tabla = "temperatura";
-                    // var descripcion "Alerta crítica , Temperatura mayor a 30!";
-                    // document.getElementById("at").innerHTML = "<form action=''>"+ "<input type='text' name='tabla' value='"+tabla+"'"+ "<input type='text' name='descripcion' value='"+descripcion+"'"  +"</form>" ;
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
       } else{
 
+                    
+                   
       }
+        
     }, 3000);
-           
+          
 </script>
+
 <script type="text/javascript">
   google.charts.load('current', {
     'packages': ['gauge']
