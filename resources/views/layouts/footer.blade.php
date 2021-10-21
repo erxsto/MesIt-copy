@@ -102,7 +102,7 @@
 
 
 <!-- Botón el cual cambia la página de blanco y negro "en desarrollo" -->
-<script>
+<!-- <script>
     const toggleSwitch = document.querySelector('input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
 
@@ -128,4 +128,4 @@
     }
 
     toggleSwitch.addEventListener('change', switchTheme, false);
-</script>
+</script> -->
