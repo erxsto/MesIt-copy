@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\temperatura;
 use Twilio\Rest\Client;
-
+use App\Models\alertas;
 
 class TemperaturaController extends Controller
 {
@@ -66,5 +66,29 @@ class TemperaturaController extends Controller
         return response()->json(
             $charttemps
         ); 
+    }
+    public function save_at(Request $request){
+        
+
+        $alerta_temp = alertas::insert(array(
+            'tabla'=>$request->input('tabla'),
+            'descripcion'=>$request->input('descripcion'),
+        ));
+        
+        return redirect()->back();
+        
+    }
+    public function registrar(Request $request){
+
+        //  $alerta_create = DB::select("EXECUTE  usp_AlertCreate @tabla="."'$request->tabla2'".",@descripcion="."'$request->descripcion2'",
+        //                           );
+
+         $alerta_create= alertas::insert(array(
+             'tabla'=>$request->tabla2,
+             'descripcion'=>$request->descripcion2,
+         ));
+
+        return back();
+        
     }
 }
