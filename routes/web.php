@@ -32,6 +32,7 @@ Route::get('alertavibracion', function () {
     return "Mensaje enviado.";
 });
 
+<<<<<<< HEAD
 Route::group(['middleware' => ['customAuth']], function () {
     Route::name('/')->get('/', 'App\Http\Controllers\DashboardController@index');
     Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionController@index');
@@ -50,3 +51,6 @@ Route::group(['middleware' => ['customAuth']], function () {
     Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
     Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');
 });
+=======
+Route::post('save_at', 'TemperaturaController@save_at');
+>>>>>>> 7579d12c207388348799de3af1ce8f48e7397ac5

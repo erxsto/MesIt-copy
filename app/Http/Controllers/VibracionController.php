@@ -44,7 +44,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Z"
@@ -59,7 +59,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Z"
@@ -87,7 +87,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje x"
@@ -102,7 +102,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje x"
@@ -130,7 +130,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Y"
@@ -145,7 +145,7 @@ class VibracionController extends Controller
 
             $message = $twilio->messages
                 ->create(
-                    "whatsapp:+5217225273757", // to 
+                    "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
                         "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Y"
