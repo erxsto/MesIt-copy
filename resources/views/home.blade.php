@@ -1,7 +1,5 @@
 @extends('layouts.index')
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- Script energía -->
 <script type="text/javascript">
     setInterval(function() {
@@ -128,36 +126,87 @@
     }
 </script>
 <!-- Gráfica de vibración -->
-<main class="graficas container-fluid align-content-center">
-    <div class="grafica">
-        <h2 class="titulo">Energía</h2>
+<div class="graficas container-fluid align-content-center" id="graficas">
+    <div class="grafica" data-id="energia">
+        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            Energía
+        </h2>
         <div class="a" href="#">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <div class="num" id="indicador3"> </div>
-
             <hr> VOLTS L1 (V)
         </div>
     </div>
-    <div class="grafica">
-        <h2 class="titulo">Temperatura</h2>
+
+    <div class="grafica" data-id="temp">
+        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            Temperatura
+        </h2>
         <center>
             <div id="medidores">
             </div>
         </center>
     </div>
 
-    <div class="grafica">
-        <h2 class="titulo">Vibración</h2>
+    <div class="grafica" data-id="vib">
+        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            Vibración
+        </h2>
         <canvas id="myChart"></canvas>
     </div>
-    <div class="grafica">
-        <h2 class="titulo">Gráfica Temp.</h2>
+
+    <div class="grafica" data-id="graft">
+        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            Gráfica Temp.
+        </h2>
         <div id="chart_div"></div>
     </div>
-</main>
+
+</div> <br>
+<button class="btn btn-sm btn-dark" id="toggle"><i class="fa fa-lock" aria-hidden="true"></i></button>
+<!-- Script para mover los div -->
+<script>
+    const graficas = document.getElementById('graficas');
+
+    const divgraf = Sortable.create(graficas, {
+        animation: 600,
+        easing: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
+        handle: ".fas",
+        // chosenClass: "seleccionado",
+        // ghostClass: "fantasma",
+        dragClass: "drag",
+        group: "grafica",
+        store: {
+            //Guardar el orden de los div
+            set: (sortable) => {
+                const orden = sortable.toArray();
+                localStorage.setItem(sortable.options.group.name, orden.join('|'));
+            },
+            //Obtenemos el orden pa q se guarde
+            get: (sortable) => {
+                const orden = localStorage.getItem(sortable.options.group.name);
+                return orden ? orden.split('|') : [];
+            }
+        }
+    });
+
+    const btnToggle = document.getElementById('toggle');
+    btnToggle.addEventListener('click', () => {
+        const estado = divgraf.option('disabled');
+        divgraf.option('disabled', !estado);
+        if (estado) {
+            btnToggle.innerHTML = "<i class='fa fa-lock' aria-hidden='true'></i>"
+        } else {
+            btnToggle.innerHTML = "<i class='fa fa-unlock' aria-hidden='true'></i>"
+        }
+    });
+</script>
+<script>
+    
+</script>
 <!-- Script de la gráfica de vibración -->
 <script>
     var ctx = document.getElementById("myChart");

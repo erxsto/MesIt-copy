@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
 <!-- Logo de la página -->
 <link rel="shortcut icon" href="{{ asset('img/logo-AE.png') }}">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--Estilos de cada página dependiendo su clase -->
 <style>
   * {
@@ -57,7 +60,7 @@
 
   .graficas {
     display: grid;
-    grid-template-columns: 1fr 1fR;
+    grid-template-columns: 1fr 1fr;
 
     gap: 20px;
   }
@@ -638,5 +641,20 @@
 
 .boton.uno:hover::after {
 	top: 0;
+}
+
+.grafica.seleccionado{
+  transform: scale(1.02) rotate(-1deg);
+  box-shadow: 5px 5px 50px rgba(0, 0, 0, .20);
+  background: #ccc;
+}
+.grafica.fantasma{
+  border: 2px dotted #000;
+}
+.grafica.drag{
+  opacity: 0;
+}
+.fas{
+  cursor: move;
 }
 </style>
