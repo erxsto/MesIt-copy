@@ -157,4 +157,17 @@ class VibracionController extends Controller
 
         return response()->json(compact('labels', 'data'));
     }
+
+    // registrar ejes
+
+    public function registrar_ejes(Request $request){
+
+         $alerta_create= alertas::insert(array(
+             'tabla'=>$request->tabla2,
+             'descripcion'=>$request->descripcion2,
+         ));
+
+        return back();
+        
+    }
 }
