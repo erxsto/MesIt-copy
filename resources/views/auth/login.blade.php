@@ -2,7 +2,7 @@
 @section('content')
 <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem;">
+        <div class="card sh" style="border-radius: 1rem;">
             <div class="row g-0">
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
@@ -37,7 +37,13 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="boton uno" type="submit"><span>Login</span></button>
+                                <button class="boton uno" type="submit"><span>Login</span>
+                            <!-- </button><button class="boton seis" type="submit">
+				            <span>Login</span>
+				            <svg>
+				            	<rect x="0" y="0" fill="none"></rect>
+				            </svg>
+			                </button> -->
                             </div>
                             <a class="small text-muted" href="#!">¿Olvidaste tu contraseña?</a>
                             <!-- <p class="mb-5 pb-lg-2" style="color: #393f81;">Aún no tienes una cuen? <a href="#!" style="color: #393f81;">Register here</a></p> -->

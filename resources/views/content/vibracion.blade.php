@@ -2,6 +2,10 @@
 @section('content')
 <!-- Script advertencia-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- form-guardar-alerta -->
+<form id="formsave_at"method="post" action="{{route('save_at')}}">
+
+</form>
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <audio id="xyz" src="error.mp3" preload="auto"></audio>
@@ -195,6 +199,7 @@
         updateChart();
     }, 1000);
 </script>
+
 <!-- Script alerta del eje X -->
 <script type="text/javascript">
     var setData1 = function() {
@@ -225,6 +230,41 @@
                         no-repeat
                         `
                     });
+                    // eje x critica
+                    var tabla = "vibracion";
+                      var descripcion= "Alerta crítica Eje X";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
 
                 } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     document.getElementById('xyz').muted = false;
@@ -244,6 +284,41 @@
                         no-repeat
                         `
                     });
+                    // eje x adv
+                    var tabla = "vibracion";
+                      var descripcion= "Advertencia en Eje X";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
 
                 }
             },
@@ -286,6 +361,42 @@
                         no-repeat
                         `
                     });
+                     // eje z critica
+                     var tabla = "vibracion";
+                      var descripcion= "Alerta crítica Eje Z";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
+                    
                 } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
@@ -304,6 +415,41 @@
                         no-repeat
                         `
                     });
+                    // eje z adv
+                    var tabla = "vibracion";
+                      var descripcion= "Advertencia en Eje Z";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
                 }
 
             },
@@ -346,6 +492,41 @@
                         no-repeat
                         `
                     });
+                    // eje Y critica
+                    var tabla = "vibracion";
+                      var descripcion= "Alerta crítica Eje Y";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
                 } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
                     document.getElementById('xyz').muted = false;
                     document.getElementById('xyz').play();
@@ -364,6 +545,41 @@
                         no-repeat
                         `
                     });
+                    // eje y adv
+                    var tabla = "vibracion";
+                      var descripcion= "Advertencia en Eje Y";
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
+                      document.getElementById("formsave_at").submit();
+                      $('#formsave_at').submit(function(e){
+                    e.preventDefault();
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla1 = $('#t1').val();
+                        var descripcion1 = $('#d1').val();
+                        var _token1 = $("input[name=_token]").val();
+
+
+                    $.ajax({
+                      url:'{{route("save_xyz")}}',
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla2: tabla1,
+                        descripcion2: descripcion1,
+                        _token: _token1
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      }
+                    
+
+                  });
+                  
+ 
+                  });
                 }
 
             },

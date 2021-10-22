@@ -50,4 +50,12 @@ Route::group(['middleware' => ['customAuth']], function () {
     Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
     Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');
 });
+<<<<<<< HEAD
 Route::post('save_at', 'TemperaturaController@save_at');
+=======
+
+
+Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
+Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
+Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
+>>>>>>> a28c07898fbb9be88aa26fce667c895e5b1d1892

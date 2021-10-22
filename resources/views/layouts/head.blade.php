@@ -642,6 +642,7 @@
 .boton.uno:hover::after {
 	top: 0;
 }
+<<<<<<< HEAD
 
 .grafica.seleccionado{
   transform: scale(1.02) rotate(-1deg);
@@ -656,5 +657,38 @@
 }
 .fas{
   cursor: move;
+=======
+.sh{
+  box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.51);
+-webkit-box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.51);
+-moz-box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.51);
+}
+.boton.seis {
+	background: none;
+	color: #000;
+}
+
+.boton.seis svg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+.boton.seis rect {
+	width: 100%;
+	height: 100%;
+	stroke: #000;
+	stroke-width: 8px;
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	transition: .9s ease all;
+}
+
+.boton.seis:hover rect {
+	stroke-dashoffset: 0;
+>>>>>>> a28c07898fbb9be88aa26fce667c895e5b1d1892
 }
 </style>
