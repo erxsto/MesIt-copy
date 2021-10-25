@@ -166,7 +166,7 @@
     </div>
 
 </div> <br>
-<button class="btn btn-sm btn-dark" id="toggle"><i class="fa fa-lock" aria-hidden="true"></i></button>
+<button class="btn btn-sm btn-dark" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
 <!-- Script para mover los div -->
 <script>
     const graficas = document.getElementById('graficas');
@@ -198,14 +198,13 @@
         const estado = divgraf.option('disabled');
         divgraf.option('disabled', !estado);
         if (estado) {
-            btnToggle.innerHTML = "<i class='fa fa-lock' aria-hidden='true'></i>"
-        } else {
             btnToggle.innerHTML = "<i class='fa fa-unlock' aria-hidden='true'></i>"
+        } else {
+            btnToggle.innerHTML = "<i class='fa fa-lock' aria-hidden='true'></i>"
         }
     });
 </script>
-<script>
-    
+<script>    
 </script>
 <!-- Script de la gráfica de vibración -->
 <script>
