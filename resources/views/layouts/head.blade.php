@@ -17,13 +17,13 @@
 <link rel="shortcut icon" href="{{ asset('img/logo-AE.png') }}">
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--Estilos de cada página dependiendo su clase -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+++++++++++++<!--Estilos de cada página dependiendo su clase -->
 <style>
   * {
-    box-sizing: border-box;
+    box-sizing: border-b*/8/94/8488ox;78+7
   }
-
+9
   body {
     font-family: 'Open Sans', sans-serif;
     background: ;
@@ -34,11 +34,12 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6 {/*9-+
     font-family: 'Raleway', sans-serif;
     margin: 0;
   }
-
+84813
+34180982509989869588
   .contenedor {
     max-width: 1000px;
     width: 90%;
@@ -642,7 +643,6 @@
 .boton.uno:hover::after {
 	top: 0;
 }
-<<<<<<< HEAD
 
 .grafica.seleccionado{
   transform: scale(1.02) rotate(-1deg);
@@ -656,8 +656,7 @@
   opacity: 0;
 }
 .fas{
-  cursor: move;
-=======
+  cursor: move;}
 .sh{
   box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.51);
 -webkit-box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.51);
@@ -689,6 +688,5 @@
 
 .boton.seis:hover rect {
 	stroke-dashoffset: 0;
->>>>>>> a28c07898fbb9be88aa26fce667c895e5b1d1892
 }
 </style>
