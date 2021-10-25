@@ -233,32 +233,36 @@
                     // eje x critica
                     var tabla = "vibracion";
                       var descripcion= "Alerta crítica Eje X";
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
@@ -288,31 +292,36 @@
                     var tabla = "vibracion";
                       var descripcion= "Advertencia en Eje X";
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
@@ -365,31 +374,36 @@
                      var tabla = "vibracion";
                       var descripcion= "Alerta crítica Eje Z";
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
@@ -419,31 +433,36 @@
                     var tabla = "vibracion";
                       var descripcion= "Advertencia en Eje Z";
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
@@ -496,31 +515,36 @@
                     var tabla = "vibracion";
                       var descripcion= "Alerta crítica Eje Y";
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
@@ -549,31 +573,36 @@
                     var tabla = "vibracion";
                       var descripcion= "Advertencia en Eje Y";
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save_xyz")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
