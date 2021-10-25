@@ -68,27 +68,12 @@ class TemperaturaController extends Controller
         ); 
     }
     public function save_at(Request $request){
-        
-
-        $alerta_temp = alertas::insert(array(
-            'tabla'=>$request->input('tabla'),
-            'descripcion'=>$request->input('descripcion'),
-        ));
-        
+        if($request->ajax()){ 
+            // return response()->json(['status'=>'Ajax request']);
+         
+        $alerta_create = DB::insert("insert INTO [dbo].[alertas] (tabla, descripcion) VALUES ('$request->tabla','$request->descripcion')");
         return redirect()->back();
-        
+         }
     }
-    public function registrar(Request $request){
-
-        //  $alerta_create = DB::select("EXECUTE  usp_AlertCreate @tabla="."'$request->tabla2'".",@descripcion="."'$request->descripcion2'",
-        //                           );
-
-         $alerta_create= alertas::insert(array(
-             'tabla'=>$request->tabla2,
-             'descripcion'=>$request->descripcion2,
-         ));
-
-        return back();
-        
-    }
+    
 }

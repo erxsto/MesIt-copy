@@ -37,42 +37,46 @@
                     
                   
                     var tabla = "temperatura";
-                      var descripcion= "Alerta crítica Temperatura: "+Respuesta[0].temp;
+                      var descripcion= "Alerta critica Temperatura: "+Respuesta[0].temp;
+                      
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'>";
-                      document.getElementById("formsave_at").submit();
-                      $('#formsave_at').submit(function(e){
-                    e.preventDefault();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><a type='button' id='send'> ola";
+                    
+                           $("#save").click();
+                       
+                        
+$('#send').on('click',function(e){
+                    
                     // var datos = $(this).serializeArray();
                     // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla1 = $('#t1').val();
-                        var descripcion1 = $('#d1').val();
-                        var _token1 = $("input[name=_token]").val();
-
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
 
                     $.ajax({
-                      url:'{{route("save")}}',
+                      url: ruta,
                       type: 'POST',
                       dateType: 'json',
                       data: {
-                        tabla2: tabla1,
-                        descripcion2: descripcion1,
-                        _token: _token1
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        _token: _token
                       },
                       success:function(response){
                         if(response){
                           console.log('ok');
                         }
-                      }
+                      },error:function(response){console.error();}
                     
 
                   });
                   
  
                   });
-      } else{
-
                     
+      } else{
+        
                    
       }
         
