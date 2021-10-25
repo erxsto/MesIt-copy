@@ -36,13 +36,16 @@
                     });
                     
                   
+                   
                     var tabla = "temperatura";
                       var descripcion= "Alerta critica Temperatura: "+Respuesta[0].temp;
                       
                     
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><a type='button' id='send'> ola";
-                    
-                           $("#save").click();
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+        }, 3000);                   
                        
                         
 $('#send').on('click',function(e){
@@ -77,7 +80,7 @@ $('#send').on('click',function(e){
                     
       } else{
         
-                   
+
       }
         
     }, 3000);
