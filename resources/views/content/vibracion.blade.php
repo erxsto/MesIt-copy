@@ -265,6 +265,7 @@
                                       data: {
                                         tabla: tabla11,
                                         descripcion: descripcion11,
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
@@ -325,6 +326,7 @@
                                       data: {
                                         tabla: tabla22,
                                         descripcion: descripcion22,
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
@@ -406,6 +408,10 @@
                                       data: {
                                         tabla: tabla33,
                                         descripcion: descripcion33,
+                                        valor : data.data[0],
+                                        valor : data.data[0],
+                                        valor : data.data[0],
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
@@ -465,6 +471,9 @@
                                       data: {
                                         tabla: tabla44,
                                         descripcion: descripcion44,
+                                        valor : data.data[0],
+                                        valor : data.data[0],
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
@@ -547,6 +556,8 @@
                                       data: {
                                         tabla: tabla55,
                                         descripcion: descripcion55,
+                                        valor : data.data[0],
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
@@ -605,6 +616,7 @@
                                       data: {
                                         tabla: tabla66,
                                         descripcion: descripcion66,
+                                        valor : data.data[0],
                                         _token: _token
                                       },
                                       success:function(response){
