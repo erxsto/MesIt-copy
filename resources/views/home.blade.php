@@ -187,8 +187,43 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                    <div class="num" id="indicador3"> </div>
-                    <hr> VOLTS L1 (V)
+                    <div class="num" id="indicador"></div>
+
+                    <hr> FASE 1A (A)
+                </div>
+            </div>
+        </li>
+        <li class="graficasd" id="graficasS">
+            <div class="grafica" data-id="energiaa" id="im4">
+                <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+                    <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+                    Energía
+                </h2>
+                <div class="a" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div class="num" id="indicador6"></div>
+
+                    <hr> Frecuencia (Hz)
+                </div>
+            </div>
+        </li>
+        <li class="graficasd" id="graficasS">
+            <div class="grafica" data-id="energiaa" id="im4">
+                <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+                    <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+                    Energía
+                </h2>
+                <div class="a" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div class="num" id="indicador12"></div>
+
+                    <hr> Consumo Total (KW)
                 </div>
             </div>
         </li>
