@@ -25,12 +25,6 @@ Route::name('destroy')->get('destroy/', 'App\Http\Controllers\LoginController@de
 
 //RUTAS Graficas Energia.
 
-//Ruta correo
-Route::get('alertavibracion', function () {
-    $correo = new AlertaVibracionMailable;
-    Mail::to('amats@gmail.com')->send($correo);
-    return "Mensaje enviado.";
-});
 
 Route::group(['middleware' => ['customAuth']], function () {
     Route::name('/')->get('/', 'App\Http\Controllers\DashboardController@index');
@@ -55,3 +49,14 @@ Route::group(['middleware' => ['customAuth']], function () {
 Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
+
+Route::name('correo_alerta')->get('correo_alerta/', 'App\Http\Controllers\CorreoController@correo_alerta');
+
+
+//Ruta correo
+Route::get('alertavibracion', function () {
+    $correo = new AlertaVibracionMailable;
+    Mail::to('amats@gmail.com')->send($correo);
+    return "Mensaje enviado.";
+}); 
+

@@ -71,7 +71,7 @@ class TemperaturaController extends Controller
         if($request->ajax()){ 
             // return response()->json(['status'=>'Ajax request']);
          
-        $alerta_create = DB::insert("insert INTO [dbo].[alertas] (tabla, descripcion) VALUES ('$request->tabla','$request->descripcion')");
+        $alerta_create = DB::insert("insert INTO [dbo].[alertas] (tabla, descripcion, valor) VALUES ('$request->tabla','$request->descripcion','$request->valor')");
         return redirect()->back();
          }
     }

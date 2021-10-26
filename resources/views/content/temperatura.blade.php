@@ -9,85 +9,6 @@
 </form>
 
 <script type="text/javascript">
-    setInterval(function() {
-      var JSON = $.ajax({
-        url: "/api/datatemp",
-        dataType: 'json',
-        method: 'GET',
-        async: false
-      }).responseText;
-      var Respuesta = jQuery.parseJSON(JSON);
-      if (Respuesta[0].temp >= 30) {
-                    
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Alerta crítica',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false,
-                        text: 'Temperatura mayor a 30!',
-                        width: 600,
-                        padding: '3em',
-                        backdrop: `
-                        rgba(178, 34, 34,0.25)
-                        left top
-                        no-repeat
-                        `
-                    });
-                    
-                  
-                   
-                    var tabla = "temperatura";
-                      var descripcion= "Alerta critica Temperatura: "+Respuesta[0].temp;
-                      
-                    
-                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><button style='{display:none;}' type='button' id='send'> ola";
-                      $('#send').hide();
-                      setTimeout(() => {
-                        $('#send').click();
-        }, 3000);                   
-                       
-                        
-$('#send').on('click',function(e){
-                    
-                    // var datos = $(this).serializeArray();
-                    // datos.push({name: 'tag', value: 'formulariosave'});
-                        var tabla = $('#t1').val();
-                        var descripcion= $('#d1').val();
-                        var _token = $("input[name=_token]").val();
-                        ruta = $('#formsave_at').attr('action');
-
-                    $.ajax({
-                      url: ruta,
-                      type: 'POST',
-                      dateType: 'json',
-                      data: {
-                        tabla: tabla,
-                        descripcion: descripcion,
-                        _token: _token
-                      },
-                      success:function(response){
-                        if(response){
-                          console.log('ok');
-                        }
-                      },error:function(response){console.error();}
-                    
-
-                  });
-                  
- 
-                  });
-                    
-      } else{
-        
-
-      }
-        
-    }, 3000);
-          
-</script>
-
-<script type="text/javascript">
   google.charts.load('current', {
     'packages': ['gauge']
   });
@@ -149,7 +70,7 @@ $('#send').on('click',function(e){
       var Respuesta = jQuery.parseJSON(JSON);
       data.setValue(0, 1, Respuesta[0].temp);
       chart.draw(data, options);
-    }, 1000);
+    }, 3000);
 
 
 
@@ -222,7 +143,7 @@ $('#send').on('click',function(e){
       data.setValue(9, 1, Respuesta[0].temp);
       data.setValue(9, 2, Respuesta[0].far);
       chart.draw(data, options);
-    }, 1000);
+    }, 3000);
   }
 </script>
 <div class="contenedor">
@@ -284,5 +205,86 @@ $('#send').on('click',function(e){
       mes = '0' + mes
     document.getElementById('fecha_fin').value = ano + "-" + mes + "-" + dia;
   }
+</script>
+<script type="text/javascript">
+    setInterval(function() {
+      var JSON = $.ajax({
+        url: "/api/datatemp",
+        dataType: 'json',
+        method: 'GET',
+        async: false
+      }).responseText;
+      var Respuesta1 = jQuery.parseJSON(JSON);
+      if (Respuesta1[0].temp >= 30) {
+                    
+                      var tabla = "temperatura";
+                      var descripcion= "Alerta critica Temperatura";
+                      var valor = Respuesta1[0].temp;
+                    
+                      document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1' class='t1' name='tabla' value='"+tabla+"'>"+ "<br><input id='d1' type='hidden' name='descripcion' value='"+descripcion+"'><input id='valor' type='hidden' name='valor' value='"+valor+"'><button style='{display:none;}' type='button' id='send'> ola";
+                      $('#send').hide();
+                      setTimeout(() => {
+                        $('#send').click();
+                      }, 3000);                   
+                       
+                        
+                    $('#send').on('click',function(e){
+                    
+                    // var datos = $(this).serializeArray();
+                    // datos.push({name: 'tag', value: 'formulariosave'});
+                        var tabla = $('#t1').val();
+                        var descripcion= $('#d1').val();
+                        var valor= $('#valor').val();
+                        var _token = $("input[name=_token]").val();
+                        ruta = $('#formsave_at').attr('action');
+
+                    $.ajax({
+                      url: ruta,
+                      type: 'POST',
+                      dateType: 'json',
+                      data: {
+                        tabla: tabla,
+                        descripcion: descripcion,
+                        valor:valor,
+                        _token: _token
+                      },
+                      success:function(response){
+                        if(response){
+                          console.log('ok');
+                        }
+                      },error:function(response){console.error();}
+                    
+
+                  });
+                  
+ 
+                  });
+                  
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Alerta crítica',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        text: 'Temperatura mayor a 30!',
+                        width: 600,
+                        padding: '3em',
+                        backdrop: `
+                        rgba(178, 34, 34,0.25)
+                        left top
+                        no-repeat
+                        `
+                    });
+                    
+                  
+                   
+                    
+      } else{
+        
+
+      }
+        
+    }, 3000);
+          
 </script>
 @endsection
