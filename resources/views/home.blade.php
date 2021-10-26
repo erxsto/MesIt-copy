@@ -126,9 +126,10 @@
     }
 </script>
 <!-- Gráfica de vibración -->
-<div class="graficas container-fluid align-content-center" id="graficas">
-    <div class="grafica" data-id="energia">
+<div class="graficas graficasd container-fluid align-content-center" id="graficasd">
+    <div class="grafica" data-id="energia" id="im">
         <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
             Energía
         </h2>
         <div class="a" href="#">
@@ -141,8 +142,9 @@
         </div>
     </div>
 
-    <div class="grafica" data-id="temp">
+    <div class="grafica" data-id="temp" id="im1">
         <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            <a id="boton" onclick="ocultar1();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
             Temperatura
         </h2>
         <center>
@@ -151,27 +153,54 @@
         </center>
     </div>
 
-    <div class="grafica" data-id="vib">
+    <div class="grafica" data-id="vib" id="im2">
         <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            <a id="boton" onclick="ocultar2();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
             Vibración
         </h2>
         <canvas id="myChart"></canvas>
     </div>
 
-    <div class="grafica" data-id="graft">
+    <div class="grafica" data-id="graft" id="im3">
         <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+            <a id="boton" onclick="ocultar3();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
             Gráfica Temp.
         </h2>
         <div id="chart_div"></div>
     </div>
-
 </div> <br>
-<button class="btn btn-sm btn-dark" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+<button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
+<button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+<div class="btn-group dropend">
+    <button type="button" class="btn btn-black dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-back" aria-hidden="true"></i>
+    </button>
+    <ul class="dropdown-menu ">
+        <li class="graficasd" id="graficasS">
+            <div class="grafica" data-id="energiaa" id="im4">
+                <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
+                    <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+                    Energía
+                </h2>
+                <div class="a" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div class="num" id="indicador3"> </div>
+                    <hr> VOLTS L1 (V)
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 <!-- Script para mover los div -->
 <script>
-    const graficas = document.getElementById('graficas');
+    const graficasd = document.getElementById('graficasd');
+    const graficasS = document.getElementById('graficasS');
 
-    const divgraf = Sortable.create(graficas, {
+    const divgraf = Sortable.create(graficasd, {
+        pull: false,
         animation: 600,
         easing: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
         handle: ".fas",
@@ -192,7 +221,16 @@
             }
         }
     });
+    const divgraf2 = Sortable.create(graficasS, {
 
+        animation: 600,
+        easing: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
+        handle: ".fas",
+        // chosenClass: "seleccionado",
+        // ghostClass: "fantasma",
+        dragClass: "drag",
+        group: "grafica",
+    });
     const btnToggle = document.getElementById('toggle');
     btnToggle.addEventListener('click', () => {
         const estado = divgraf.option('disabled');
@@ -204,7 +242,46 @@
         }
     });
 </script>
-<script>    
+<script>
+    function mostrar() {
+        document.getElementById('im').style.cssText = `position: relative;`;
+    }
+
+    function mostrar1() {
+        document.getElementById('im1').style.display = 'block';
+    }
+
+    function mostrar2() {
+        document.getElementById('im2').style.display = 'block';
+    }
+
+    function mostrar3() {
+        document.getElementById('im3').style.display = 'block';
+    }
+
+    function mostrar4() {
+        document.getElementById('im4').style.cssText = `position: relative;`;
+    }
+
+    function ocultar() {
+        document.getElementById('im').style.display = 'none';
+    }
+
+    function ocultar1() {
+        document.getElementById('im1').style.display = 'none';
+    }
+
+    function ocultar2() {
+        document.getElementById('im2').style.display = 'none';
+    }
+
+    function ocultar3() {
+        document.getElementById('im3').style.display = 'none';
+    }
+
+    function ocultar4() {
+        document.getElementById('im4').style.display = 'none';
+    }
 </script>
 <!-- Script de la gráfica de vibración -->
 <script>
