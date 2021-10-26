@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 
-<form class="form-inline" method="get" action="{{route('temperatura')}}">
+<form class="form-inline" method="get" action="{{route('correo_alerta')}}">
   <center><br><h5>Consulta de Historial de Alertas</h5><br><br></center>
    <select name="" id="" class="form-control"> 
 
@@ -14,6 +14,7 @@
 <br>
 <br>
   
+
 <label>Fecha Desde:</label>
   <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
   <label>Hasta</label>
@@ -35,7 +36,7 @@
       @foreach ($alertas as $alerta)
       <tr>
         <td>{{$alerta->id}}</td>
-        <td>{{ number_format($alerta->temp,1) }}</td>
+        <td>{{ number_format($alerta->valor,1) }}</td>
         <td>{{$alerta->created_at}}</td>
       </tr>
       @endforeach
