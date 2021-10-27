@@ -12,7 +12,9 @@
         }).responseText;
         var Respuesta = jQuery.parseJSON(JSON);
         document.getElementById("indicador3").innerHTML = (Respuesta[0].voltsL1) / 10;
-
+        document.getElementById("indicador12").innerHTML = (Respuesta[0].consumo_total) / 10;
+        document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
+        document.getElementById("indicador").innerHTML = (Respuesta[0].fase1A) / 10;
 
     }, 1700);
 </script>
@@ -169,15 +171,15 @@
         <div id="chart_div"></div>
     </div>
 </div> <br>
-<button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
+<button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
 <button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
 <div class="btn-group dropend">
     <button type="button" class="btn btn-black dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-back" aria-hidden="true"></i>
     </button>
-    <ul class="dropdown-menu ">
-        <li class="graficasd" id="graficasS">
-            <div class="grafica" data-id="energiaa" id="im4">
+    <ul class="dropdown-menu" id="graficasS">
+        <li class="graficasd" id="" style="list-style:none">
+            <div class="grafica" data-id="energiaf" id="im4">
                 <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
                     <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
                     Energía
@@ -193,10 +195,10 @@
                 </div>
             </div>
         </li>
-        <li class="graficasd" id="graficasS">
-            <div class="grafica" data-id="energiaa" id="im4">
+        <li class="graficasd" id="" style="list-style:none">
+            <div class="grafica" data-id="energiafr" id="im5">
                 <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-                    <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+                    <a id="boton" onclick="ocultar5();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
                     Energía
                 </h2>
                 <div class="a" href="#">
@@ -210,10 +212,10 @@
                 </div>
             </div>
         </li>
-        <li class="graficasd" id="graficasS">
-            <div class="grafica" data-id="energiaa" id="im4">
+        <li class="graficasd" id="" style="list-style:none">
+            <div class="grafica" data-id="energiac" id="im6">
                 <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-                    <a id="boton" onclick="ocultar4();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+                    <a id="boton" onclick="ocultar6();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
                     Energía
                 </h2>
                 <div class="a" href="#">
@@ -235,7 +237,6 @@
     const graficasS = document.getElementById('graficasS');
 
     const divgraf = Sortable.create(graficasd, {
-        pull: false,
         animation: 600,
         easing: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
         handle: ".fas",
@@ -264,7 +265,8 @@
         // chosenClass: "seleccionado",
         // ghostClass: "fantasma",
         dragClass: "drag",
-        group: "grafica",
+        group: {name:"grafica",
+            pull: true,}
     });
     const btnToggle = document.getElementById('toggle');
     btnToggle.addEventListener('click', () => {
@@ -298,6 +300,14 @@
         document.getElementById('im4').style.cssText = `position: relative;`;
     }
 
+    function mostrar5() {
+        document.getElementById('im5').style.cssText = `position: relative;`;
+    }
+
+    function mostrar6() {
+        document.getElementById('im6').style.cssText = `position: relative;`;
+    }
+
     function ocultar() {
         document.getElementById('im').style.display = 'none';
     }
@@ -316,6 +326,14 @@
 
     function ocultar4() {
         document.getElementById('im4').style.display = 'none';
+    }
+
+    function ocultar5() {
+        document.getElementById('im5').style.display = 'none';
+    }
+
+    function ocultar6() {
+        document.getElementById('im6').style.display = 'none';
     }
 </script>
 <!-- Script de la gráfica de vibración -->
