@@ -5,9 +5,9 @@ use App\Models\alertas;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
-class CorreoController extends Controller
+class AlertasController extends Controller
 {
-    public function correo_alerta(Request $request){
+    public function alertas(Request $request){
 
         $fi = $request->fecha_ini;
         $ff = $request->fecha_fin;
@@ -15,7 +15,7 @@ class CorreoController extends Controller
         $fff= Carbon::parse($ff)->format('d/m/Y');
         $alertas = DB::select("SELECT * FROM dbo.alertas where created_at between convert(datetime,'$fii') and convert(datetime,'$fff')");
      
-        return view('content.correo_alerta')
+        return view('content.alertas')
             ->with(['alertas' => $alertas]);
             
     }

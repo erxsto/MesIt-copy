@@ -23,7 +23,7 @@
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer2"></i><span class="tooltip-box">Temperatura</span></a>
       </li>
       <li>
-      <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./correo_alerta"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
+      <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
       </li>
       <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>

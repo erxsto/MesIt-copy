@@ -50,13 +50,13 @@ Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@regi
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
 
-Route::name('correo_alerta')->get('correo_alerta/', 'App\Http\Controllers\CorreoController@correo_alerta');
+Route::name('alertas')->get('alertas/', 'App\Http\Controllers\CorreoController@alertas');
 
 
 //Ruta correo
-Route::get('alertavibracion', function () {
-    $correo = new AlertaVibracionMailable;
+Route::get('infocorreo', function () {
+    $correo = new EnviarCorreoMailable;
     Mail::to('amats@gmail.com')->send($correo);
     return "Mensaje enviado.";
-}); 
+})->name(correo.index); 
 
