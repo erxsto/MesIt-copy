@@ -171,8 +171,10 @@
         <div id="chart_div"></div>
     </div>
 </div> <br>
+<!-- Botonoes para mostrar y <bloquear | desbloquear> -->
 <button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
 <button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+<!-- Divs en dropend -->
 <div class="btn-group dropend">
     <button type="button" class="btn btn-black dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-back" aria-hidden="true"></i>
@@ -265,8 +267,10 @@
         // chosenClass: "seleccionado",
         // ghostClass: "fantasma",
         dragClass: "drag",
-        group: {name:"grafica",
-            pull: true,}
+        group: {
+            name: "grafica",
+            pull: true,
+        }
     });
     const btnToggle = document.getElementById('toggle');
     btnToggle.addEventListener('click', () => {
@@ -279,6 +283,7 @@
         }
     });
 </script>
+<!-- Bloquear y desbloquear divs -->
 <script>
     function mostrar() {
         document.getElementById('im').style.cssText = `position: relative;`;
