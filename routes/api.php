@@ -26,7 +26,7 @@ Route::get('datatemp', 'App\Http\Controllers\TemperaturaController@datatemp')->n
 Route::get('datacharttemp', 'App\Http\Controllers\TemperaturaController@datacharttemp')->name('datacharttemp');
 Route::get('dataenergia', 'App\Http\Controllers\EnergiaController@dataenergia')->name('dataenergia');
 Route::get('d', 'App\Http\Controllers\TemperaturaController@d')->name('d');
-
+Route::post('valueslider', 'App\Http\Controllers\EnergiaController@valueslider')->name('valueslider');
 //Graficas energia
 Route::get('grafs', 'App\Http\Controllers\EnergiaController@grafs')->name('grafs');
 Route::get('ok','App\Http\Controllers\TwilioController@ok')->name('ok');

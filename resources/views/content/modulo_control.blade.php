@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <script type="text/javascript">
   setInterval(function() {
 
@@ -25,7 +26,7 @@
     left: 50%;
     width: 400px;
     height: 400px;
-    margin-top: -200px;
+    margin-top: -50px;
     margin-left: -200px;
     border-radius: 2px;
     box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6);
@@ -210,10 +211,8 @@
     }
   }
 </style>
-<form id="formsave_at" method="post" action="{{route('save_ate')}}">
-</form>
-<center><br>
-  <h2>Control de energía</h2><br><br><br><br>
+<center>
+  <h2>Control de energía</h2><br><br>
 </center>
 <div class="text-center">
   <button class="boton uno" type="submit" style="float: left;"><span>Izquierda</span>
@@ -234,16 +233,21 @@
   <button class="boton uno" type="submit" style="float: right;"><span>Derecha</span>
   </button>
 </div>
-<br><br><br><br>
+<br><br><br><br><br>
 <div class="text-center">
-  <svg width="320px" height="150px" version="1.1" xmlns="http://www.w3.org/2000/svg" class="text-align: center;">
-    <path id="path1" d="M10 80 Q 150 0 300 80" stroke="gray" stroke-dasharray="5,5" fill="transparent" />
-    <path id="path2" d="M10 80 Q 150 0 300 80" stroke-width="7" stroke="#7CFC00" fill="transparent" stroke-linecap="round" />
-    <circle class="knob" r="25" fill="#88CE02" stroke-width="4" stroke="#111" />
-  </svg>
+  <div class="frame">
+    <div id="slider" class="rslider"></div>
+    <div class="thermostat">
+      <div class="ring">
+        <div class="bottom_overlay"></div>
+      </div>
+      <div class="control">
+        <div class="room">Frecuencia</div>
+      </div>
+    </div>
+  </div>
 </div>
-<br><br><br><br>
-<br><br>
+<br>
 <div class="text-center">
   <div class="a" href="#">
     <span></span>
@@ -272,97 +276,41 @@
     <hr> Frecuencia
   </div>
 </div>
-<div class="frame">
-  <div id="slider" class="rslider"></div>
-  <div class="thermostat">
-    <div class="ring">
-      <div class="bottom_overlay"></div>
-    </div>
-    <div class="control">
-      <div class="room">Frecuencia</div>
-    </div>
-  </div>
-  <input type="hidden" id="valslider">
-  <script>
-    var D = document.createElement("div");
-    TweenMax.set("svg", {
-      overflow: "visible"
-    });
-    TweenMax.set(".knob", {
-      x: 10,
-      y: 80
-    });
-
-    var tl = new TimelineMax({
-        paused: true
-      })
-      .from("#path2", 1, {
-        drawSVG: "0%",
-        stroke: "orange",
-        ease: Linear.easeNone
-      })
-      .to(
-        ".knob",
-        1, {
-          bezier: {
-            type: "quadratic",
-            values: [{
-                x: 10,
-                y: 80
-              },
-              {
-                x: 150,
-                y: 0
-              },
-              {
-                x: 300,
-                y: 80
-              }
-            ]
-          },
-          ease: Linear.easeNone
-        },
-        0
-      );
-
-    Draggable.create(D, {
-      trigger: ".knob",
-      type: "x",
-      throwProps: true,
-      bounds: {
-        minX: 0,
-        maxX: 300
-      },
-      onDrag: Update,
-      onThrowUpdate: Update
-    });
-
-    function Update() {
-      tl.progress(Math.abs(this.x / 300));
-    }
-
-    TweenMax.to("#path1", 0.5, {
-      strokeDashoffset: -10,
-      repeat: -1,
-      ease: Linear.easeNone
-    });
-  </script>
-  <script>
-     
+<input type="hidden" id="valslider">
+<script>
+    var JSON = $.ajax({
+      url: "/api/dataenergia",
+      dataType: 'json',
+      method: 'GET',
+      async: false
+    }).responseText;
+    var Respuesta = jQuery.parseJSON(JSON);
+    var hz = Respuesta[0].hz / 10;
     $("#slider").roundSlider({
       radius: 72,
       circleShape: "half-top",
       sliderType: "min-range",
       mouseScrollAction: true,
-      value:1,
+      value: hz,
+      id: "valsliders",
       handleSize: "+5",
       min: 0,
       max: 60,
-      change: function(args){
+      change: function(args) {
         console.log(args.value);
         $('#valslider').html(args.value);
-
+        $.ajax({
+          type: 'POST',
+          dateType: 'json',
+          url: "/api/valueslider",
+          headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+          data: {
+            data: args.value * 10
+          },
+        });
       }
     });
-  </script>
-  @endsection
+</script>
+@endsection
