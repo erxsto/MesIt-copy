@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="toggleMobileMenu">
     <text class="navbar-item active btn-lg mesit">MES INTERFACE IT</text>
     <ul class="navbar-nav text-center">
-    @if(session()->has('session_id'))
+      @if(session()->has('session_id'))
       <li class="nav-item active izqitem topitem">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./"><i class="bi bi-house"></i><span class="tooltip-box">Dashboard</span></a>
       </li>
@@ -20,13 +20,16 @@
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./energia"><i class="fa fa-car-battery"></i><span class="tooltip-box">Energía</span></a>
       </li>
       <li class="nav-item active topitem" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer2"></i><span class="tooltip-box">Temperatura</span></a>
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer"></i><span class="tooltip-box">Temperatura</span></a>
       </li>
-      <li>
-      <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
+      <li class="nav-item active topitem" style="margin-left:10px;">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
       </li>
-      <li>
-      <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="{{route('cindex')}}"><i class="fa fa-envelope"></i><span class="tooltip-box">Correo</span></a>
+      <li class="nav-item active topitem" style="margin-left:10px;">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./modulo_control"><i class="bi bi-sliders"></i><span class="tooltip-box">M.Control</span></a>
+      </li>
+      <li class="nav-item active topitem" style="margin-left:10px;">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="{{route('cindex')}}"><i class="fa fa-envelope"></i><span class="tooltip-box">Correo</span></a>
       </li>
       <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
