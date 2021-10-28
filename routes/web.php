@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VibracionController;
-use App\Mail\AlertaVibracionMailable;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\LoginController;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
@@ -50,13 +48,10 @@ Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@regi
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
 
-Route::name('alertas')->get('alertas/', 'App\Http\Controllers\CorreoController@alertas');
+Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
 
 
 //Ruta correo
-Route::get('infocorreo', function () {
-    $correo = new EnviarCorreoMailable;
-    Mail::to('amats@gmail.com')->send($correo);
-    return "Mensaje enviado.";
-})->name(correo.index); 
+Route::get('correo/index', 'App\Http\Controllers\CorreoController@index')->name('correo.index'); 
+Route::post('correo/store', 'App\Http\Controllers\CorreoController@store')->name('correo.store'); 
 
