@@ -6,7 +6,7 @@
 <h4>Envio de Correo</h4>
 <br>
 <br>
-<form action="{{route('correo.store')}}" method="post">
+<form action="{{route('cstore')}}" method="post">
 
     @csrf
         <label>

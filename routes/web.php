@@ -52,6 +52,6 @@ Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@
 
 
 //Ruta correo
-Route::get('correo/index', 'App\Http\Controllers\CorreoController@index')->name('correo.index'); 
-Route::post('correo/store', 'App\Http\Controllers\CorreoController@store')->name('correo.store'); 
+Route::get('cindex', 'App\Http\Controllers\CorreoController@index')->name('cindex'); 
+Route::post('cstore', 'App\Http\Controllers\CorreoController@store')->name('cstore'); 
 
