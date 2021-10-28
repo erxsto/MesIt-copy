@@ -282,6 +282,7 @@
       <div class="room">Frecuencia</div>
     </div>
   </div>
+  <input type="hidden" id="valslider">
   <script>
     var D = document.createElement("div");
     TweenMax.set("svg", {
@@ -347,54 +348,21 @@
     });
   </script>
   <script>
-        setInterval(function() {
-      var JSON = $.ajax({
-        url: "/api/dataenergia",
-      dataType: 'json',
-      method: 'GET',
-      async: false
-    }).responseText;
-    var Respuesta = jQuery.parseJSON(JSON);
-    var hz = Respuesta[0].hz / 10;
+     
     $("#slider").roundSlider({
       radius: 72,
       circleShape: "half-top",
       sliderType: "min-range",
       mouseScrollAction: true,
-      value:hz,
+      value:1,
       handleSize: "+5",
       min: 0,
-      max: 60
+      max: 60,
+      change: function(args){
+        console.log(args.value);
+        $('#valslider').html(args.value);
+
+      }
     });
-
-    document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input id='hz' type='hidden' name='hz' value='" + hz + "'><button style='{display:none;}' type='button' id='send'> ola";
-    $('#send').hide();
-    () => {
-      $('#send').click();
-    };
-    $('#send').on('click', function(e) {
-      // var datos = $(this).serializeArray();
-      // datos.push({name: 'tag', value: 'formulariosave'});
-
-
-      $.ajax({
-        url: ruta,
-        type: 'POST',
-        dateType: 'json',
-        data: {
-          hz: hz,
-          _token: _token
-        },
-        success: function(response) {
-          if (response) {
-            console.log('ok');
-          }
-        },
-        error: function(response) {
-          console.error();
-        }
-      });
-    });
-  }, 3000);
   </script>
   @endsection
