@@ -29,13 +29,14 @@
     margin-top: -50px;
     margin-left: -200px;
     border-radius: 2px;
-    /* box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6); */
+    box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6);
     overflow: hidden;
     color: #333;
     font-family: "Rubik", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #ffffff;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%);
   }
 
   .thermostat {
@@ -80,7 +81,7 @@
     font-weight: 400;
     font-size: 60px;
     line-height: 60px;
-    color: #873183;
+    color: #020201;
     letter-spacing: -8px;
     padding-right: 12px;
     opacity: 1;
@@ -95,7 +96,7 @@
     font-size: 2rem;
     line-height: 34px;
     padding: 3px 0 0 7px;
-    color: #8e2275;
+    color: #020201;
   }
 
   .room {
@@ -114,7 +115,8 @@
     height: 180px;
     top: 10px;
     left: 10px;
-    background: url("http://100dayscss.com/codepen/thermostat-gradient.jpg") center center no-repeat;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, rgba(139,139,164,1) 94%);
     border-radius: 50%;
     box-shadow: inset 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
   }
@@ -158,9 +160,9 @@
   .rs-tooltip .rs-input,
   .rs-tooltip-text {
     font-family: rubik, helvetica, sans-serif;
-    font-size: 3.3rem;
+    font-size: 2.8rem;
     background: transparent;
-    color: #8e2275;
+    color: #020201;
     font-weight: 400;
     top: 65%;
     height: 3.9rem;
@@ -177,7 +179,7 @@
   }
 
   #slider .rs-transition {
-    transition-timing-function: cubic-bezier(1, -0.53, 0.405, 1.425);
+    transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68);
   }
 
   .instructions {
