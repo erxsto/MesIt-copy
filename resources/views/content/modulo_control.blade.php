@@ -210,8 +210,7 @@
     }
   }
 </style>
-<form id="formsave_at"method="post" action="{{route('save_at')}}">
-
+<form id="formsave_at" method="post" action="{{route('save_ate')}}">
 </form>
 <center><br>
   <h2>Control de energía</h2><br><br><br><br>
@@ -274,103 +273,128 @@
   </div>
 </div>
 <div class="frame">
-	<div id="slider" class="rslider"></div>
-	<div class="thermostat">
-		<div class="ring">
-			<div class="bottom_overlay"></div>
-		</div>
-		<div class="control">
-			<div class="temp_outside">23°</div>
-			<div class="temp_room"><span>°</span></div>
-			<div class="room">Bedroom</div>
-		</div>
-	</div>
-<script>
-  var D = document.createElement("div");
-  TweenMax.set("svg", {
-    overflow: "visible"
-  });
-  TweenMax.set(".knob", {
-    x: 10,
-    y: 80
-  });
+  <div id="slider" class="rslider"></div>
+  <div class="thermostat">
+    <div class="ring">
+      <div class="bottom_overlay"></div>
+    </div>
+    <div class="control">
+      <div class="room">Frecuencia</div>
+    </div>
+  </div>
+  <script>
+    var D = document.createElement("div");
+    TweenMax.set("svg", {
+      overflow: "visible"
+    });
+    TweenMax.set(".knob", {
+      x: 10,
+      y: 80
+    });
 
-  var tl = new TimelineMax({
-      paused: true
-    })
-    .from("#path2", 1, {
-      drawSVG: "0%",
-      stroke: "orange",
-      ease: Linear.easeNone
-    })
-    .to(
-      ".knob",
-      1, {
-        bezier: {
-          type: "quadratic",
-          values: [{
-              x: 10,
-              y: 80
-            },
-            {
-              x: 150,
-              y: 0
-            },
-            {
-              x: 300,
-              y: 80
-            }
-          ]
-        },
+    var tl = new TimelineMax({
+        paused: true
+      })
+      .from("#path2", 1, {
+        drawSVG: "0%",
+        stroke: "orange",
         ease: Linear.easeNone
+      })
+      .to(
+        ".knob",
+        1, {
+          bezier: {
+            type: "quadratic",
+            values: [{
+                x: 10,
+                y: 80
+              },
+              {
+                x: 150,
+                y: 0
+              },
+              {
+                x: 300,
+                y: 80
+              }
+            ]
+          },
+          ease: Linear.easeNone
+        },
+        0
+      );
+
+    Draggable.create(D, {
+      trigger: ".knob",
+      type: "x",
+      throwProps: true,
+      bounds: {
+        minX: 0,
+        maxX: 300
       },
-      0
-    );
+      onDrag: Update,
+      onThrowUpdate: Update
+    });
 
-  Draggable.create(D, {
-    trigger: ".knob",
-    type: "x",
-    throwProps: true,
-    bounds: {
-      minX: 0,
-      maxX: 300
-    },
-    onDrag: Update,
-    onThrowUpdate: Update
-  });
+    function Update() {
+      tl.progress(Math.abs(this.x / 300));
+    }
 
-  function Update() {
-    tl.progress(Math.abs(this.x / 300));
-  }
-
-  TweenMax.to("#path1", 0.5, {
-    strokeDashoffset: -10,
-    repeat: -1,
-    ease: Linear.easeNone
-  });
-</script>
-<script>
-  var v1 = 0;
-  $("#slider").roundSlider({
-	radius: 72,
-	circleShape: "half-top",
-  sliderType: "min-range",
-	mouseScrollAction: true,
-  value: v1,
-	handleSize: "+5",
-	min: 0,
-	max: 60
-});
-
-function loadData(data){
-  $.ajax({
-    url: "/api/dataenergia",
+    TweenMax.to("#path1", 0.5, {
+      strokeDashoffset: -10,
+      repeat: -1,
+      ease: Linear.easeNone
+    });
+  </script>
+  <script>
+        setInterval(function() {
+      var JSON = $.ajax({
+        url: "/api/dataenergia",
       dataType: 'json',
-      method: 'POST',
+      method: 'GET',
       async: false
     }).responseText;
     var Respuesta = jQuery.parseJSON(JSON);
-    document.getElementById("slider").innerHTML = (Respuesta[0].hz) / 10;
-  };
-</script>
-@endsection
+    var hz = Respuesta[0].hz / 10;
+    $("#slider").roundSlider({
+      radius: 72,
+      circleShape: "half-top",
+      sliderType: "min-range",
+      mouseScrollAction: true,
+      value:hz,
+      handleSize: "+5",
+      min: 0,
+      max: 60
+    });
+
+    document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input id='hz' type='hidden' name='hz' value='" + hz + "'><button style='{display:none;}' type='button' id='send'> ola";
+    $('#send').hide();
+    () => {
+      $('#send').click();
+    };
+    $('#send').on('click', function(e) {
+      // var datos = $(this).serializeArray();
+      // datos.push({name: 'tag', value: 'formulariosave'});
+
+
+      $.ajax({
+        url: ruta,
+        type: 'POST',
+        dateType: 'json',
+        data: {
+          hz: hz,
+          _token: _token
+        },
+        success: function(response) {
+          if (response) {
+            console.log('ok');
+          }
+        },
+        error: function(response) {
+          console.error();
+        }
+      });
+    });
+  }, 3000);
+  </script>
+  @endsection

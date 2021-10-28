@@ -48,6 +48,7 @@ Route::group(['middleware' => ['customAuth']], function () {
 Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
+Route::post('modulo_control/save_ate', 'App\Http\Controllers\EnergiaController@save_ate')->name('save_ate');
 
 Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
 
