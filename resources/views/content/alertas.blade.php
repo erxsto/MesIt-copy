@@ -14,7 +14,7 @@
 <br>
 <br>
   
-<form class="form-inline" method="get" action="{{route('correo_alerta')}}">
+<form class="form-inline" method="get" action="{{route('alertas')}}">
 <label>Fecha Desde:</label>
   <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
   <label>Hasta</label>

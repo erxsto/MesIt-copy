@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Alerta de Vibración</h1>
-    <p>Revisa el motor.</p>
+    <h1>Correo</h1>
+    <p><strong>Nombre: </strong>{{$datos['name']}}</p>
+    <p><strong>Correo: </strong>{{$datos['correo']}}</p>
+    <p><strong>Mensaje: </strong>{{$datos['mensaje']}}</p>
 </body>
 </html>

@@ -7,19 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AlertaVibracionMailable extends Mailable
+class EnviarCorreoMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject ="Monitoreo de Vibración";
+    public $subject ="Hola";
+    public $datos = "datos";
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($datos)
     {
-        //
+        $this->datos = $datos; 
     }
 
     /**
@@ -29,6 +30,6 @@ class AlertaVibracionMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.alertavibracion');
+        return $this->view('emails.infocorreo');
     }
 }
