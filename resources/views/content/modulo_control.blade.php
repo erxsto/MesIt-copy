@@ -29,13 +29,13 @@
     margin-top: -50px;
     margin-left: -200px;
     border-radius: 2px;
-    box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6);
+    /* box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6); */
     overflow: hidden;
     color: #333;
     font-family: "Rubik", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #201c29;
+    background: #ffffff;
   }
 
   .thermostat {
