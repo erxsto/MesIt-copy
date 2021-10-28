@@ -41,6 +41,7 @@ Route::group(['middleware' => ['customAuth']], function () {
     Route::name('gvolts')->get('gvolts/', 'App\Http\Controllers\EnergiaController@gvolts');
     Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
     Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');
+    Route::name('modulo_control')->get('modulo_control/', 'App\Http\Controllers\EnergiaController@modulo_control');
 });
 
 

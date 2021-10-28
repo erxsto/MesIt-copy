@@ -71,4 +71,15 @@ class EnergiaController extends Controller
         return view('content.graf.gfye')
         ->with(['graficas' => $graficas]);
     }
+    public function modulo_control(){
+        return view('content.modulo_control');
+    }
+    public function save_at(Request $request){
+        if($request->ajax()){ 
+            // return response()->json(['status'=>'Ajax request']);
+         
+        $frecuenciac = DB::insert("insert INTO [dbo].[variador] (hz) VALUES ('$request->valor')");
+        return redirect()->back();
+         }
+    }
 }
