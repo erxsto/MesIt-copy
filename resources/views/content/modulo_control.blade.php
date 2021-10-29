@@ -24,38 +24,39 @@
     position: relative;
     top: 50%;
     left: 50%;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     margin-top: -50px;
     margin-left: -200px;
     border-radius: 2px;
-    box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6);
+    /* box-shadow: 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6); */
     overflow: hidden;
     color: #333;
     font-family: "Rubik", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: rgb(2,0,36);
-background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%);
+    background: #FFF;/*rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%); */
   }
 
   .thermostat {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 320px;
+    height: 320px;
     top: 100px;
-    left: 100px;
+    left: 80px;
     background: #F2F2F2;
     border-radius: 50%;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.8);
+    
   }
 
   .thermostat .control {
     position: absolute;
     z-index: 5;
-    width: 130px;
-    height: 130px;
-    top: 25%;
+    width: 250px;
+    height: 250px;
+    top: 15%;
     left: 35px;
     background: #E6E6E6;
     border-radius: 50%;
@@ -111,21 +112,21 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
 
   .thermostat .ring {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: 300px;
     top: 10px;
     left: 10px;
     background: rgb(2,0,36);
-background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, rgba(139,139,164,1) 94%);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,222,57,1) 0%, rgba(205,18,34,1) 100%);
     border-radius: 50%;
     box-shadow: inset 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
   }
 
   .thermostat .ring .bottom_overlay {
     position: absolute;
-    width: 95px;
-    height: 95px;
-    top: 50%;
+    width: 195px;
+    height: 195px;
+    top: 30%;
     left: 50%;
     background: #F2F2F2;
     transform-origin: 0 0;
@@ -135,8 +136,8 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, 
 
   #slider {
     position: absolute;
-    width: 170px;
-    height: 150px;
+    width: 270px;
+    height: 250px;
     top: 36%;
     left: 32%;
     z-index: 1000;
@@ -153,21 +154,22 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, 
   }
 
   .rs-control .rs-handle {
-    background-color: rgba(82, 44, 109, 0.8);
+    background-color: rgba(0, 0, 0);
   }
 
   .rs-tooltip.edit,
   .rs-tooltip .rs-input,
   .rs-tooltip-text {
     font-family: rubik, helvetica, sans-serif;
-    font-size: 2.8rem;
+    font-size: 5rem;
     background: transparent;
     color: #020201;
     font-weight: 400;
-    top: 65%;
+    margin-left:-20px;
+    top: 80%;
     height: 3.9rem;
     padding: 0 !important;
-    width: 4.5rem;
+    width: 5.5rem;
   }
 
   #slider:hover .rs-tooltip,
@@ -235,9 +237,9 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, 
   <button class="boton uno" type="submit" style="float: right;"><span>Derecha</span>
   </button>
 </div>
-<br><br><br><br><br>
+<br><br><br><br>
 <div class="text-center">
-  <div class="frame">
+  <div class="frame"> 
     <div id="slider" class="rslider"></div>
     <div class="thermostat">
       <div class="ring">
@@ -289,13 +291,13 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, 
     var Respuesta = jQuery.parseJSON(JSON);
     var hz = Respuesta[0].hz / 10;
     $("#slider").roundSlider({
-      radius: 72,
+      radius: 100,
       circleShape: "half-top",
       sliderType: "min-range",
       mouseScrollAction: true,
       value: hz,
       id: "valsliders",
-      handleSize: "+5",
+      handleSize: "+18",
       min: 0,
       max: 60,
       change: function(args) {
@@ -315,4 +317,15 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(103,113,116,1) 86%, 
       }
     });
 </script>
+<script>
+  setInterval(function() {
+  $( document ).ready(function() {
+    var ax = $('.rs-move');
+    ax.css({"margin-left":"-35px"});
+    var dpnt = $('.rs-tooltip-text');
+    dpnt.css({"margin-left":"-60px", "margin-top":"-38px"});
+  
+  });
+}, 1);
+  </script>
 @endsection
