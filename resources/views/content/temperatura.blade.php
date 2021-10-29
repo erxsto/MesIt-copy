@@ -256,8 +256,7 @@
                     
 
                   });
-                  
- 
+                    $('#notificaciones').html("<li id='' style='list-style:none'>" +tabla+ ": "+descripcion+" </li>")
                   });
                   
                     Swal.fire({
@@ -273,10 +272,10 @@
                         rgba(178, 34, 34,0.25)
                         left top
                         no-repeat
-                        `
+                        `,
                     });
                     
-                  
+                    
                    
                     
       } else{

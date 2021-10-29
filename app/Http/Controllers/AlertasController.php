@@ -19,4 +19,12 @@ class AlertasController extends Controller
             ->with(['alertas' => $alertas]);
             
     }
+
+    public function alertashow(){
+        $alertas = DB::select("SELECT TOP 4 * FROM dbo.alertas ORDER BY ID DESC");
+        return response()->json(
+            $alertas
+        ); 
+
+    }
 }

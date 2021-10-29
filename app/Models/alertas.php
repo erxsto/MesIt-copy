@@ -9,5 +9,7 @@ class alertas extends Model
 {
     protected $table = "alertas";
     protected $primaryKey = "id";
-    protected $fillable = ['tabla','descripcion','valor'];
+    protected $fillable = ['tabla','descripcion','valor','created_at'];
+   
+    
 }

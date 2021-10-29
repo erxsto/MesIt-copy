@@ -325,7 +325,7 @@
     margin-left: 250px;
   }
   .izqitem {
-    margin-left: 300px;
+    margin-left: 3px;
   }
   .chart_div {
     width: 700px;
@@ -342,7 +342,7 @@
       margin-left: 120px;
     }
     .izqitem {
-      margin-left: 50px;
+      margin-left: 5px;
     }
     .graficas {
       display: grid;
@@ -365,7 +365,7 @@
       margin-left: 120px;
     }
     .izqitem {
-      margin-left: 220px;
+      margin-left: 2px;
     }
     .topitem {
       margin-top: 20px;
@@ -393,7 +393,7 @@
       margin-left: 80px;
     }
     .izqitem {
-      margin-left: 40px;
+      margin-left: 4px;
     }
     /* Dash y temp graficas */
     .graficas {
@@ -466,7 +466,7 @@
       font-size: 25px;
     }
     .izqitem {
-      margin-left: 12px;
+      margin-left: 1px;
     }
     .mesit {
       margin-left: 50px;
