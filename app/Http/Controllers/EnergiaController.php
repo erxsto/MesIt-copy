@@ -74,11 +74,10 @@ class EnergiaController extends Controller
     public function modulo_control(){
         return view('content.modulo_control');
     }
-    public function save_ate(Request $request){
+    public function valueslider(Request $request){
         if($request->ajax()){ 
             // return response()->json(['status'=>'Ajax request']);
-         
-        $frecuenciac = DB::insert("insert INTO [dbo].[variador] (hz) VALUES ('$request->hz')");
+        $frecuenciac = DB::insert("insert INTO [dbo].[variador] (hz) VALUES ('$request->data')");
         return redirect()->back();
          }
     }
