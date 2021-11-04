@@ -1,5 +1,7 @@
 @extends('layouts.index')
 @section('content')
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
 
 
   <center><br><h5>Consulta de Historial de Alertas</h5><br><br></center>

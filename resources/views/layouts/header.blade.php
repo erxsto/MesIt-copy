@@ -1,5 +1,14 @@
 <!-- Menú -->
-
+<style>
+  .circulo {
+     width: 100px;
+     height: 100px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+}
+</style>
 <!-- SCRIPT ALERTAS CAMPANA -->
 <script>
 setInterval(function() {
@@ -21,24 +30,24 @@ setInterval(function() {
       $('#not').append("<li id='n1'class='linot alert alert-warning alert-dismissible fade show'> "+desc3+" &nbsp; <a id='desca3'>ok</a></li>")
     
      if(desc=='Alerta critica Temperatura'){
-      $('#desca').html("<a id='desca' href='./temperatura'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca').html("<a id='desca' href='./temperatura' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     }else{
-      $('#desca').html("<a id='desca' href='./vibracion'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca').html("<a id='desca' href='./vibracion'style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     } 
     if(desc1=='Alerta critica Temperatura'){
-      $('#desca1').html("<a id='desca' href='./temperatura'> <i class='fa fa-arrow-right'></i></a>")
-    }else{
-      $('#desca1').html("<a id='desca' href='./vibracion'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca1').html("<a id='desca'1 href='./temperatura' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
+    }else{  
+      $('#desca1').html("<a id='desca1' href='./vibracion' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     } 
     if(desc2=='Alerta critica Temperatura'){
-      $('#desca2').html("<a id='desca' href='./temperatura'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca2').html("<a id='desca2' href='./temperatura' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     }else{
-      $('#desca2').html("<a id='desca' href='./vibracion'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca2').html("<a id='desca2' href='./vibracion' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     } 
     if(desc3=='Alerta critica Temperatura'){
-      $('#desca3').html("<a id='desca' href='./temperatura'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca3').html("<a id='desca2' href='./temperatura' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     }else{
-      $('#desca3').html("<a id='desca' href='./vibracion'> <i class='fa fa-arrow-right'></i></a>")
+      $('#desca3').html("<a id='desca2' href='./vibracion' style='color:black;'> <i class='fa fa-arrow-right'></i></a>")
     } 
     }, 1000);
 
@@ -88,11 +97,11 @@ setInterval(function() {
                                       -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);
                                       -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);" 
         class="btn btn-black dropdown-toggle hoverit nav-link btn-lg navbar-custom tooltip" 
-        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i>
+        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span id="spancamp"></span>
         </a>
         
        <ul class="dropdown-menu" id="notificaciones">
-      
+       
           <li id="not">
 
           </li>

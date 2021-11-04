@@ -1,5 +1,7 @@
 @extends('layouts.index')
 @section('content')
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
 <script type="text/javascript">
     setInterval(function() {
 
