@@ -3,6 +3,8 @@
 <!-- Script advertencia-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- form-guardar-alerta -->
+<audio id="xyz" src="error.mp3" preload="auto"></audio>
+
 <form id="formsave_at"method="post" action="{{route('save_at')}}">
 
 </form>
@@ -14,7 +16,6 @@
 </form>
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
-<audio id="xyz" src="error.mp3" preload="auto"></audio>
 <form class="form-inline" method="get" action="{{route('vibracion')}}">
     <label>Fecha Desde:</label>
     <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
@@ -206,6 +207,8 @@
     }, 1000);
 </script>
 
+<!-- ALERTAS VIBRACION -->
+
 <!-- Script alerta del eje X -->
 <script type="text/javascript">
     var setData1 = function() {
@@ -241,7 +244,7 @@
                     // eje x critica
                         var tabla1 = "vibracion";
                         var descripcion1= "Alerta crítica Eje X";
-                        document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1x1' name='tablax1' value='"+tabla1+"'>"+ "<br><input id='d1x1' type='hidden' name='descripcionx1' value='"+descripcion1+"'><button style='{display:none;}' type='button' id='sendx1'> ola";
+                        document.getElementById("formsave_at0").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1x1' name='tablax1' value='"+tabla1+"'>"+ "<br><input id='d1x1' type='hidden' name='descripcionx1' value='"+descripcion1+"'><button style='{display:none;}' type='button' id='sendx1'> ola";
                         $('#sendx1').hide();
                         setTimeout(() => {
                           $('#sendx1').click();
@@ -256,7 +259,7 @@
                                         var tabla11 = $('#t1x1').val();
                                         var descripcion11= $('#d1x1').val();
                                         var _token = $("input[name=_token]").val();
-                                        ruta = $('#formsave_at').attr('action');
+                                        ruta = $('#formsave_at0').attr('action');
                 
                                     $.ajax({
                                       url: ruta,
@@ -302,7 +305,7 @@
                     // eje x advertencia
                     var tabla2 = "vibracion";
                         var descripcion2= "Advertencia en Eje X";
-                        document.getElementById("formsave_at").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1x2' name='tabla' value='"+tabla2+"'>"+ "<br><input id='d1x2' type='hidden' name='descripcionx2' value='"+descripcion2+"'><button style='{display:none;}' type='button' id='sendx2'> ola";
+                        document.getElementById("formsave_at0").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1x2' name='tabla' value='"+tabla2+"'>"+ "<br><input id='d1x2' type='hidden' name='descripcionx2' value='"+descripcion2+"'><button style='{display:none;}' type='button' id='sendx2'> ola";
                         $('#sendx2').hide();
                         setTimeout(() => {
                           $('#sendx2').click();
@@ -317,7 +320,7 @@
                                         var tabla22 = $('#t1x2').val();
                                         var descripcion22= $('#d1x2').val();
                                         var _token = $("input[name=_token]").val();
-                                        ruta = $('#formsave_at').attr('action');
+                                        ruta = $('#formsave_at0').attr('action');
                 
                                     $.ajax({
                                       url: ruta,
@@ -389,7 +392,7 @@
                         setTimeout(() => {
                           $('#sendz1').click();
                         
-                        }, 1000);                   
+                        }, 3000);                   
                        
                         
                         $('#sendz1').on('click',function(e){
@@ -452,7 +455,7 @@
                         setTimeout(() => {
                           $('#send').click();
                         
-                        }, 1000);                   
+                        }, 3000);                   
                        
                         
                         $('#send').on('click',function(e){
@@ -498,7 +501,7 @@
     setData2();
     setInterval(() => {
         setData2();
-    }, 1000);
+    }, 3000);
 </script>
 <!-- Script alerta del eje Y -->
 <script type="text/javascript">
@@ -537,7 +540,7 @@
                         setTimeout(() => {
                           $('#sendy1').click();
                         
-                        }, 1000);                   
+                        }, 3000);                   
                        
                         
                         $('#sendy1').on('click',function(e){
@@ -597,7 +600,7 @@
                         setTimeout(() => {
                           $('#sendy2').click();
                         
-                        }, 1000);                   
+                        }, 3000);                   
                        
                         
                         $('#sendy2').on('click',function(e){
@@ -641,6 +644,7 @@
     setData3();
     setInterval(() => {
         setData3();
-    }, 1000);
+    }, 3000);
 </script>
+
 @endsection

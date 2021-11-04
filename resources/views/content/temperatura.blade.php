@@ -2,12 +2,12 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<audio id="xyz" src="error.mp3" preload="auto"></audio>
+<!-- FORM guardar registros alertas -->
 <form id="formsave_at"method="post" action="{{route('save_at')}}">
 
 </form>
-
 <script type="text/javascript">
   google.charts.load('current', {
     'packages': ['gauge']
@@ -206,6 +206,10 @@
     document.getElementById('fecha_fin').value = ano + "-" + mes + "-" + dia;
   }
 </script>
+
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- ALERTA TEMPERATURA -->
 <script type="text/javascript">
     setInterval(function() {
       var JSON = $.ajax({
@@ -217,6 +221,8 @@
       var Respuesta1 = jQuery.parseJSON(JSON);
       if (Respuesta1[0].temp >= 30) {
                     
+                      document.getElementById('xyz').muted = false;
+                      document.getElementById('xyz').play();
                       var tabla = "temperatura";
                       var descripcion= "Alerta critica Temperatura";
                       var valor = Respuesta1[0].temp;
@@ -256,7 +262,6 @@
                     
 
                   });
-                    $('#notificaciones').html("<li id='' style='list-style:none'>" +tabla+ ": "+descripcion+" </li>")
                   });
                   
                     Swal.fire({
@@ -286,4 +291,5 @@
     }, 3000);
           
 </script>
+
 @endsection

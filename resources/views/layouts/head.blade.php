@@ -337,6 +337,9 @@
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   }
+  .linot{
+    font-size: 12px;
+  }
   /* MEDIA SCREEN */
   @media (max-width:1267px) {
     .izqlog {
@@ -360,6 +363,7 @@
       align-items: center;
       grid-template-columns: 1fr 1fr;
     }
+
   }
   @media (max-width:1025px) {
     .izqlog {
