@@ -20,6 +20,10 @@
   }, 1000);
 </script>
 <style>
+  .a{
+    height: 130px;
+    width: 200px;
+  }
   .frame {
     position: relative;
     top: 50%;
@@ -35,7 +39,8 @@
     font-family: "Rubik", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #FFF;/*rgb(2,0,36);
+    background: #FFF;
+    /*rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%); */
   }
 
@@ -48,7 +53,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
     background: #F2F2F2;
     border-radius: 50%;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.8);
-    
+
   }
 
   .thermostat .control {
@@ -116,8 +121,8 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
     height: 300px;
     top: 10px;
     left: 10px;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,222,57,1) 0%, rgba(205,18,34,1) 100%);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(12, 222, 57, 1) 0%, rgba(205, 18, 34, 1) 100%);
     border-radius: 50%;
     box-shadow: inset 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
   }
@@ -165,7 +170,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,222,57,1) 0%, rgba
     background: transparent;
     color: #020201;
     font-weight: 400;
-    margin-left:-20px;
+    margin-left: -20px;
     top: 80%;
     height: 3.9rem;
     padding: 0 !important;
@@ -239,7 +244,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,222,57,1) 0%, rgba
 </div>
 <br><br><br><br>
 <div class="text-center">
-  <div class="frame"> 
+  <div class="frame">
     <div id="slider" class="rslider"></div>
     <div class="thermostat">
       <div class="ring">
@@ -282,50 +287,55 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,222,57,1) 0%, rgba
 </div>
 <input type="hidden" id="valslider">
 <script>
-    var JSON = $.ajax({
-      url: "/api/dataenergia",
-      dataType: 'json',
-      method: 'GET',
-      async: false
-    }).responseText;
-    var Respuesta = jQuery.parseJSON(JSON);
-    var hz = Respuesta[0].hz / 10;
-    $("#slider").roundSlider({
-      radius: 100,
-      circleShape: "half-top",
-      sliderType: "min-range",
-      mouseScrollAction: true,
-      value: hz,
-      id: "valsliders",
-      handleSize: "+18",
-      min: 0,
-      max: 60,
-      change: function(args) {
-        console.log(args.value);
-        $('#valslider').html(args.value);
-        $.ajax({
-          type: 'POST',
-          dateType: 'json',
-          url: "/api/valueslider",
-          headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-          data: {
-            data: args.value * 10
-          },
-        });
-      }
-    });
+  var JSON = $.ajax({
+    url: "/api/dataenergia",
+    dataType: 'json',
+    method: 'GET',
+    async: false
+  }).responseText;
+  var Respuesta = jQuery.parseJSON(JSON);
+  var hz = Respuesta[0].hz / 10;
+  $("#slider").roundSlider({
+    radius: 100,
+    circleShape: "half-top",
+    sliderType: "min-range",
+    mouseScrollAction: true,
+    value: hz,
+    id: "valsliders",
+    handleSize: "+18",
+    min: 0,
+    max: 60,
+    change: function(args) {
+      console.log(args.value);
+      $('#valslider').html(args.value);
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/valueslider",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: args.value * 10
+        },
+      });
+    }
+  });
 </script>
 <script>
   setInterval(function() {
-  $( document ).ready(function() {
-    var ax = $('.rs-move');
-    ax.css({"margin-left":"-35px"});
-    var dpnt = $('.rs-tooltip-text');
-    dpnt.css({"margin-left":"-60px", "margin-top":"-38px"});
-  
-  });
-}, 1);
-  </script>
+    $(document).ready(function() {
+      var ax = $('.rs-move');
+      ax.css({
+        "margin-left": "-35px"
+      });
+      var dpnt = $('.rs-tooltip-text');
+      dpnt.css({
+        "margin-left": "-60px",
+        "margin-top": "-38px"
+      });
+
+    });
+  }, 1);
+</script>
 @endsection
