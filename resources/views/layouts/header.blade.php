@@ -9,6 +9,7 @@
      background: #5cb85c;
 }
 </style>
+
 <!-- SCRIPT ALERTAS CAMPANA -->
 <script>
 setInterval(function() {
@@ -66,33 +67,33 @@ setInterval(function() {
     <text class="navbar-item active btn-lg mesit"></text>
     <ul class="navbar-nav text-center">
       @if(session()->has('session_id'))
-      <li class="nav-item active izqitem topitem">
+      <li class="nav-item active izqitem topitem well">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./"><i class="bi bi-house"></i><span class="tooltip-box">Dashboard</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./vibracion"><i class="bi bi-bezier2"></i><span class="tooltip-box">Vibración</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./energia"><i class="fa fa-car-battery"></i><span class="tooltip-box">Energía</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer"></i><span class="tooltip-box">Temperatura</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./modulo_control"><i class="bi bi-sliders"></i><span class="tooltip-box">M.Control</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:300px;">
+      <li class="nav-item active topitem well alertsizq">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
       </li>
  
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="{{route('cindex')}}"><i class="fa fa-envelope"></i><span class="tooltip-box">Correo</span></a>
       </li>
-      <li class="nav-item active topitem" style="margin-left:10px;">
+      <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
-      </li>
+      </li><br>
       <!-- NOTIFICACIONES -->
-    <li class="dropdown" style="margin-left:10px;">
+    <li class="dropdown well" style="margin-left:10px;">
         <a id="notificaciones" style="box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);
                                       -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);
                                       -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);" 
@@ -110,7 +111,7 @@ setInterval(function() {
 
 
       <li class="mx-5">
-        <p class="hoverit  btn-lg navbar-custom tooltip">Bienvenido <b>{{ session('session_name') }}</b></p>
+        <p class="hoverit  btn-lg navbar-custom tooltip" id="bnv">Bienvenido <b>{{ session('session_name') }}</b></p>
       </li>
 
       @else
@@ -127,3 +128,19 @@ setInterval(function() {
     </ul>
   </div>
 </nav>
+
+<br>
+<div id="bnvb">
+a
+</div>
+
+<script>
+  var ancho = screen.width;
+
+if (ancho <= 900) {
+  $('#bnv').html('');
+  $('#bnvb').html("<center><h4 id='bnvb'>Bienvenido <b>{{ session('session_name') }}</b></h4><center>");  
+}else{
+    console.log('ok');
+  }
+</script>

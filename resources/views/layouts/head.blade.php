@@ -340,10 +340,18 @@
   .linot{
     font-size: 12px;
   }
+  .alertsizq{
+      margin-left: 300px;
+
+    }
   /* MEDIA SCREEN */
   @media (max-width:1267px) {
     .izqlog {
       margin-left: 120px;
+    }
+    .alertsizq{
+      margin-left: 4px;
+
     }
     .izqitem {
       margin-left: 5px;
@@ -462,6 +470,9 @@
     .linkboton{
       margin-left:80px;
     }
+
+    
+
     }    
     
   
@@ -469,6 +480,10 @@
     .nav-link {
       margin-left: 130px;
       font-size: 25px;
+    }
+    .well{box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
+-webkit-box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
+-moz-box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
     }
     .izqitem {
       margin-left: 1px;
@@ -504,6 +519,7 @@
     }
     
   }
+  
   .boton {
 	display: inline-flex;
 	align-items: center;
