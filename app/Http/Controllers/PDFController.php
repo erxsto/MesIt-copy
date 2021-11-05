@@ -62,8 +62,8 @@ class PDFController extends Controller
     }
     public function PDFalerts(Request $request){
         
-        $fi = $request->fecha_ini;
-        $ff = $request->fecha_fin;
+        $fi = $request->fecha_ini1;
+        $ff = $request->fecha_fin1;
                 
         $fii= Carbon::parse($fi)->format('d/m/Y');
         

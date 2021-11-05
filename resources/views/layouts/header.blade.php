@@ -86,9 +86,7 @@ setInterval(function() {
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
       </li>
  
-      <li class="nav-item active topitem well" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="{{route('cindex')}}"><i class="fa fa-envelope"></i><span class="tooltip-box">Correo</span></a>
-      </li>
+     
       <li class="nav-item active topitem well" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
       </li><br>
@@ -131,7 +129,6 @@ setInterval(function() {
 
 <br>
 <div id="bnvb">
-a
 </div>
 
 <script>

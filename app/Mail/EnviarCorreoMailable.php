@@ -13,14 +13,17 @@ class EnviarCorreoMailable extends Mailable
 
     public $subject ="Hola";
     public $datos = "datos";
+
+    public $pdf;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($datos)
+    public function __construct($datos, $pdf)
     {
         $this->datos = $datos; 
+        $this->pdf = $pdf;
     }
 
     /**
@@ -30,6 +33,7 @@ class EnviarCorreoMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.infocorreo');
+        return $this->view('emails.infocorreo')
+        ->attachData($this->pdf,'Historial_Alertas.pdf',['mime'=> 'application/pdf']);
     }
 }

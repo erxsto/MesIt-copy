@@ -95,14 +95,74 @@
 
 <div class="alert alert-dark alert-sm" role="alert">
   <h4 class="alert-heading">Descarga el reporte.</h4><br>
-  <form class="form-inline" method="get" action="{{route('descargarPDFalerts')}}">
+<style>
+      
+      .asf{
+        display: flex;
+
+      }
+
+    </style>  
+
+    
+  
+  <form class="form-inline " method="get" action="{{route('descargarPDFalerts')}}">
     <label>Fecha Desde:</label>
-    <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
+    <input type="date" class="form-control" placeholder="Start" id="fecha_ini1" name="fecha_ini1" />
     <label>Hasta</label>
-    <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
-    <button class="btn btn-dark" name="search">
-      <i class="fa fa-download"></i></button>
-    <br>
-  </form>
+    <input type="date" class="form-control" placeholder="End" id="fecha_fin1" name="fecha_fin1" /><br>
+   
+      <div class="asf">
+      <button class="btn btn-dark" name="search">
+      <i class="fa fa-download"></i></button> &nbsp;
+    
+    </form>
+      
+    
+      <form class=" form-inline" action="{{route('cindex')}}">
+        
+        <div id="datform">
+        </div>
+        <div id="datform1">
+        </div>
+
+      <button class="btn btn-dark"><i class="fa fa-envelope"></i></button>
+      </form>
+     
+      </div>
 </div>
+
+<script>
+
+      if( $('#datform').is(":visible") ) {
+        $('#datform').css('display', 'none'); 
+      } else {
+        $('#datform').css('display', 'block');
+      }
+
+      if( $('#datform1').is(":visible") ) {
+        $('#datform1').css('display', 'none'); 
+      } else {
+        $('#datform1').css('display', 'block');
+      }
+
+    $('#fecha_ini1').change(function() {
+     var date1 = $(this).val();
+     $('#datform').html("<input value='"+date1+"' type='date' id='fecha_ini1' name='fecha_ini1'>");  
+      console.log('ok');
+
+      $('#datform').css('visibility', 'visible');
+  
+      
+    });
+  
+    $('#fecha_fin1').change(function() {
+    var date2 = $(this).val();
+    $('#datform1').html("<input value='"+date2+"' type='date'  id='fecha_fin1' name='fecha_fin1'>");
+    $('datform1').hide();
+
+    });
+
+</script>
+
 @endsection

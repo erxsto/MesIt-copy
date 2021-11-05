@@ -12,6 +12,9 @@
 <form action="{{route('cstore')}}" method="post">
 
     @csrf
+
+        <input type="text" value="{{$fii}}" id="fecha_ini11" name="fecha_ini11">
+        <input type="text" value="{{$fff}}" id="fecha_fin11" name="fecha_fin11">
         <label>
             Nombre:
             <br>
@@ -45,4 +48,18 @@
         <button type="submit">Enviar Mensaje</button>
 </form>
 </center>
+<script>
+if( $('#fecha_ini1').is(":visible") ) {
+        $('#fecha_ini1').css('display', 'none'); 
+      } else {
+        $('#fecha_ini1').css('display', 'block');
+      }
+
+      if( $('#fecha_fin1').is(":visible") ) {
+        $('#fecha_fin1').css('display', 'none'); 
+      } else {
+        $('#fecha_fin1').css('display', 'block');
+      }
+</script>
+
 @endsection

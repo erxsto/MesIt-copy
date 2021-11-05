@@ -59,3 +59,4 @@ Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@
 Route::get('cindex', 'App\Http\Controllers\CorreoController@index')->name('cindex'); 
 Route::post('cstore', 'App\Http\Controllers\CorreoController@store')->name('cstore'); 
 
+
