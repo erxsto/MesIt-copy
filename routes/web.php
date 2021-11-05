@@ -37,6 +37,9 @@ Route::group(['middleware' => ['customAuth']], function () {
     Route::name('descargarPDFev')->get('pdfev/', 'App\Http\Controllers\PDFController@PDFev');
     Route::name('descargarPDFep')->get('pdfep/', 'App\Http\Controllers\PDFController@PDFep');
     Route::name('descargarPDFefe')->get('pdfefe/', 'App\Http\Controllers\PDFController@PDFefe');
+
+    Route::name('descargarPDFalerts')->get('pdfalerts/', 'App\Http\Controllers\PDFController@PDFalerts');
+
     Route::name('gfases')->get('gfases/', 'App\Http\Controllers\EnergiaController@gfases');
     Route::name('gvolts')->get('gvolts/', 'App\Http\Controllers\EnergiaController@gvolts');
     Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');

@@ -1,6 +1,10 @@
 @extends('layouts.index')
 @section('content')
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
+<!-- SCRIPT OBTENCION DE DATOS ENERGÍA -->
 <script type="text/javascript">
+    
     setInterval(function() {
 
         var JSON = $.ajax({
@@ -11,7 +15,6 @@
             async: false
         }).responseText;
         var Respuesta = jQuery.parseJSON(JSON);
-
 
         document.getElementById("indicador").innerHTML = (Respuesta[0].fase1A) / 10;
         document.getElementById("indicador1").innerHTML = (Respuesta[0].fase2A) / 10;
@@ -30,6 +33,7 @@
 
     }, 1000);
 </script>
+<!-- DIVS PARA MUESTREO DE DATOS A TRAVÉS DEL SCRIPT -->
 <div class="energy">
     <div class="a" href="#">
         <span></span>
@@ -165,6 +169,7 @@
         <hr> Consumo Total (KW)
     </div>
 </div><br><br>
+<!-- BOTONES GRÁFICAS -->
 <div class="botongrafica">
     <div class="linkboton"> <a href="./gfases"> Grafica Fases.</a></div>
 </div><br>
@@ -177,6 +182,7 @@
 <div class="botongrafica">
     <div class="linkboton"> <a href="./gfye">Grafica Frecuencia y Energia (act/react). </a></div>
 </div><br><br>
+<!-- DESCARGA DE REPORTE ENERGÍA -->
 <div class="alert alert-dark alert-sm" role="alert">
     <h4 class="alert-heading">Descarga el reporte.</h4><br>
     <form class="form-inline" method="get" action="{{route('descargarPDFe')}}">

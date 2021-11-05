@@ -8,7 +8,7 @@ use App\Models\grafica_ejes;
 use App\Models\temperatura;
 use App\Models\variador;
 use DB;
-
+use Carbon\Carbon;
 class PDFController extends Controller
 {
     public function PDFv(Request $request){
@@ -59,5 +59,20 @@ class PDFController extends Controller
         $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
         $pdf = PDF::loadView('content.PDFenergiafe', compact('graficas'));
         return $pdf->download('Frecuencia y energía.pdf');
+    }
+    public function PDFalerts(Request $request){
+        
+        $fi = $request->fecha_ini;
+        $ff = $request->fecha_fin;
+                
+        $fii= Carbon::parse($fi)->format('d/m/Y');
+        
+        $fff= Carbon::parse($ff)->format('d/m/Y');
+
+        // $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        $alertas = DB::select("SELECT TOP 50 * FROM dbo.alertas where created_at between convert(datetime,'$fii') and convert(datetime,'$fff') ");
+
+        $pdf = PDF::loadView('content\PDFalertaspdf', compact('alertas'));
+        return $pdf->download('Historial Alertas.pdf');
     }
 }

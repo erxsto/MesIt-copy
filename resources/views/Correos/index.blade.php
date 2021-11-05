@@ -1,6 +1,9 @@
 @extends('layouts.index')
 @section('content')
 
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
+
 <center>
 <br>
 <h4>Envio de Correo</h4>

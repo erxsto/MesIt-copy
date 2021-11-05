@@ -38,7 +38,7 @@ class LoginController extends Controller
             //  $session_tipo = $request->session()->get('session_tipo');
             
              
-            return view('home');
+            return redirect()->route('/');
 
          }
     }
