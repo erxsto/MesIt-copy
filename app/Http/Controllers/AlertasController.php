@@ -12,15 +12,13 @@ class AlertasController extends Controller
     public function alertas(Request $request)
     {
         //asignamos fechas
-        $fi = $request->fecha_ini;
-        $ff = $request->fecha_fin;
-        $fii = Carbon::parse($fi)->format('d/m/Y');
-        $fff = Carbon::parse($ff)->format('d/m/Y');
+        $fi = $request->fecha_ini . ' 00:00:00';
+        $ff = $request->fecha_fin . ' 23:59:59';
         //mandamos a llamar a la tabla junto con las fechas
-        $alertas = DB::select("SELECT * FROM dbo.alertas where created_at between convert(datetime,'$fii') and convert(datetime,'$fff')");
-
+        $tabla = $request->slcm;
+        $alertas = alertas::whereBetween('created_at', [$fi, $ff])->limit(30)->get();
         return view('content.alertas')
-            ->with(['alertas' => $alertas]);
+            ->with(['alertas' => $alertas,'tabla' => $tabla]);
     }
 
     public function alertashow()

@@ -15,11 +15,12 @@ class CorreoController extends Controller
         $fi = $request->fecha_ini1;
         $ff = $request->fecha_fin1;
                 
-        $fii= Carbon::parse($fi)->format('d/m/Y');
+        // $fii= Carbon::parse($fi)->format('d/m/Y');
         
-        $fff= Carbon::parse($ff)->format('d/m/Y');
+        // $fff= Carbon::parse($ff)->format('d/m/Y');
         
-        return view('Correos.index', compact('fii','fff'));
+        // return view('Correos.index', compact('fii','fff'));
+        return view('Correos.index', compact('fi','ff'));
     }
     public function store(Request $request){
 

@@ -13,8 +13,8 @@
 
     @csrf
 
-        <input type="text" value="{{$fii}}" id="fecha_ini11" name="fecha_ini11">
-        <input type="text" value="{{$fff}}" id="fecha_fin11" name="fecha_fin11">
+        <input type="text" value="{{$fi}}" id="fecha_ini11" name="fecha_ini11">
+        <input type="text" value="{{$ff}}" id="fecha_fin11" name="fecha_fin11">
         <label>
             Nombre:
             <br>
