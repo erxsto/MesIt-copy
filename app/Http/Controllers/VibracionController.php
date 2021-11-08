@@ -15,7 +15,6 @@ class VibracionController extends Controller
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = grafica_ejes::whereBetween('created_at', [$fi, $ff])->limit(5)->get();
-
         return view('content.vibracion')
             ->with(['graficas' => $graficas]);
     }
@@ -30,7 +29,6 @@ class VibracionController extends Controller
     }
     public function dataalertz()
     {
-
         $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
         $data = $graficas->pluck('ejez');
@@ -120,7 +118,7 @@ class VibracionController extends Controller
         $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
         $labels = $graficas->pluck('id');
         $data = $graficas->pluck('ejey');
-        
+
         if ($data[0] >= 2.9) {
 
             require_once '../vendor/autoload.php';
@@ -160,14 +158,12 @@ class VibracionController extends Controller
 
     // registrar ejes
 
-    public function registrar_ejes(Request $request){
-
-         $alerta_create= alertas::insert(array(
-             'tabla'=>$request->tabla2,
-             'descripcion'=>$request->descripcion2,
-         ));
-
+    public function registrar_ejes(Request $request)
+    {
+        $alerta_create = alertas::insert(array(
+            'tabla' => $request->tabla2,
+            'descripcion' => $request->descripcion2,
+        ));
         return back();
-        
     }
 }
