@@ -1,6 +1,10 @@
 @extends('layouts.index')
 @section('content')
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
+
 <meta name="csrf-token" content="{{ csrf_token() }}" />
+<!-- SCRIPT OBTENCIÓN DE DATOS  -->
 <script type="text/javascript">
   setInterval(function() {
 
@@ -19,6 +23,7 @@
     document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
   }, 1000);
 </script>
+<!-- ESTILOS  PARA KNOB (MANDO CIRCULAR) -->
 <style>
   .a{
     height: 130px;
@@ -41,7 +46,7 @@
     -moz-osx-font-smoothing: grayscale;
     background: #FFF;
     /*rgb(2,0,36);
-background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%); */
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(139,139,164,1) 94%); */
   }
 
   .thermostat {
@@ -220,6 +225,8 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
     }
   }
 </style>
+<!-- ESTRUCTURA QUE SE MOSTRARÁ EN LA VISTA -->
+
 <center>
   <h2>Control de energía</h2><br><br>
 </center>
@@ -286,6 +293,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
   </div>
 </div>
 <input type="hidden" id="valslider">
+<!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
 <script>
   var JSON = $.ajax({
     url: "/api/dataenergia",
@@ -308,6 +316,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
     change: function(args) {
       console.log(args.value);
       $('#valslider').html(args.value);
+      
       $.ajax({
         type: 'POST',
         dateType: 'json',
@@ -322,6 +331,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(4,9,60,1) 60%, rgba(
     }
   });
 </script>
+<!-- SCRIPT AJUSTE DE KNOB CENTRADO  -->
 <script>
   setInterval(function() {
     $(document).ready(function() {

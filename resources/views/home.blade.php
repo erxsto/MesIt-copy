@@ -1,5 +1,7 @@
 @extends('layouts.index')
 @section('content')
+@include('content.sweetalerttemp-copy')
+@include('content.sweetalertvib-copy')
 <!-- Script energía -->
 <script type="text/javascript">
     setInterval(function() {
@@ -171,6 +173,20 @@
         <div id="chart_div"></div>
     </div>
 </div> <br>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    
+  Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Mensaje Enviado.',
+  showConfirmButton: false,
+  timer: 1500
+})
+
+</script>
+
 <!-- Botonoes para mostrar y <bloquear | desbloquear> -->
 <button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
 <button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
