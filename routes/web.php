@@ -45,18 +45,13 @@ Route::group(['middleware' => ['customAuth']], function () {
     Route::name('gpotencias')->get('gpotencias/', 'App\Http\Controllers\EnergiaController@gpotencias');
     Route::name('gfye')->get('gfye/', 'App\Http\Controllers\EnergiaController@gfye');
     Route::name('modulo_control')->get('modulo_control/', 'App\Http\Controllers\EnergiaController@modulo_control');
+    Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
+    //Ruta correo
+    Route::get('cindex', 'App\Http\Controllers\CorreoController@index')->name('cindex');
+    Route::post('cstore', 'App\Http\Controllers\CorreoController@store')->name('cstore');
 });
 
 
 Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
-
-Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
-
-
-//Ruta correo
-Route::get('cindex', 'App\Http\Controllers\CorreoController@index')->name('cindex'); 
-Route::post('cstore', 'App\Http\Controllers\CorreoController@store')->name('cstore'); 
-
-
