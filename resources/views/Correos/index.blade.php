@@ -49,16 +49,16 @@
 </form>
 </center>
 <script>
-if( $('#fecha_ini1').is(":visible") ) {
-        $('#fecha_ini1').css('display', 'none'); 
+if( $('#fecha_ini11').is(":visible") ) {
+        $('#fecha_ini11').css('display', 'none'); 
       } else {
-        $('#fecha_ini1').css('display', 'block');
+        $('#fecha_ini11').css('display', 'block');
       }
 
-      if( $('#fecha_fin1').is(":visible") ) {
-        $('#fecha_fin1').css('display', 'none'); 
+      if( $('#fecha_fin11').is(":visible") ) {
+        $('#fecha_fin11').css('display', 'none'); 
       } else {
-        $('#fecha_fin1').css('display', 'block');
+        $('#fecha_fin11').css('display', 'block');
       }
 </script>
 

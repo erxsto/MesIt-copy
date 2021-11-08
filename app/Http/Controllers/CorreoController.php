@@ -34,16 +34,16 @@ class CorreoController extends Controller
         $ff1 = $request->fecha_fin11;
                 
         
-            // $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
-            $alertas = DB::select("SELECT TOP 50 * FROM dbo.alertas where created_at between convert(datetime,'$fi1') and convert(datetime,'$ff1') ");
-    
-            $pdf = PDF::loadView('content\PDFalertaspdf', compact('alertas'));
-            $output = $pdf->output();
+        // $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        $alertas = DB::select("SELECT TOP 50 * FROM dbo.alertas where created_at between convert(datetime,'$fi1') and convert(datetime,'$ff1') ");
+
+        $pdf = PDF::loadView('content\PDFalertaspdf', compact('alertas'));
+        $output = $pdf->output();
             
         
         $correo = new EnviarCorreoMailable($request->all(),$output);
         Mail::to($request->correo)->send($correo);
         
-        return redirect()->back();
+        return redirect()->route('/')->with('enviado','ok');
     }
 }

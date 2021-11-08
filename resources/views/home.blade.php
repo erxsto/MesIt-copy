@@ -175,10 +175,11 @@
 </div> <br>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(session('enviado')=='ok')
 <script>
     
   Swal.fire({
-  position: 'top-end',
+  position: 'center',
   icon: 'success',
   title: 'Mensaje Enviado.',
   showConfirmButton: false,
@@ -186,7 +187,7 @@
 })
 
 </script>
-
+@endif
 <!-- Botonoes para mostrar y <bloquear | desbloquear> -->
 <button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
 <button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
