@@ -41,7 +41,7 @@
         <th scope="col">Id</th>
         <th scope="col">Tabla</th>
         <th scope="col">Descripcion</th>
-        <th scope="col">Temperatura</th>
+        <th scope="col">Valor</th>
         <th scope="col">Fecha de creación</th>
       </tr>
     </thead>
@@ -96,7 +96,7 @@
               <th scope="col">Id</th>
               <th scope="col">Tabla</th>
               <th scope="col">Descripcion</th>
-              <th scope="col">Temperatura</th>
+              <th scope="col">Valor</th>
               <th scope="col">Fecha de creación</th>
             </tr>
           </thead>

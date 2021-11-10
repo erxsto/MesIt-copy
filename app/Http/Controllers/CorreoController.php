@@ -7,6 +7,7 @@ use App\Mail\EnviarCorreoMailable;
 use Illuminate\Support\Facades\Mail;
 use DB;
 use Carbon\Carbon;
+use App\Models\alertas;
 
 use Barryvdh\DomPDF\Facade as PDF;
 class CorreoController extends Controller
@@ -35,8 +36,8 @@ class CorreoController extends Controller
         $ff1 = $request->fecha_fin11;
                 
         
-        // $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
-        $alertas = DB::select("SELECT TOP 50 * FROM dbo.alertas where created_at between convert(datetime,'$fi1') and convert(datetime,'$ff1') ");
+        $alertas = alertas::whereBetween('created_at', [$fi1, $ff1])->limit(30)->get();
+        // $alertas = DB::select("SELECT TOP 50 * FROM dbo.alertas where created_at between convert(datetime,'$fi1') and convert(datetime,'$ff1') ");
 
         $pdf = PDF::loadView('content\PDFalertaspdf', compact('alertas'));
         $output = $pdf->output();
