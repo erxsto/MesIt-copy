@@ -32,8 +32,8 @@ class CorreoController extends Controller
         ]);
 
         
-        $fi1 = $request->fecha_ini11;
-        $ff1 = $request->fecha_fin11;
+        $fi1 = $request->fecha_ini11 .' 00:00:00';
+        $ff1 = $request->fecha_fin11 .' 23:59:59';
                 
         
         $alertas = alertas::whereBetween('created_at', [$fi1, $ff1])->limit(30)->get();
