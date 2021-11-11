@@ -10,7 +10,7 @@
 
     var JSON = $.ajax({
 
-      url: "/api/dataenergia",
+      url: "/api/dataenergiam",
       dataType: 'json',
       method: 'GET',
       async: false
@@ -18,17 +18,18 @@
     var Respuesta = jQuery.parseJSON(JSON);
 
 
-    document.getElementById("indicador").innerHTML = (Respuesta[0].fase1A) / 10;
-    document.getElementById("indicador3").innerHTML = (Respuesta[0].voltsL1) / 10;
-    document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
+    document.getElementById("indicador").innerHTML = (Respuesta[0].amperaje) / 10;
+    document.getElementById("indicador3").innerHTML = (Respuesta[0].voltaje) / 10;
+    document.getElementById("indicador6").innerHTML = (Respuesta[0].frecuencia) / 10;
   }, 1000);
 </script>
 <!-- ESTILOS  PARA KNOB (MANDO CIRCULAR) -->
 <style>
-  .a{
+  .a {
     height: 130px;
     width: 200px;
   }
+
   .frame {
     position: relative;
     top: 50%;
@@ -231,22 +232,22 @@
   <h2>Control de energía</h2><br><br>
 </center>
 <div class="text-center">
-  <button class="boton uno" type="submit" style="float: left;"><span>Izquierda</span>
+  <button class="boton uno izq" type="button" style="float: left;" id="izq"><span>Izquierda</span>
   </button>
 
-  <button class="boton seis" type="submit">
+  <button class="boton seis stop" type="submit" id="stop">
     <span>Stop</span>
     <svg>
       <rect x="0" y="0" fill="none"></rect>
     </svg>
   </button>
-  <button class="boton seis" type="submit">
+  <button class="boton seis reset" type="submit" id="reset">
     <span>Reset</span>
     <svg>
       <rect x="0" y="0" fill="none"></rect>
     </svg>
   </button>
-  <button class="boton uno" type="submit" style="float: right;"><span>Derecha</span>
+  <button class="boton uno der" type="submit" style="float: right;" id="der"><span>Derecha</span>
   </button>
 </div>
 <br><br><br><br>
@@ -293,22 +294,314 @@
   </div>
 </div>
 <input type="hidden" id="valslider">
-<!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
 <script>
   var JSON = $.ajax({
-    url: "/api/dataenergia",
+    url: "/api/dataenergiam",
     dataType: 'json',
     method: 'GET',
     async: false
   }).responseText;
   var Respuesta = jQuery.parseJSON(JSON);
-  var hz = Respuesta[0].hz / 10;
+  var izquierdo = Respuesta[0].izquierdo;
+  var derecho = Respuesta[0].derecho;
+  var stop = Respuesta[0].stop;
+  var reset = Respuesta[0].reset;
+
+
+
+  $('#izq').on('click', (e) => {
+
+    if (derecho == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateder",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    } else {
+      console.log('no es uno');
+    }
+    if (stop == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatestop",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno stop');
+
+    }
+
+    if (reset == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatereset",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno reset');
+
+    }
+
+    console.log(Respuesta[0].izquierdo);
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateizq",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+  });
+  $('#der').on('click', (e) => {
+
+    if (izquierdo == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateizq",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    } else {
+      console.log('no es uno');
+    }
+    if (stop == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatestop",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno stop');
+
+    }
+
+    if (reset == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatereset",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno reset');
+
+    }
+
+    console.log(Respuesta[0].derecho);
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateder",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+  });
+  $('#stop').on('click', (e) => {
+
+    if (derecho == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateder",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    } else {
+      console.log('no es uno');
+    }
+    if (izquierdo == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateizq",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno stop');
+
+    }
+
+    if (reset == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatereset",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno reset');
+
+    }
+
+    console.log(Respuesta[0].stop);
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatestop",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+  });
+  $('#reset').on('click', (e) => {
+
+    if (derecho == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateder",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    } else {
+      console.log('no es uno');
+    }
+    if (stop == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatestop",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno stop');
+
+    }
+
+    if (izquierdo == 1) {
+
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateizq",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    } else {
+      console.log('no es uno reset');
+
+    }
+
+    console.log(Respuesta[0].reset);
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatereset",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+  });
+</script>
+<!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
+<script>
+  var JSON = $.ajax({
+    url: "/api/dataenergiam",
+    dataType: 'json',
+    method: 'GET',
+    async: false
+  }).responseText;
+  var Respuesta = jQuery.parseJSON(JSON);
+  var frecuencia = Respuesta[0].frecuencia / 10;
   $("#slider").roundSlider({
     radius: 100,
     circleShape: "half-top",
     sliderType: "min-range",
     mouseScrollAction: true,
-    value: hz,
+    value: frecuencia,
     id: "valsliders",
     handleSize: "+18",
     min: 0,
@@ -316,7 +609,7 @@
     change: function(args) {
       console.log(args.value);
       $('#valslider').html(args.value);
-      
+
       $.ajax({
         type: 'POST',
         dateType: 'json',
