@@ -295,6 +295,7 @@
 </div>
 <input type="hidden" id="valslider">
 <script>
+  
   var JSON = $.ajax({
     url: "/api/dataenergiam",
     dataType: 'json',
@@ -310,10 +311,7 @@
 
 
   $('#izq').on('click', (e) => {
-
-    if (derecho == 1) {
-
-      $.ajax({
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updateder",
@@ -324,12 +322,8 @@
           data: 0
         },
       });
-    } else {
-      console.log('no es uno');
-    }
-    if (stop == 1) {
-
-      $.ajax({
+    
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatestop",
@@ -341,14 +335,9 @@
         },
       });
 
-    } else {
-      console.log('no es uno stop');
+     
 
-    }
-
-    if (reset == 1) {
-
-      $.ajax({
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatereset",
@@ -360,12 +349,7 @@
         },
       });
 
-    } else {
-      console.log('no es uno reset');
-
-    }
-
-    console.log(Respuesta[0].izquierdo);
+    
     $.ajax({
       type: 'POST',
       dateType: 'json',
@@ -379,9 +363,6 @@
     });
   });
   $('#der').on('click', (e) => {
-
-    if (izquierdo == 1) {
-
       $.ajax({
         type: 'POST',
         dateType: 'json',
@@ -393,12 +374,9 @@
           data: 0
         },
       });
-    } else {
-      console.log('no es uno');
-    }
-    if (stop == 1) {
-
-      $.ajax({
+    
+  
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatestop",
@@ -410,14 +388,9 @@
         },
       });
 
-    } else {
-      console.log('no es uno stop');
-
-    }
-
-    if (reset == 1) {
-
-      $.ajax({
+    
+  
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatereset",
@@ -429,13 +402,9 @@
         },
       });
 
-    } else {
-      console.log('no es uno reset');
-
-    }
-
-    console.log(Respuesta[0].derecho);
-    $.ajax({
+    
+    
+  $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updateder",
@@ -447,11 +416,10 @@
       },
     });
   });
+  
   $('#stop').on('click', (e) => {
-
-    if (derecho == 1) {
-
-      $.ajax({
+  
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updateder",
@@ -462,12 +430,9 @@
           data: 0
         },
       });
-    } else {
-      console.log('no es uno');
-    }
-    if (izquierdo == 1) {
-
-      $.ajax({
+    
+  
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updateizq",
@@ -479,14 +444,9 @@
         },
       });
 
-    } else {
-      console.log('no es uno stop');
-
-    }
-
-    if (reset == 1) {
-
-      $.ajax({
+    
+  
+  $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatereset",
@@ -498,13 +458,8 @@
         },
       });
 
-    } else {
-      console.log('no es uno reset');
-
-    }
-
-    console.log(Respuesta[0].stop);
-    $.ajax({
+    
+  $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updatestop",
@@ -518,8 +473,6 @@
   });
   $('#reset').on('click', (e) => {
 
-    if (derecho == 1) {
-
       $.ajax({
         type: 'POST',
         dateType: 'json',
@@ -531,10 +484,6 @@
           data: 0
         },
       });
-    } else {
-      console.log('no es uno');
-    }
-    if (stop == 1) {
 
       $.ajax({
         type: 'POST',
@@ -548,13 +497,7 @@
         },
       });
 
-    } else {
-      console.log('no es uno stop');
-
-    }
-
-    if (izquierdo == 1) {
-
+  
       $.ajax({
         type: 'POST',
         dateType: 'json',
@@ -567,13 +510,9 @@
         },
       });
 
-    } else {
-      console.log('no es uno reset');
+    
 
-    }
-
-    console.log(Respuesta[0].reset);
-    $.ajax({
+  $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updatereset",
