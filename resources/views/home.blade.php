@@ -17,7 +17,7 @@
         document.getElementById("indicador12").innerHTML = (Respuesta[0].consumo_total) / 10;
         document.getElementById("indicador6").innerHTML = (Respuesta[0].hz) / 10;
         document.getElementById("indicador").innerHTML = (Respuesta[0].fase1A) / 10;
-
+        document.getElementById("indicador1").innerHTML = (Respuesta[0].consumo_total) / 10;
     }, 1700);
 </script>
 <!-- Script temperatura -->
@@ -132,8 +132,9 @@
 <!-- Gráfica de vibración -->
 <div class="graficas graficasd container-fluid align-content-center" id="graficasd">
     <div class="grafica" data-id="energia" id="im">
-        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-            <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
             Energía
         </h2>
         <div class="a" href="#">
@@ -145,10 +146,41 @@
             <hr> VOLTS L1 (V)
         </div>
     </div>
+    <div class="grafica" data-id="energia" id="ime" style="display: none">
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
+            Energía
+        </h2>
+        <div class="a" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="num" id="indicador12"> </div>
+            <hr> Consumo total
+        </div>
+    </div>
+    <div class="grafica" data-id="energia" id="ime2" style="display: none">
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
+            Energía
+        </h2>
+        <div class="a" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="num" id="indicador"> </div>
+            <hr> Fase 1A
+        </div>
+    </div>
 
     <div class="grafica" data-id="temp" id="im1">
-        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-            <a id="boton" onclick="ocultar1();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar1();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
             Temperatura
         </h2>
         <center>
@@ -158,41 +190,74 @@
     </div>
 
     <div class="grafica" data-id="vib" id="im2">
-        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-            <a id="boton" onclick="ocultar2();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar2();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
             Vibración
         </h2>
         <canvas id="myChart"></canvas>
     </div>
 
     <div class="grafica" data-id="graft" id="im3">
-        <h2 class="titulo"><i class="fas fa-grip-lines mr-2" aria-hidden="true"></i>
-            <a id="boton" onclick="ocultar3();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a>
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar3();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
             Gráfica Temp.
         </h2>
         <div id="chart_div"></div>
     </div>
-</div> <br>
+    <div class="grafica" data-id="energia" id="ime1" style="display: none">
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
+            Energía
+        </h2>
+        <div class="a" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="num" id="indicador6"> </div>
+            <hr> Hz
+        </div>
+    </div>
+    <div class="grafica" data-id="energia" id="ime3" style="display: none">
+        <h2 class="titulo">
+            <!-- <i class="fas fa-grip-lines mr-2" aria-hidden="true"></i> -->
+            <!-- <a id="boton" onclick="ocultar();"><i class="bi bi-eye-slash-fill" aria-hidden="true"></i></a> -->
+            Energía
+        </h2>
+        <div class="a" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="num" id="indicador1"> </div>
+            <hr> Consumo total
+        </div>
+    </div>
 
+</div> <br>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if(session('enviado')=='ok')
 <script>
-    
-  Swal.fire({
-  position: 'center',
-  icon: 'success',
-  title: 'Mensaje Enviado.',
-  showConfirmButton: false,
-  timer: 1500
-})
-
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mensaje Enviado.',
+        showConfirmButton: false,
+        timer: 1500
+    })
 </script>
 @endif
 <!-- Botonoes para mostrar y <bloquear | desbloquear> -->
-<button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
-<button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+<!-- <button class="btn btn-black" id="boton" onclick="mostrar();mostrar1();mostrar2();mostrar3();mostrar4();mostrar5();mostrar6();"><i class="bi bi-eye-fill" aria-hidden="true"></i></button>
+<button class="btn btn-black" id="toggle"><i class="fa fa-unlock" aria-hidden="true"></i></button> -->
+<button class="btn btn-black" id="boton" onclick="showdiv1();"><i class="fa fa-dice-one"></i></button>
+<button class="btn btn-black" id="boton" onclick="showdiv2();"><i class="fa fa-dice-two"></i></button>
+<button class="btn btn-black" id="boton" onclick="showdiv3();"><i class="fa fa-dice-three"></i></button>
 <!-- Divs en dropend -->
-<div class="btn-group dropend">
+<!-- <div class="btn-group dropend">
     <button type="button" class="btn btn-black dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-back" aria-hidden="true"></i>
     </button>
@@ -249,7 +314,41 @@
             </div>
         </li>
     </ul>
-</div>
+</div> -->
+<script>
+    function showdiv1() {
+        document.getElementById('im').style.display = '';
+        document.getElementById('ime').style.display = '';
+        document.getElementById('ime1').style.display = '';
+        document.getElementById('ime2').style.display = '';
+        document.getElementById('ime3').style.display = 'none';
+        document.getElementById('im1').style.display = 'none';
+        document.getElementById('im2').style.display = 'none';
+        document.getElementById('im3').style.display = 'none';
+    }
+
+    function showdiv2() {
+        document.getElementById('im3').style.display = '';
+        document.getElementById('ime3').style.display = '';
+        document.getElementById('im').style.display = 'none';
+        document.getElementById('ime').style.display = 'none';
+        document.getElementById('ime1').style.display = '';
+        document.getElementById('ime2').style.display = 'none';
+        document.getElementById('im1').style.display = '';
+        document.getElementById('im2').style.display = 'none';
+    }
+
+    function showdiv3() {
+        document.getElementById('im').style.display = '';
+        document.getElementById('ime').style.display = 'none';
+        document.getElementById('ime1').style.display = 'none';
+        document.getElementById('ime2').style.display = 'none';
+        document.getElementById('im1').style.display = '';
+        document.getElementById('im2').style.display = '';
+        document.getElementById('im3').style.display = '';
+        document.getElementById('ime3').style.display = 'none';
+    }
+</script>
 <!-- Script para mover los div -->
 <script>
     const graficasd = document.getElementById('graficasd');
