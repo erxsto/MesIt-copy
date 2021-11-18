@@ -55,3 +55,5 @@ Route::group(['middleware' => ['customAuth']], function () {
 Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
 Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
 Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
+Route::get('/activity', 'App\Http\Controllers\TwilioController@updatedActivity');
+Route::get('/prueba', 'App\Http\Controllers\TwilioController@prueba');
