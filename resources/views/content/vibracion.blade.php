@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 @include('content.sweetalertvib')
-@include('content.sweetalerttemp-copy')
+@include('content.tempguardaralerta')
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <form class="form-inline" method="get" action="{{route('vibracion')}}">

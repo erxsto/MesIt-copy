@@ -3,7 +3,7 @@
 <!-- ALERTAS VIBRACION -->
 <!-- Script alerta del eje X -->
 <script type="text/javascript">
-  var setData1 = function() {
+  var setData4 = function() {
     $.ajax({
       url: "/api/dataalertx",
       type: 'GET',
@@ -14,13 +14,16 @@
       },
       success: function(data) {
         if (data.data[0] >= 2.9) {
+
           $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:red;'class='fa fa-circle'></i>");
           $('#notificaciones').on('click', function(e) {
             $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:gray;'class='fa fa-circle'></i>");
           });
+
+
           // eje x critica
-          // var tabla1 = ;
-          // var descripcion1= ;
+          // var tabla1 = "vibracion";
+          // var descripcion1= "Alerta crítica Eje X";
           // document.getElementById("formsave_at0").innerHTML = "<input type='hidden' name='_token' value='{{csrf_token()}}'><input type='hidden' id='t1x1' name='tablax1' value='"+tabla1+"'>"+ "<br><input id='d1x1' type='hidden' name='descripcionx1' value='"+descripcion1+"'><button style='{display:none;}' type='button' id='sendx1'> ola";
           // $('#sendx1').hide();
 
@@ -34,6 +37,7 @@
           // datos.push({name: 'tag', value: 'formulariosave'});
           var tabla11 = "vibracion"
           var descripcion11 = "Alerta crítica Eje X"
+
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
@@ -57,15 +61,15 @@
             }
           });
         } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
+
           $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:orange;'class='fa fa-circle'></i>");
           $('#notificaciones').on('click', function(e) {
             $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:gray;'class='fa fa-circle'></i>");
           });
+
           // eje x advertencia
-          var tabla2 = "vibracion";
-          var descripcion2 = "Advertencia en Eje X";
-          // var datos = $(this).serializeArray();
-          // datos.push({name: 'tag', value: 'formulariosave'});
+          var tabla22 = "vibracion"
+          var descripcion22 = "Advertencia en Eje X"
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
@@ -75,8 +79,8 @@
             },
             dateType: 'json',
             data: {
-              tabla: tabla2,
-              descripcion: descripcion2,
+              tabla: tabla22,
+              descripcion: descripcion22,
               valor: data.data[0],
             },
             success: function(response) {
@@ -88,7 +92,6 @@
               console.error();
             }
           });
-
         }
       },
       error: function(data) {
@@ -96,14 +99,14 @@
       }
     });
   }
-  setData1();
+  setData4();
   setInterval(() => {
-    setData1();
+    setData4();
   }, 3000);
 </script>
 <!-- Script alerta del eje Z -->
 <script type="text/javascript">
-  var setData2 = function() {
+  var setData5 = function() {
     $.ajax({
       url: "/api/dataalertz",
       type: 'GET',
@@ -119,12 +122,14 @@
           $('#notificaciones').on('click', function(e) {
             $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:gray;'class='fa fa-circle'></i>");
           });
+
           // eje z critica
           var tabla3 = "vibracion";
-          var descripcion3 = "Alerta crítica Eje Z";
+          var descripcion33 = "Alerta crítica Eje Z";
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -142,7 +147,11 @@
             error: function(response) {
               console.error();
             }
+
+
           });
+
+
         } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
 
           $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:orange;'class='fa fa-circle'></i>");
@@ -151,10 +160,9 @@
           });
 
           // eje z advertencia
-          var tabla4 = "vibracion";
-          var descripcion4 = "Advertencia en Eje Z";
-          // var datos = $(this).serializeArray();
-          // datos.push({name: 'tag', value: 'formulariosave'});
+          var tabla44 = "vibracion";
+          var descripcion44 = "Advertencia en Eje Z";
+
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
@@ -164,8 +172,8 @@
             },
             dateType: 'json',
             data: {
-              tabla: tabla4,
-              descripcion: descripcion4,
+              tabla: tabla44,
+              descripcion: descripcion44,
               valor: data.data[0],
             },
             success: function(response) {
@@ -187,19 +195,19 @@
       }
     });
   }
-  setData2();
+  setData5();
   setInterval(() => {
-    setData2();
+    setData5();
   }, 3000);
 </script>
 <!-- Script alerta del eje Y -->
 <script type="text/javascript">
-  var setData3 = function() {
+  var setData6 = function() {
     $.ajax({
       url: "/api/dataalerty",
       type: 'GET',
-      async: false,
       dataType: 'json',
+      async: false,
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
@@ -210,14 +218,13 @@
           $('#notificaciones').on('click', function(e) {
             $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:gray;'class='fa fa-circle'></i>");
           });
-
           // eje y critica
-          var tabla5 = "vibracion";
-          var descripcion5 = "Alerta crítica Eje Y";
+          var tabla55 = "vibracion";
+          var descripcion55 = "Alerta crítica Eje Y";
           $.ajax({
             url: '{{route("save_at")}}',
-            type: 'POST',
             async: false,
+            type: 'POST',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -235,8 +242,6 @@
             error: function(response) {
               console.error();
             }
-
-
           });
         } else if (data.data[0] >= 1.5 && data.data[0] < 2.9) {
 
@@ -244,21 +249,20 @@
           $('#notificaciones').on('click', function(e) {
             $('#spancamp').html("&nbsp&nbsp<i style='font-size:10px; margin-right:10px; color:gray;'class='fa fa-circle'></i>");
           });
-
           // eje y advertencia
-          var tabla6 = "vibracion";
-          var descripcion6 = "Advertencia Eje Y";
+          var tabla66 = "vibracion";
+          var descripcion66 = "Advertencia en Eje Y";
           $.ajax({
             url: '{{route("save_at")}}',
-            type: 'POST',
             async: false,
-            dateType: 'json',
+            type: 'POST',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
+            dateType: 'json',
             data: {
-              tabla: tabla6,
-              descripcion: descripcion6,
+              tabla: tabla66,
+              descripcion: descripcion66,
               valor: data.data[0],
             },
             success: function(response) {
@@ -277,8 +281,8 @@
       }
     });
   }
-  setData3();
+  setData6();
   setInterval(() => {
-    setData3();
+    setData6();
   }, 3000);
 </script>
