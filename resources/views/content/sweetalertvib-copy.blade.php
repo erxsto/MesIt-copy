@@ -7,6 +7,7 @@
     $.ajax({
       url: "/api/dataalertx",
       type: 'GET',
+      async: false,
       dataType: 'json',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -36,6 +37,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             dateType: 'json',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -67,6 +69,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -104,6 +107,7 @@
     $.ajax({
       url: "/api/dataalertz",
       type: 'GET',
+      async: false,
       dataType: 'json',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -154,6 +158,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -193,6 +198,7 @@
     $.ajax({
       url: "/api/dataalerty",
       type: 'GET',
+      async: false,
       dataType: 'json',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -211,6 +217,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -244,6 +251,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             dateType: 'json',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

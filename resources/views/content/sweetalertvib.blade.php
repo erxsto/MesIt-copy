@@ -8,6 +8,7 @@
     $.ajax({
       url: "/api/dataalertx",
       type: 'GET',
+      async: false,
       dataType: 'json',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -62,6 +63,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             dateType: 'json',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -111,6 +113,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -147,6 +150,7 @@
     $.ajax({
       url: "/api/dataalertz",
       type: 'GET',
+      async: false,
       dataType: 'json',
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -183,6 +187,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -236,6 +241,7 @@
           $.ajax({
             url: '{{route("save_at")}}',
             type: 'POST',
+            async: false,
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -276,6 +282,7 @@
       url: "/api/dataalerty",
       type: 'GET',
       dataType: 'json',
+      async: false,
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
@@ -307,6 +314,7 @@
           var descripcion5 = "Alerta crítica Eje Y";
           $.ajax({
             url: '{{route("save_at")}}',
+            async: false,
             type: 'POST',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -353,6 +361,7 @@
           var descripcion6 = "Advertencia Eje Y";
           $.ajax({
             url: '{{route("save_at")}}',
+            async: false,
             type: 'POST',
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
