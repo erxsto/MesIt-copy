@@ -2,7 +2,6 @@
 @section('content')
 @include('content.tempguardaralerta')
 @include('content.vibracionguardaralerta')
-
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <!-- SCRIPT OBTENCIÓN DE DATOS  -->
 <script type="text/javascript">
@@ -227,9 +226,9 @@
   }
 </style>
 <!-- ESTRUCTURA QUE SE MOSTRARÁ EN LA VISTA -->
-
+<div id="control"> </div>
 <center>
-  <h2>Control de energía</h2><br><br>
+  <h2>Control de variación</h2><br><br>
 </center>
 <div class="text-center">
   <button class="boton uno izq" type="button" style="float: left;" id="izq"><span>Izquierda</span>
@@ -295,7 +294,10 @@
 </div>
 <input type="hidden" id="valslider">
 <script>
-  
+  var eventoControlado = false;
+  window.onload = function() {
+    document.onkeyup = mostrarInformacionTecla;
+  }
   var JSON = $.ajax({
     url: "/api/dataenergiam",
     dataType: 'json',
@@ -308,10 +310,13 @@
   var stop = Respuesta[0].stop;
   var reset = Respuesta[0].reset;
 
+  function mostrarInformacionTecla(evObject) {
 
+    var msg = '';
+    var teclaPulsada = evObject.keyCode;
 
-  $('#izq').on('click', (e) => {
-  $.ajax({
+    if (teclaPulsada == 39) {
+      $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updateder",
@@ -319,37 +324,71 @@
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-          data: 0
+          data: 1
         },
       });
-    
-  $.ajax({
+    } else if (teclaPulsada == 37) {
+      $.ajax({
         type: 'POST',
         dateType: 'json',
-        url: "/api/updatestop",
+        url: "/api/updateizq",
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-          data: 0
+          data: 1
         },
       });
+    }
 
-     
+    if (msg) {
+      control.innerHTML += msg + '';
+    }
 
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatereset",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
+    eventoControlado = false;
 
-    
+  }
+
+  $('#izq').on('click', (e) => {
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateder",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatestop",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
+
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatereset",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
     $.ajax({
       type: 'POST',
       dateType: 'json',
@@ -363,48 +402,48 @@
     });
   });
   $('#der').on('click', (e) => {
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateizq",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
-    
-  
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatestop",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateizq",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
 
-    
-  
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatereset",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
 
-    
-    
-  $.ajax({
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatestop",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
+
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatereset",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
+
+    $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updateder",
@@ -416,50 +455,50 @@
       },
     });
   });
-  
+
   $('#stop').on('click', (e) => {
-  
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateder",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
-    
-  
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateizq",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
 
-    
-  
-  $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatereset",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateder",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
 
-    
-  $.ajax({
+
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateizq",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
+
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatereset",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+
+
+    $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updatestop",
@@ -473,46 +512,46 @@
   });
   $('#reset').on('click', (e) => {
 
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateder",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateder",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
 
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatestop",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatestop",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
 
-  
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateizq",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
 
-    
+    $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateizq",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
 
-  $.ajax({
+
+
+    $.ajax({
       type: 'POST',
       dateType: 'json',
       url: "/api/updatereset",
@@ -534,7 +573,7 @@
     async: false
   }).responseText;
   var Respuesta = jQuery.parseJSON(JSON);
-  var frecuencia = Respuesta[0].frecuencia / 10;
+  var frecuencia = Respuesta[0].frecuencia / 100;
   $("#slider").roundSlider({
     radius: 100,
     circleShape: "half-top",
@@ -557,7 +596,7 @@
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-          data: args.value * 10
+          data: args.value * 100
         },
       });
     }
@@ -579,5 +618,14 @@
 
     });
   }, 1);
+</script>
+<script>
+  function isKeyPressed(event) {
+    if (event.altKey == 1) {
+      alert("The ALT key was pressed!")
+    } else {
+      alert("The ALT key was NOT pressed!")
+    }
+  }
 </script>
 @endsection

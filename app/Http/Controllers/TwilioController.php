@@ -14,7 +14,7 @@ class TwilioController extends Controller
         }
 
         public function prueba(){
-            $text = 'OK';
+            $text = 'Esto funciona correctamente';
 
             Telegram::sendMessage([
                 'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
