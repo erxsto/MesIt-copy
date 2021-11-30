@@ -7,7 +7,7 @@ use DB;
 use App\Models\temperatura;
 use Twilio\Rest\Client;
 use App\Models\alertas;
-
+use Telegram;
 class TemperaturaController extends Controller
 {
     public function fecha(Request $request)
@@ -24,13 +24,22 @@ class TemperaturaController extends Controller
             ->get();
         return view('content.temperatura', ['grafica' => $temps]);
     }
+    // Funciones TELEGRAM
 
+    public function updatedActivity()
+    {
+        $activity = Telegram::getUpdates();
+        dd($activity);
+    }
+    // --------------------------------
     public function datatemp()
     {
         //Obtenemos de la tabla temperatura su id y temp, asignando que será numerico sin decimal ordenando descendientemente
         $temps = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
         //Condición para enviar alerta  whatsapp
         if ($temps[0]->temp >= 30) {
+
+            //TWILIO MSG SANDBOX
             require_once '../vendor/autoload.php';
             $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
             $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
@@ -41,9 +50,19 @@ class TemperaturaController extends Controller
                     "whatsapp:+5217227749519", // to 
                     array(
                         "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30."
+                        "body" => "Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C."
                     )
                 );
+            
+            //TELEGRAM MSG
+                $text = 'Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C.';
+
+                Telegram::sendMessage([
+                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                    'parse_mode' => 'HTML',
+                    'text' => $text
+                ]);
+            
         } else {
             return response()->json(
                 $temps
@@ -53,13 +72,13 @@ class TemperaturaController extends Controller
             $temps
         );
     }
-    public function d()
-    {
-        $te = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
-        return response()->json(
-            $te
-        );
-    }
+    // public function d()
+    // {
+    //     $te = \DB::select('select top 1 id , cast(temp as numeric(36,2)) temp from temperatura order by id desc');
+    //     return response()->json(
+    //         $te
+    //     );
+    // }
     public function datacharttemp()
     {
         $charttemps = \DB::select('select top 10 id,cast((temp*1.8+32) as numeric(36,2)) far,cast(temp as numeric(36,2)) temp from temperatura order by id desc');
