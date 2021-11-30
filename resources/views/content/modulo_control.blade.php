@@ -263,6 +263,10 @@
     </div>
   </div>
 </div>
+
+<input style="margin-left: 49%"class="btn btn-dark" id="botonknob1" type="button" value="Acualiza"> 
+
+
 <br>
 <div class="text-center">
   <div class="a" href="#">
@@ -292,7 +296,6 @@
     <hr> Frecuencia
   </div>
 </div>
-<input type="hidden" id="valslider">
 <script>
   var eventoControlado = false;
   window.onload = function() {
@@ -400,6 +403,22 @@
         data: 1
       },
     });
+
+    //Despues de 1 seg = 0
+      setTimeout(() => {
+        $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updateizq",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 0
+      },
+    });
+      }, 1000);
+
   });
   $('#der').on('click', (e) => {
     $.ajax({
@@ -454,6 +473,22 @@
         data: 1
       },
     });
+
+    //Despues de 1 seg = 0
+
+    setTimeout(() => {
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateder",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    }, 1000);
   });
 
   $('#stop').on('click', (e) => {
@@ -509,6 +544,24 @@
         data: 1
       },
     });
+
+    //Despues de 1 seg = 0
+
+      setTimeout(() => {
+
+        $.ajax({
+          type: 'POST',
+          dateType: 'json',
+          url: "/api/updatestop",
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            data: 0
+          },
+        });
+        
+      }, 1000);
   });
   $('#reset').on('click', (e) => {
 
@@ -552,20 +605,34 @@
 
 
     $.ajax({
-      type: 'POST',
-      dateType: 'json',
-      url: "/api/updatereset",
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: {
-        data: 1
-      },
-    });
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatereset",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 1
+        },
+      });
+      setTimeout(() => {
+        $.ajax({
+          type: 'POST',
+          dateType: 'json',
+          url: "/api/updatereset",
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            data: 0
+          },
+        });
+      }, 1000);
   });
 </script>
 <!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
 <script>
+    //GET control_var 
   var JSON = $.ajax({
     url: "/api/dataenergiam",
     dataType: 'json',
@@ -574,6 +641,37 @@
   }).responseText;
   var Respuesta = jQuery.parseJSON(JSON);
   var frecuencia = Respuesta[0].frecuencia / 100;
+
+    //propiedades del knob
+  // $("#slider").roundSlider({
+  //   radius: 100,
+  //   circleShape: "half-top",
+  //   sliderType: "min-range",
+  //   mouseScrollAction: true,
+  //   value: frecuencia,
+  //   id: "valsliders",
+  //   handleSize: "+18",
+  //   min: 0,
+  //   max: 60,
+  //   change: function(args) {
+  //     console.log(args.value);
+  //     $('#valslider').html(args.value);
+
+  //     $.ajax({
+  //       type: 'POST',
+  //       dateType: 'json',
+  //       url: "/api/valueslider",
+  //       headers: {
+  //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //       },
+  //       data: {
+  //         data: args.value * 100
+  //       },
+  //     });
+  //   }
+  // });
+
+  //Nuevo knob con click
   $("#slider").roundSlider({
     radius: 100,
     circleShape: "half-top",
@@ -585,9 +683,10 @@
     min: 0,
     max: 60,
     change: function(args) {
-      console.log(args.value);
-      $('#valslider').html(args.value);
+     console.log(args.value);
 
+     $('#botonknob1').on('click', (e) => {
+      
       $.ajax({
         type: 'POST',
         dateType: 'json',
@@ -599,9 +698,18 @@
           data: args.value * 100
         },
       });
+
+    });
+
     }
   });
+    
+
+
+    
 </script>
+
+
 <!-- SCRIPT AJUSTE DE KNOB CENTRADO  -->
 <script>
   setInterval(function() {
@@ -628,4 +736,6 @@
     }
   }
 </script>
+
+
 @endsection
