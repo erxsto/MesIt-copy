@@ -2,6 +2,7 @@
 @section('content')
 @include('content.sweetalertvib')
 @include('content.tempguardaralerta')
+@include('content.vibracionguardaralerta')
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>
 <form class="form-inline" method="get" action="{{route('vibracion')}}">
