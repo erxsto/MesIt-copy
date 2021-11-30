@@ -1,6 +1,6 @@
 <html>
 <head>
-    <img style="width:9.375em;" class="logo" src="http://amats.com.mx/images/logo-amats-electric-r.svg" alt="amats_logo">
+    <img style="width:9.375em;" class="logo" src="{{asset('img/logo-amats.svg')}}" alt="amats_logo">
     <strong><text class="">AMATS ELECTRIC, S.A DE C.V.</text></strong>
     <text class="">-Soluciones Rentables en Automatización</text>
     <hr>

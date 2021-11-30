@@ -238,7 +238,7 @@
     </div>
 
 </div> <br>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset ('js/sweetalert.js') }}"></script>
 @if(session('enviado')=='ok')
 <script>
     Swal.fire({

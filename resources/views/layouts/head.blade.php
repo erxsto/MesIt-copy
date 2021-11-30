@@ -4,25 +4,67 @@
 <!-- Título de la página -->
 <title>AMATS ELECTRIC - MESit</title>
 <!-- Scripts  -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script> -->
+<script src="{{ asset('js/chartmin.js') }}"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script src="{{ asset('js/jquerymin.js') }}"></script>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!-- <script src="{{ asset('css/bootstrapmin.css') }}"></script> -->
+
 <!-- JavaScript Bundle with Popper -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/02bd5799bc.js" crossorigin="anonymous"></script>
+<!-- <script src="{{ asset('js/bootstrapmin.js') }}"></script> -->
+
+
+<!-- <script src="https://kit.fontawesome.com/02bd5799bc.js" crossorigin="anonymous"></script> -->
+<script src="{{ asset('js/kitfontawesome.js') }}"></script>
+
+
 <!-- ICONS -->
+
 <script src="https://kit.fontawesome.com/e815cd1bb7.js" crossorigin="anonymous"></script>
+<!-- <script src="{{ asset('js/kitfontawesome(1).js') }}"></script> -->
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+<!-- <script src="{{ asset('css/bootstrapicons.css') }}"></script> -->
+
+
 <!-- Logo de la página -->
 <link rel="shortcut icon" href="{{ asset('img/logo-AE.png') }}">
+
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.js"></script>
+<!-- <script src="{{ asset('js/sortable.js') }}"></script> -->
+
+
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+<script src="{{ asset('js/gstaticcharts.js') }}"></script>
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="{{ asset('js/ajaxgoogleapis.js') }}"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script> -->
+<script src="{{ asset('js/teenmaxmin.js') }}"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.js"></script> -->
+<script src="{{ asset('js/roundslidermin.js') }}"></script>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/roundSlider/1.3.2/roundslider.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" integrity="sha512-NhRZzPdzMOMf005Xmd4JonwPftz4Pe99mRVcFeRDcdCtfjv46zPIi/7ZKScbpHD/V0HB1Eb+ZWigMqw94VUVaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="{{ asset('css/roundslidermin.css') }}"></script> -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script> -->
+<script src="{{ asset('js/draggablemin.js') }}"></script>
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" integrity="sha512-NhRZzPdzMOMf005Xmd4JonwPftz4Pe99mRVcFeRDcdCtfjv46zPIi/7ZKScbpHD/V0HB1Eb+ZWigMqw94VUVaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script src="{{ asset('js/knobmin.js') }}"></script>
+
+
 <!--Estilos de cada página dependiendo su clase -->
 <style>
   * {
