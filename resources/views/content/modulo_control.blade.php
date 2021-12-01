@@ -699,6 +699,20 @@
         },
       });
 
+      setTimeout(() => {
+        $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/valueslider",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+      }, 1000);
+
     });
 
     }
