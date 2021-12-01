@@ -36,6 +36,7 @@ Route::post('updateizq', 'App\Http\Controllers\ModuloController@updateizq')->nam
 Route::post('updateder', 'App\Http\Controllers\ModuloController@updateder')->name('updateder');
 Route::post('updatestop', 'App\Http\Controllers\ModuloController@updatestop')->name('updatestop');
 Route::post('updatereset', 'App\Http\Controllers\ModuloController@updatereset')->name('updatereset');
+Route::post('updatebtn', 'App\Http\Controllers\ModuloController@updatebtn')->name('updatebtn');
 
 
 Route::post('valueslider', 'App\Http\Controllers\ModuloController@valueslider')->name('valueslider');

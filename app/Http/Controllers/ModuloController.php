@@ -62,5 +62,12 @@ class ModuloController extends Controller
             return redirect()->back();
         }
     }
+    public function updatebtn(Request $request){
+        if ($request->ajax()) {
+             $idl = DB::table('control_var')->latest('id')->first();
+            $new = DB::insert("UPDATE [dbo].[control_var] SET btnactualizar = '$request->data' WHERE id = '$idl->id'");
+            return redirect()->back();
+        }
+    }
 
 }

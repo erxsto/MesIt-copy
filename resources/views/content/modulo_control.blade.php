@@ -629,6 +629,8 @@
         });
       }, 1000);
   });
+
+  //btnactualizar
 </script>
 <!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
 <script>
@@ -713,6 +715,36 @@
       });
       }, 1000);
 
+      // ----------BTN ACTUALIZAR -------
+
+      $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatebtn",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+
+    setTimeout(() => {
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatebtn",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    }, 1000);
+
+    // -----------------------------------------------
+    // -----------------------------------------------
     });
 
     }
