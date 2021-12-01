@@ -19,7 +19,7 @@
 
     document.getElementById("indicador").innerHTML = (Respuesta[0].amperaje) / 10;
     document.getElementById("indicador3").innerHTML = (Respuesta[0].voltaje) / 10;
-    document.getElementById("indicador6").innerHTML = (Respuesta[0].frecuencia) / 10;
+    document.getElementById("indicador6").innerHTML = (Respuesta[0].frecuencia) / 100;
   }, 1000);
 </script>
 <!-- ESTILOS  PARA KNOB (MANDO CIRCULAR) -->
