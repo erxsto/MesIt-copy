@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
+use Telegram;
 
 use Illuminate\Http\Request;
 use DB;
@@ -18,6 +19,7 @@ class VibracionController extends Controller
         return view('content.vibracion')
             ->with(['graficas' => $graficas]);
     }
+    
     public function datavibracion()
     {
         $graficas = grafica_ejes::latest()->take(20)->get()->sortBy('id');
@@ -27,6 +29,7 @@ class VibracionController extends Controller
         $dataz = $graficas->pluck('ejez');
         return response()->json(compact('labels', 'data', 'datay', 'dataz'));
     }
+    
     public function dataalertz()
     {
         $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
@@ -35,37 +38,29 @@ class VibracionController extends Controller
 
         if ($data[0] >= 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            //TELEGRAM MSG
+                        
+            $text = '¡Alerta Crítica! , Revisa Tu módulo Vibración , eje z';
+                    
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Z"
-                    )
-                );
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            //TELEGRAM MSG
+            
+            $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje z';
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Z"
-                    )
-                );
-        } else {
-            echo 'ok';
-        }
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
+            
+        } 
 
         return response()->json(compact('labels', 'data'));
     }
@@ -78,38 +73,56 @@ class VibracionController extends Controller
 
         if ($data[0] >= 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            // require_once '../vendor/autoload.php';
+            // $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
+            // $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
+            // $twilio = new Client($sid, $token);
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje x"
-                    )
-                );
+            // $message = $twilio->messages
+            //     ->create(
+            //         "whatsapp:+5217227749519", // to 
+            //         array(
+            //             "from" => "whatsapp:+14155238886",
+            //             "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje x"
+            //         )
+            //     );
+
+            //TELEGRAM MSG
+
+            $text = '¡Alerta Crítica! , Revisa Tu módulo Vibración , eje x';
+
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
+
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            // require_once '../vendor/autoload.php';
+            // $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
+            // $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
+            // $twilio = new Client($sid, $token);
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje x"
-                    )
-                );
-        } else {
-            echo 'ok';
+            // $message = $twilio->messages
+            //     ->create(
+            //         "whatsapp:+5217227749519", // to 
+            //         array(
+            //             "from" => "whatsapp:+14155238886",
+            //             "body" => "Advertencia! , Revisa Tu módulo 'vibracion' en Eje x"
+            //         )
+            //     );
+            
+            //TELEGRAM MSG
+            
+            $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje x';
+
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
         }
-
         return response()->json(compact('labels', 'data'));
     }
     public function dataalerty()
@@ -121,37 +134,29 @@ class VibracionController extends Controller
 
         if ($data[0] >= 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            //TELEGRAM MSG
+            
+            $text = '¡Alerta Crítica! , Revisa Tu módulo Vibración , eje y';
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Y"
-                    )
-                );
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
+
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+            //TELEGRAM MSG
+            
+            $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje y';
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo 'vibracion' en Eje Y"
-                    )
-                );
-        } else {
-            echo 'ok';
-        }
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
+
+        } 
 
         return response()->json(compact('labels', 'data'));
     }

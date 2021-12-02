@@ -136,7 +136,7 @@
             dateType: 'json',
             data: {
               tabla: tabla3,
-              descripcion: descripcion3,
+              descripcion: descripcion33,
               valor: data.data[0],
             },
             success: function(response) {

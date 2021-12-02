@@ -40,20 +40,20 @@ class TemperaturaController extends Controller
         if ($temps[0]->temp >= 30) {
 
             //TWILIO MSG SANDBOX
-            require_once '../vendor/autoload.php';
-            $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
-            $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
-            $twilio = new Client($sid, $token);
+                // require_once '../vendor/autoload.php';
+                // $sid    = "ACbd8d939516cbd568851aad8dabe03eb9";
+                // $token  = "ef2fca51d4eb54b9f1cd40004893b38d";
+                // $twilio = new Client($sid, $token);
 
-            $message = $twilio->messages
-                ->create(
-                    "whatsapp:+5217227749519", // to 
-                    array(
-                        "from" => "whatsapp:+14155238886",
-                        "body" => "Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C."
-                    )
-                );
-            
+                // $message = $twilio->messages
+                //     ->create(
+                //         "whatsapp:+5217227749519", // to 
+                //         array(
+                //             "from" => "whatsapp:+14155238886",
+                //             "body" => "Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C."
+                //         )
+                //     );
+                
             //TELEGRAM MSG
                 $text = 'Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C.';
 
