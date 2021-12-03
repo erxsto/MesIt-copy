@@ -20,6 +20,7 @@
     document.getElementById("indicador").innerHTML = (Respuesta[0].amperaje) / 10;
     document.getElementById("indicador3").innerHTML = (Respuesta[0].voltaje) / 10;
     document.getElementById("indicador6").innerHTML = (Respuesta[0].frecuencia) / 100;
+    document.getElementById("indicador9").innerHTML = (Respuesta[0].rec_frec) / 100;
   }, 1000);
 </script>
 <!-- ESTILOS  PARA KNOB (MANDO CIRCULAR) -->
@@ -287,7 +288,7 @@
 
     <hr> Voltaje
   </div>
-  <div class="a" href="#">
+  <div class="a oculto" href="#">
     <span></span>
     <span></span>
     <span></span>
@@ -295,8 +296,22 @@
     <div class="num" id="indicador6"></div>
     <hr> Frecuencia
   </div>
+  <div class="a" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div class="num" id="indicador9"></div>
+    <hr> Rec_Frecuencia
+  </div>
 </div>
 <script>
+  // if ($('#oculto').is(":visible")) {
+  //   $('#oculto').css('display', 'none');
+  // } else {
+  //   $('#oculto').css('display', 'block');
+  // }
+
   var eventoControlado = false;
   window.onload = function() {
     document.onkeyup = mostrarInformacionTecla;
