@@ -265,7 +265,7 @@
   </div>
 </div>
 
-<input style="margin-left: 49%"class="btn btn-dark" id="botonknob1" type="button" value="Acualiza"> 
+<input style="margin-left: 49%" class="btn btn-dark" id="botonknob1" type="button" value="Acualiza">
 
 
 <br>
@@ -312,10 +312,6 @@
   //   $('#oculto').css('display', 'block');
   // }
 
-  var eventoControlado = false;
-  window.onload = function() {
-    document.onkeyup = mostrarInformacionTecla;
-  }
   var JSON = $.ajax({
     url: "/api/dataenergiam",
     dataType: 'json',
@@ -327,46 +323,6 @@
   var derecho = Respuesta[0].derecho;
   var stop = Respuesta[0].stop;
   var reset = Respuesta[0].reset;
-
-  function mostrarInformacionTecla(evObject) {
-
-    var msg = '';
-    var teclaPulsada = evObject.keyCode;
-
-    if (teclaPulsada == 39) {
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateder",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 1
-        },
-      });
-    } else if (teclaPulsada == 37) {
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updateizq",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 1
-        },
-      });
-    }
-
-    if (msg) {
-      control.innerHTML += msg + '';
-    }
-
-    eventoControlado = false;
-
-  }
-
   $('#izq').on('click', (e) => {
     $.ajax({
       type: 'POST',
@@ -420,19 +376,19 @@
     });
 
     //Despues de 1 seg = 0
-      setTimeout(() => {
-        $.ajax({
-      type: 'POST',
-      dateType: 'json',
-      url: "/api/updateizq",
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: {
-        data: 0
-      },
-    });
-      }, 1000);
+    setTimeout(() => {
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updateizq",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+    }, 1000);
 
   });
   $('#der').on('click', (e) => {
@@ -562,21 +518,21 @@
 
     //Despues de 1 seg = 0
 
-      setTimeout(() => {
+    setTimeout(() => {
 
-        $.ajax({
-          type: 'POST',
-          dateType: 'json',
-          url: "/api/updatestop",
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: {
-            data: 0
-          },
-        });
-        
-      }, 1000);
+      $.ajax({
+        type: 'POST',
+        dateType: 'json',
+        url: "/api/updatestop",
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+          data: 0
+        },
+      });
+
+    }, 1000);
   });
   $('#reset').on('click', (e) => {
 
@@ -620,6 +576,18 @@
 
 
     $.ajax({
+      type: 'POST',
+      dateType: 'json',
+      url: "/api/updatereset",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        data: 1
+      },
+    });
+    setTimeout(() => {
+      $.ajax({
         type: 'POST',
         dateType: 'json',
         url: "/api/updatereset",
@@ -627,29 +595,17 @@
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-          data: 1
+          data: 0
         },
       });
-      setTimeout(() => {
-        $.ajax({
-          type: 'POST',
-          dateType: 'json',
-          url: "/api/updatereset",
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: {
-            data: 0
-          },
-        });
-      }, 1000);
+    }, 1000);
   });
 
   //btnactualizar
 </script>
 <!-- OBTENCIÓN DE HZ Y ENVÍO DE SU NUEVO VALOR -->
 <script>
-    //GET control_var 
+  //GET control_var 
   var JSON = $.ajax({
     url: "/api/dataenergiam",
     dataType: 'json',
@@ -659,7 +615,7 @@
   var Respuesta = jQuery.parseJSON(JSON);
   var frecuencia = Respuesta[0].frecuencia / 100;
 
-    //propiedades del knob
+  //propiedades del knob
   // $("#slider").roundSlider({
   //   radius: 100,
   //   circleShape: "half-top",
@@ -700,61 +656,57 @@
     min: 0,
     max: 60,
     change: function(args) {
-     console.log(args.value);
+      console.log(args.value);
 
-     $('#botonknob1').on('click', (e) => {
-      
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/valueslider",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: args.value * 100
-        },
+      $('#botonknob1').on('click', (e) => {
+
+        $.ajax({
+          type: 'POST',
+          dateType: 'json',
+          url: "/api/valueslider",
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            data: args.value * 100
+          },
+        });
+
+
+        // ----------BTN ACTUALIZAR -------
+
+        $.ajax({
+          type: 'POST',
+          dateType: 'json',
+          url: "/api/updatebtn",
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            data: 1
+          },
+        });
+
+        setTimeout(() => {
+          $.ajax({
+            type: 'POST',
+            dateType: 'json',
+            url: "/api/updatebtn",
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+              data: 0
+            },
+          });
+        }, 1000);
+
+        // -----------------------------------------------
+        // -----------------------------------------------
       });
-
-
-      // ----------BTN ACTUALIZAR -------
-
-      $.ajax({
-      type: 'POST',
-      dateType: 'json',
-      url: "/api/updatebtn",
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: {
-        data: 1
-      },
-    });
-
-    setTimeout(() => {
-      $.ajax({
-        type: 'POST',
-        dateType: 'json',
-        url: "/api/updatebtn",
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          data: 0
-        },
-      });
-    }, 1000);
-
-    // -----------------------------------------------
-    // -----------------------------------------------
-    });
 
     }
   });
-    
-
-
-    
 </script>
 
 
@@ -775,15 +727,5 @@
     });
   }, 1);
 </script>
-<script>
-  function isKeyPressed(event) {
-    if (event.altKey == 1) {
-      alert("The ALT key was pressed!")
-    } else {
-      alert("The ALT key was NOT pressed!")
-    }
-  }
-</script>
-
 
 @endsection
