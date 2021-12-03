@@ -302,15 +302,15 @@
     <span></span>
     <span></span>
     <div class="num" id="indicador9"></div>
-    <hr> Rec_Frecuencia
+    <hr> Frecuencia
   </div>
 </div>
 <script>
-  // if ($('#oculto').is(":visible")) {
-  //   $('#oculto').css('display', 'none');
-  // } else {
-  //   $('#oculto').css('display', 'block');
-  // }
+  if ($('.oculto').is(":visible")) {
+    $('.oculto').css('display', 'none');
+  } else {
+    $('.oculto').css('display', 'block');
+  }
 
   var JSON = $.ajax({
     url: "/api/dataenergiam",
