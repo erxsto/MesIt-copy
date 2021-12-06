@@ -301,10 +301,13 @@
     <span></span>
     <span></span>
     <span></span>
-    <div class="num" id="indicador9"></div>
+    <div class="num">
+      <label id="indicador9"></label>
+    </div>
     <hr> Frecuencia
   </div>
 </div>
+<label id="indicadoroculto"></label>
 <script>
   if ($('.oculto').is(":visible")) {
     $('.oculto').css('display', 'none');
@@ -702,11 +705,28 @@
         }, 1000);
 
         // -----------------------------------------------
+              setInterval(() => {
+              
+              $('#indicadoroculto').click()
+              
+              }, 10000);
+          
+              $('#indicadoroculto').click(()=> {
+
+              var aa = $('#indicador9').text()
+
+
+              $("#slider").roundSlider({value: aa})
+
+              console.log('cambio en ind9 = '+ aa)
+            });
         // -----------------------------------------------
       });
 
     }
   });
+  
+
 </script>
 
 

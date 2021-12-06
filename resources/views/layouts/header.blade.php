@@ -87,14 +87,9 @@ setInterval(function() {
       </li>
  
      
-      <li class="nav-item active topitem well" style="margin-left:10px;">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
-      </li><br>
       <!-- NOTIFICACIONES -->
     <li class="dropdown well" style="margin-left:10px;">
-        <a id="notificaciones" style="box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);
-                                      -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);
-                                      -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.31);" 
+        <a id="notificaciones"
         class="btn btn-black dropdown-toggle hoverit nav-link btn-lg navbar-custom tooltip" 
         data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span id="spancamp"></span>
         </a>
@@ -107,11 +102,23 @@ setInterval(function() {
        </ul>
     </li>
 
+     
 
-      <li class="mx-5">
-        <p class="hoverit  btn-lg navbar-custom tooltip" id="bnv">Bienvenido <b>{{ session('session_name') }}</b></p>
+
+      <li class="mx-2">
+        <p class="hoverit  btn-lg navbar-custom tooltip" 
+        style="box-shadow: -1px 2px 5px 4px rgba(138,136,136,0.43);
+-webkit-box-shadow: -1px 2px 5px 4px rgba(138,136,136,0.43);
+-moz-box-shadow: -1px 2px 5px 4px rgba(138,136,136,0.43);" id="bnv">Bienvenido <b>{{ session('session_name') }}</b></p>
       </li>
+      
+      <li class="nav-item active topitem well">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./Horarios"><i class="fa fa-sign-out"></i></a>
+      </li><br>
 
+      <li class="nav-item active topitem well">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
+      </li><br>
       @else
       <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./login"><i class="fa fa-user-circle"></i><span class="tooltip-box">Logueate</span></a>
