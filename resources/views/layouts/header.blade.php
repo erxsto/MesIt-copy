@@ -113,7 +113,7 @@ setInterval(function() {
       </li>
       
       <li class="nav-item active topitem well">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./Horarios"><i class="fa fa-sign-out"></i></a>
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./Horarios"><i class="fa fa-user-clock"></i></a>
       </li><br>
 
       <li class="nav-item active topitem well">

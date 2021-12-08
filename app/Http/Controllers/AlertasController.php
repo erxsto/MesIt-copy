@@ -29,4 +29,9 @@ class AlertasController extends Controller
             $alertas
         );
     }
+
+    public function Horarios(){
+
+        return view('content.horario_alertas');
+    }
 }
