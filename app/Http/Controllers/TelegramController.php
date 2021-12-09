@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Telegram;
 use Illuminate\Http\Request;
 
-class TwilioController extends Controller
+class TelegramController extends Controller
 {
 
             public function updatedActivity()

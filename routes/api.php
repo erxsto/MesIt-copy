@@ -42,4 +42,4 @@ Route::post('updatebtn', 'App\Http\Controllers\ModuloController@updatebtn')->nam
 Route::post('valueslider', 'App\Http\Controllers\ModuloController@valueslider')->name('valueslider');
 //Graficas energia
 Route::get('grafs', 'App\Http\Controllers\EnergiaController@grafs')->name('grafs');
-Route::get('ok','App\Http\Controllers\TwilioController@ok')->name('ok');
+Route::get('ok','App\Http\Controllers\TelegramController@ok')->name('ok');

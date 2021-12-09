@@ -31,7 +31,26 @@ class AlertasController extends Controller
     }
 
     public function Horarios(){
-
         return view('content.horario_alertas');
     }
+
+    public function guardar_horas(Request $request)
+    {
+        $id= (session('session_id'));
+        $update = DB::insert("UPDATE [dbo].[horario_alertas] SET h_ini = '$request->hi', h_fin = '$request->hf' WHERE user_id = '$id'");
+        return redirect()->back();
+    }
+    public function guardar_dias(Request $request)
+    {
+        $id= (session('session_id'));
+        $update = DB::insert("UPDATE [dbo].[horario_alertas] SET lun = '$request->lun',mar = '$request->mar',mier = '$request->mier',jue = '$request->jue',vier = '$request->vier',sab = '$request->sab',dom = '$request->dom' WHERE user_id = '$id'");
+        return redirect()->back();
+    }
+    public function status_alertas(Request $request)
+    {
+        $id= (session('session_id'));
+        $update = DB::insert("UPDATE [dbo].[horario_alertas] SET status = '$request->data' WHERE user_id = '$id'");
+        return redirect()->back();
+    }
+
 }
