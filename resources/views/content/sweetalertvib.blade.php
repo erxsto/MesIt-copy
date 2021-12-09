@@ -22,6 +22,12 @@
 
 
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'error',
             title: 'Alerta crítica',
             allowOutsideClick: false,
@@ -87,6 +93,12 @@
           document.getElementById('xyz').muted = false;
           document.getElementById('xyz').play();
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'warning',
             title: '¡Advertencia!',
             allowOutsideClick: false,
@@ -161,6 +173,12 @@
           document.getElementById('xyz').muted = false;
           document.getElementById('xyz').play();
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'error',
             title: 'Alerta crítica',
             allowOutsideClick: false,
@@ -215,6 +233,12 @@
           document.getElementById('xyz').muted = false;
           document.getElementById('xyz').play();
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'warning',
             title: '¡Advertencia!',
             allowOutsideClick: false,
@@ -291,6 +315,18 @@
           document.getElementById('xyz').muted = false;
           document.getElementById('xyz').play();
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'error',
             title: 'Alerta crítica',
             allowOutsideClick: false,
@@ -338,6 +374,12 @@
           document.getElementById('xyz').muted = false;
           document.getElementById('xyz').play();
           Swal.fire({
+            showClass: {
+              popup: 'animate__animated animate__fadeIn'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOut'
+            },
             icon: 'warning',
             title: '¡Advertencia!',
             allowOutsideClick: false,

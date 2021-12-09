@@ -4,7 +4,10 @@
 <!-- Título de la página -->
 <title>AMATS ELECTRIC - MESit</title>
 <!-- Scripts  -->
-
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script> -->
 <script src="{{ asset('js/chartmin.js') }}"></script>
 
