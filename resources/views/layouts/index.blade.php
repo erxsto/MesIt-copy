@@ -14,8 +14,8 @@
     <!-- Mandamos a llamar al content -->
 
     <main class="py-4 container-sm">
-            @yield('content')
-        </main>
+        @yield('content')
+    </main>
     <!-- Mandamos a llamar al footer  -->
     <footer class="bg-dark text-center text-white pt-5 pb-1">
         @include('layouts.footer')

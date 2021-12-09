@@ -5,7 +5,6 @@
 @include('content.vibracionguardaralerta')
 <!-- SCRIPT OBTENCION DE DATOS ENERGÍA -->
 <script type="text/javascript">
-    
     setInterval(function() {
 
         var JSON = $.ajax({

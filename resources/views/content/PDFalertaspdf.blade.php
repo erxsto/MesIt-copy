@@ -1,9 +1,10 @@
 <html>
+
 <head>
-    <img style="width:9.375em;" class="logo" src="{{asset('img/logo-amats.svg')}}" alt="amats_logo">
-    <strong><text class="">AMATS ELECTRIC, S.A DE C.V.</text></strong>
-    <text class="">-Soluciones Rentables en Automatización</text>
-    <hr>
+  <img style="width:9.375em;" class="logo" src="{{asset('img/logo-amats.svg')}}" alt="amats_logo">
+  <strong><text class="">AMATS ELECTRIC, S.A DE C.V.</text></strong>
+  <text class="">-Soluciones Rentables en Automatización</text>
+  <hr>
 </head>
 
 
@@ -19,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      
+
       @foreach ($alertas as $alerta)
       <tr>
 
@@ -29,7 +30,7 @@
         <td>{{ number_format($alerta->valor,1) }}</td>
         <td>{{$alerta->created_at}}</td>
       </tr>
-      
+
       @endforeach
     </tbody>
   </table>

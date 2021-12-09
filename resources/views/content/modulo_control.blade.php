@@ -2,6 +2,7 @@
 @section('content')
 @include('content.tempguardaralerta')
 @include('content.vibracionguardaralerta')
+@include('content.cortos')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <!-- SCRIPT OBTENCIÓN DE DATOS  -->
 <script type="text/javascript">
@@ -705,28 +706,28 @@
         }, 1000);
 
         // -----------------------------------------------
-              setInterval(() => {
-              
-              $('#indicadoroculto').click()
-              
-              }, 10000);
-          
-              $('#indicadoroculto').click(()=> {
+        setInterval(() => {
 
-              var aa = $('#indicador9').text()
+          $('#indicadoroculto').click()
+
+        }, 10000);
+
+        $('#indicadoroculto').click(() => {
+
+          var aa = $('#indicador9').text()
 
 
-              $("#slider").roundSlider({value: aa})
+          $("#slider").roundSlider({
+            value: aa
+          })
 
-              console.log('cambio en ind9 = '+ aa)
-            });
+          console.log('cambio en ind9 = ' + aa)
+        });
         // -----------------------------------------------
       });
 
     }
   });
-  
-
 </script>
 
 

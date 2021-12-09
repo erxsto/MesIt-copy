@@ -38,7 +38,7 @@
 
                             <div class="pt-1 mb-4">
                                 <button class="boton uno" type="submit"><span>Login</span>
-                            <!-- </button><button class="boton seis" type="submit">
+                                    <!-- </button><button class="boton seis" type="submit">
 				            <span>Login</span>
 				            <svg>
 				            	<rect x="0" y="0" fill="none"></rect>

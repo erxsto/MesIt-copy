@@ -108,7 +108,7 @@
 
       <li class="nav-item active topitem">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i>
-      </a>
+        </a>
       </li><br>
       @else
       <li class="nav-item active topitem" style="margin-left:10px;">
