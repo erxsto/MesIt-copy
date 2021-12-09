@@ -47,14 +47,26 @@ Route::group(['middleware' => ['customAuth']], function () {
     //Ruta correo
     Route::get('cindex', 'App\Http\Controllers\CorreoController@index')->name('cindex');
     Route::post('cstore', 'App\Http\Controllers\CorreoController@store')->name('cstore');
+
+    
+    Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
+    Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
+    Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
+    
+    //telegram
+    Route::get('/activity', 'App\Http\Controllers\TelegramController@updatedActivity');
+    Route::get('/prueba', 'App\Http\Controllers\TelegramController@prueba');
+
+    // horario alertas
+    Route::name('Horarios')->get('Horarios/', 'App\Http\Controllers\AlertasController@Horarios');
+    Route::post('Horarios/guardar_horas', 'App\Http\Controllers\AlertasController@guardar_horas')->name('guardar_horas');
+    Route::post('Horarios/guardar_dias', 'App\Http\Controllers\AlertasController@guardar_dias')->name('guardar_dias');
+    Route::post('Horarios/status_alertas', 'App\Http\Controllers\AlertasController@status_alertas')->name('status_alertas');
+    
 });
 
 Route::group(['middleware' => 'admin'], function () {
     Route::name('modulo_control')->get('modulo_control/', 'App\Http\Controllers\ModuloController@modulo_control');
     Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
+
 });
-Route::post('temperatura/save', 'App\Http\Controllers\TemperaturaController@registrar')->name('save');
-Route::post('temperatura/save_xyz', 'App\Http\Controllers\VibracionController@registrar_ejes')->name('save_xyz');
-Route::post('temperatura/save_at', 'App\Http\Controllers\TemperaturaController@save_at')->name('save_at');
-Route::get('/activity', 'App\Http\Controllers\TwilioController@updatedActivity');
-Route::get('/prueba', 'App\Http\Controllers\TwilioController@prueba');

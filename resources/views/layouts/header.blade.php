@@ -67,31 +67,31 @@ setInterval(function() {
     <text class="navbar-item active btn-lg mesit"></text>
     <ul class="navbar-nav text-center">
       @if(session()->has('session_id'))
-      <li class="nav-item active izqitem topitem well">
+      <li class="nav-item active izqitem topitem">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./"><i class="bi bi-house"></i><span class="tooltip-box">Dashboard</span></a>
       </li>
-      <li class="nav-item active topitem well" style="margin-left:10px;">
+      <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./vibracion"><i class="bi bi-bezier2"></i><span class="tooltip-box">Vibración</span></a>
       </li>
-      <li class="nav-item active topitem well" style="margin-left:10px;">
+      <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./energia"><i class="fa fa-car-battery"></i><span class="tooltip-box">Energía</span></a>
       </li>
-      <li class="nav-item active topitem well" style="margin-left:10px;">
+      <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./temperatura"><i class="bi bi-speedometer"></i><span class="tooltip-box">Temperatura</span></a>
       </li>
-      <li class="nav-item active topitem well" style="margin-left:10px;">
+      <li class="nav-item active topitem" style="margin-left:10px;">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./modulo_control"><i class="bi bi-sliders"></i><span class="tooltip-box">M.Control</span></a>
       </li>
-      <li class="nav-item active topitem well alertsizq">
+      <li class="nav-item active topitem alertsizq">
         <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./alertas"><i class="fa fa-server"></i><span class="tooltip-box">Historial</span></a>
       </li>
  
      
       <!-- NOTIFICACIONES -->
-    <li class="dropdown well" style="margin-left:10px;">
+    <li class="dropdown" style="margin-left:10px;">
         <a id="notificaciones"
         class="btn btn-black dropdown-toggle hoverit nav-link btn-lg navbar-custom tooltip" 
-        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span id="spancamp"></span>
+        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span id="spancamp"></span><span class="tooltip-box">Notificaciones</span>
         </a>
         
        <ul class="dropdown-menu" id="notificaciones">
@@ -112,12 +112,12 @@ setInterval(function() {
 -moz-box-shadow: -1px 2px 5px 4px rgba(138,136,136,0.43);" id="bnv">Bienvenido <b>{{ session('session_name') }}</b></p>
       </li>
       
-      <li class="nav-item active topitem well">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./Horarios"><i class="fa fa-sign-out"></i></a>
+      <li class="nav-item active topitem">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./Horarios"><i class="fa fa-user-clock"></i><span class="tooltip-box">Horarios</span></a>
       </li><br>
 
-      <li class="nav-item active topitem well">
-        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i></a>
+      <li class="nav-item active topitem">
+        <a class="hoverit nav-link btn-lg navbar-custom tooltip" href="./destroy"><i class="fa fa-sign-out"></i><span class="tooltip-box">Salir</span></a>
       </li><br>
       @else
       <li class="nav-item active topitem" style="margin-left:10px;">

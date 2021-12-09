@@ -150,7 +150,7 @@
     border-right: 7px solid transparent;
     position: absolute;
     bottom: -6px;
-    left: calc(50% - 32px);
+    left: calc(70% - 32px);
   }
   .container {
     width: 90%;
@@ -522,10 +522,6 @@
     .nav-link {
       margin-left: 130px;
       font-size: 25px;
-    }
-    .well{box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
--webkit-box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
--moz-box-shadow: -2px 3px 5px 5px rgba(141,133,133,0.75);
     }
     .izqitem {
       margin-left: 1px;
