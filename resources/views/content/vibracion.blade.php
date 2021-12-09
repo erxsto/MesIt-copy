@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('content')
 @include('content.sweetalertvib')
+@include('content.cortos')
 @include('content.tempguardaralerta')
 <!-- Se muestra la gráfica con <canvas> -->
 <canvas id="myChart"></canvas>

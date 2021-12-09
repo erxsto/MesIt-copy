@@ -26,6 +26,7 @@ Route::get('datatemp', 'App\Http\Controllers\TemperaturaController@datatemp')->n
 Route::get('datacharttemp', 'App\Http\Controllers\TemperaturaController@datacharttemp')->name('datacharttemp');
 Route::get('dataenergia', 'App\Http\Controllers\EnergiaController@dataenergia')->name('dataenergia');
 Route::get('dataenergiam', 'App\Http\Controllers\ModuloController@dataenergiam')->name('dataenergiam');
+Route::get('datacorto', 'App\Http\Controllers\CortosController@datacorto')->name('datacorto');
 Route::get('d', 'App\Http\Controllers\TemperaturaController@d')->name('d');
 
 Route::get('alertashow', 'App\Http\Controllers\AlertasController@alertashow')->name('alertashow');

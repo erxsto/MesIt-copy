@@ -2,6 +2,7 @@
 @section('content')
 @include('content.vibracionguardaralerta')
 @include('content.tempguardaralerta')
+@include('content.cortos')
 @include('content.sweetalerttemp')
 
 <script type="text/javascript">

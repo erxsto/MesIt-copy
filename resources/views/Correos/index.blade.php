@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('content')
-
+@include('content.cortos')
 @include('content.tempguardaralerta')
 @include('content.vibracionguardaralerta')
 

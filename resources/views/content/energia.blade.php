@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('content')
 @include('content.tempguardaralerta')
+@include('content.cortos')
 @include('content.vibracionguardaralerta')
 <!-- SCRIPT OBTENCION DE DATOS ENERGÍA -->
 <script type="text/javascript">

@@ -1,7 +1,8 @@
 @extends('layouts.index')
 @section('content')
 @include('content.tempguardaralerta')
-@include('content.vibracionguardaralerta')
+@include('content.sweetalertvib')
+@include('content.cortos')
 <!-- Script energía -->
 <script type="text/javascript">
     setInterval(function() {
