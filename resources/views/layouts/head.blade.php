@@ -150,7 +150,7 @@
     border-right: 7px solid transparent;
     position: absolute;
     bottom: -6px;
-    left: calc(70% - 32px);
+    left: calc(50% - 32px);
   }
   .container {
     width: 90%;

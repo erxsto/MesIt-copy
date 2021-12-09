@@ -16,6 +16,7 @@ class PDFController extends Controller
     public function PDFv(Request $request)
     {
         //Asignamos las variables  
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = grafica_ejes::whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -24,6 +25,7 @@ class PDFController extends Controller
     }
     public function PDFt(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = temperatura::whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -32,6 +34,7 @@ class PDFController extends Controller
     }
     public function PDFe(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = variador::whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -40,6 +43,7 @@ class PDFController extends Controller
     }
     public function PDFef(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = variador::select('id', 'fase1A', 'fase2A', 'fase3A', 'created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -48,6 +52,7 @@ class PDFController extends Controller
     }
     public function PDFev(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = variador::select('id', 'voltsL1', 'voltsL2', 'voltsL3', 'created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -56,6 +61,7 @@ class PDFController extends Controller
     }
     public function PDFep(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = variador::select('id', 'pottreactiva', 'facpotencia', 'pottactiva', 'consumo_total', 'created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
@@ -64,17 +70,20 @@ class PDFController extends Controller
     }
     public function PDFefe(Request $request)
     {
+        set_time_limit(120);
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = variador::select('id', 'hz', 'energiaa', 'energiar', 'created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
         $pdf = PDF::loadView('content.PDFenergiafe', compact('graficas'));
         return $pdf->download('Frecuencia y energía.pdf');
     }
-    public function PDFalerts(Request $request){
+    public function PDFalerts(Request $request)
+    {
+        set_time_limit(120);
         $fi = $request->fecha_ini1 . ' 00:00:00';
         $ff = $request->fecha_fin1 . ' 23:59:59';
         // $graficas = variador::select('id','hz','energiaa','energiar','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
-        $alertas = alertas::select('tabla','descripcion','valor','created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        $alertas = alertas::select('tabla', 'descripcion', 'valor', 'created_at')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
 
         $pdf = PDF::loadView('content\PDFalertaspdf', compact('alertas'));
         return $pdf->download('Historial Alertas.pdf');
