@@ -181,7 +181,7 @@ $("#enviarhoras").click(function(e){
         </tr>
         <tr>
             <td colspan="7" class=" text-center" height="70">
-            <button type="button" class="btn btn-warning" id="enviardias">Guardar horario</button>
+            <button type="button" class="btn btn-warning" id="enviardias">Guardar Días Inactivos</button>
             </td>
         </tr>
         </table>
@@ -253,45 +253,56 @@ $("#enviarhoras").click(function(e){
  });
     </script>
     <br><br><br>
-
+<style></style>
     <h5>Ó tal vez quieras... ¿Deseas desactivarlas por completo?</h5> <br>
     <button class="btn btn-danger" id="desactivar_alertas">Desactivar Alertas</button> &nbsp;&nbsp;&nbsp;
     <button class="btn btn-success" id="activar_alertas"> Activar Alertas</button>
+    <span class=""></span>
     <br><br>
     <script>
-       $('#desactivar_alertas').click(()=> { 
-            
-            $.ajax({
+      $("#activar_alertas").click(function(e){
+        var st = 1
+     $.ajax({
              type: 'POST',
              url: '{{route("status_alertas")}}',
-             data: 0,
+             data: 
+                 {
+                     st
+                 }
+             ,
              headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
              success: function(data) {
-                 console.log('Desactivadas')
+                 console.log(st)
              },
              error: function(error){
                  console.log('error');
              }
            });
-       });
-       $('#activar_alertas').click(()=> { 
-            $.ajax({
+ });
+
+ $("#desactivar_alertas").click(function(e){
+        var st = 0
+     $.ajax({
              type: 'POST',
              url: '{{route("status_alertas")}}',
-             data: 1,
+             data: 
+                 {
+                     st
+                 }
+             ,
              headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
              success: function(data) {
-                 console.log('Activadas')
+                 console.log(st)
              },
              error: function(error){
                  console.log('error');
              }
            });
-       });
+ });
     </script>
 </div>
 @endsection
