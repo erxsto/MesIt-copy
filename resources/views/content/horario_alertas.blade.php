@@ -90,8 +90,8 @@
 
 $("#enviarhoras").click(function(e){
     
-   var hi = JSON.stringify($("#hora_inicio").val());
-   var hf = JSON.stringify($("#hora_fin").val());
+   var hi = $("#hora_inicio").val();
+   var hf = $("#hora_fin").val();
 
     $.ajax({
             type: 'POST',
@@ -106,6 +106,24 @@ $("#enviarhoras").click(function(e){
              },
             success: function(data) {
                 console.log('Hi : '+hi+ ' Hf : '+hf)
+
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  background: '#fafad2',
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Horario Guardado.'
+                })
             },
             error: function(error){
                 console.log('error');
@@ -245,6 +263,24 @@ $("#enviarhoras").click(function(e){
               },
              success: function(data) {
                  console.log(lun+'  '+ mar+ ' ' + mier+' '+jue+ ' '+vier+' '+sab+' '+dom)
+
+                 const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  background: '#fafad2',
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Dias de Inactividad Establecidos.'
+                })
              },
              error: function(error){
                  console.log('error');
@@ -275,6 +311,24 @@ $("#enviarhoras").click(function(e){
               },
              success: function(data) {
                  console.log(st)
+
+                 const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  background: '#d2f8d2',
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Alertas Activadas.'
+                })
              },
              error: function(error){
                  console.log('error');
@@ -297,6 +351,25 @@ $("#enviarhoras").click(function(e){
               },
              success: function(data) {
                  console.log(st)
+
+           
+                 const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  background: '#f8c4c4',
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  icon: 'error',
+                  title: 'Alertas Desactivadas.'
+                })      
              },
              error: function(error){
                  console.log('error');

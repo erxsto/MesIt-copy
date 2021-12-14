@@ -49,7 +49,7 @@ class AlertasController extends Controller
     public function status_alertas(Request $request)
     {
         $id= (session('session_id'));
-        $update = DB::insert("UPDATE [dbo].[horario_alertas] SET status = '$request->data' WHERE user_id = '$id'");
+        $update = DB::insert("UPDATE [dbo].[horario_alertas] SET st = '$request->st' WHERE user_id = '$id'");
         return redirect()->back();
     }
 

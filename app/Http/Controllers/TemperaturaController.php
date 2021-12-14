@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 use App\Models\temperatura;
 use Twilio\Rest\Client;
 use App\Models\alertas;
@@ -55,13 +56,13 @@ class TemperaturaController extends Controller
                 //     );
                 
             //TELEGRAM MSG
-                $text = 'Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C.';
+                // $text = 'Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C.';
 
-                Telegram::sendMessage([
-                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
-                    'parse_mode' => 'HTML',
-                    'text' => $text
-                ]);
+                // Telegram::sendMessage([
+                //     'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                //     'parse_mode' => 'HTML',
+                //     'text' => $text
+                // ]);
             
         } else {
             return response()->json(
@@ -91,7 +92,154 @@ class TemperaturaController extends Controller
         if ($request->ajax()) {
             // return response()->json(['status'=>'Ajax request']);
             $alerta_create = DB::insert("insert INTO [dbo].[alertas] (tabla, descripcion, valor) VALUES ('$request->tabla','$request->descripcion','$request->valor')");
-            return redirect()->back();
-        }
+            
+            
+           
+            // ultima alerta select
+            $last_alert = DB::select("select top 1 * from alertas order by id desc");
+            // temperatura ?
+            if($last_alert[0]->tabla == 'temperatura'){
+
+                $id= session('session_id');
+                $horarios= DB::select("select * from horario_alertas where user_id = '$id'");
+                    if($horarios[0]->st !=0){
+                            $today = new Carbon();
+                            $today->dayOfWeek;
+                        
+                            if($horarios[0]->lun == 0 && $today->dayOfWeek==1 || $horarios[0]->mar == 0 && $today->dayOfWeek==2 || $horarios[0]->mier == 0 && $today->dayOfWeek==3 || $horarios[0]->jue == 0 && $today->dayOfWeek==4 || $horarios[0]->vier == 0 && $today->dayOfWeek==5 || $horarios[0]->sab == 0 && $today->dayOfWeek==6 || $horarios[0]->dom == 0 && $today->dayOfWeek==0){
+
+                            // FECHA INICIO BD
+                            $fechai = strtotime($horarios[0]->h_ini);
+                            $hora_ini = date('H',$fechai);
+                            $min_ini = date('i',$fechai);
+                            $seg_ini = date('s',$fechai);
+                            // FECHA FIN BD
+                            $fechaf = strtotime($horarios[0]->h_fin);
+                            $hora_fin = date('H',$fechaf);
+                            $min_fin = date('i',$fechaf);
+                            $seg_fin = date('s',$fechaf);
+                        
+
+                            // return $today->format('Y-m-d H:i:s');
+
+                            // Comprobar si la hora actual está entre el horario laboral establecidas
+                            $hora_act = $today->format('H');
+
+                                if($hora_act >= $hora_ini && $hora_act <= $hora_fin){
+
+                                    //TELEGRAM MSG
+                                    $text = 'Alerta Crítica! , Revisa Tu módulo Temperatura , es Mayor a 30°C.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+
+
+                                }
+                        }
+                 }  
+            }elseif($last_alert[0]->tabla == 'vibracion'){
+                 $id= session('session_id');
+                 $horarios= DB::select("select * from horario_alertas where user_id = '$id'");
+                    if($horarios[0]->st !=0){
+                            $today = new Carbon();
+                            $today->dayOfWeek;
+                        
+                            if($horarios[0]->lun == 0 && $today->dayOfWeek==1 || $horarios[0]->mar == 0 && $today->dayOfWeek==2 || $horarios[0]->mier == 0 && $today->dayOfWeek==3 || $horarios[0]->jue == 0 && $today->dayOfWeek==4 || $horarios[0]->vier == 0 && $today->dayOfWeek==5 || $horarios[0]->sab == 0 && $today->dayOfWeek==6 || $horarios[0]->dom == 0 && $today->dayOfWeek==0){
+
+                            // FECHA INICIO BD
+                            $fechai = strtotime($horarios[0]->h_ini);
+                            $hora_ini = date('H',$fechai);
+                            $min_ini = date('i',$fechai);
+                            $seg_ini = date('s',$fechai);
+                            // FECHA FIN BD
+                            $fechaf = strtotime($horarios[0]->h_fin);
+                            $hora_fin = date('H',$fechaf);
+                            $min_fin = date('i',$fechaf);
+                            $seg_fin = date('s',$fechaf);
+                        
+
+                            // return $today->format('Y-m-d H:i:s');
+
+                            // Comprobar si la hora actual está entre el horario laboral establecidas
+                            $hora_act = $today->format('H');
+
+                                if($hora_act >= $hora_ini && $hora_act <= $hora_fin){
+
+                                    if($last_alert[0]->descripcion == 'Alerta crítica Eje X'){
+                                    //TELEGRAM MSG
+                                    $text = 'Alerta Crítica! , Revisa Tu módulo Vibración , eje X.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+                                    }elseif($last_alert[0]->descripcion == 'Alerta crítica Eje Y'){
+                                    
+                                    //TELEGRAM MSG
+                                    $text = 'Alerta Crítica! , Revisa Tu módulo Vibración , eje Y.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+                                    }elseif($last_alert[0]->descripcion == 'Alerta crítica Eje Z'){
+
+                                        //TELEGRAM MSG
+                                    $text = 'Alerta Crítica! , Revisa Tu módulo Vibración , eje Z.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+                                    
+                                    }elseif($last_alert[0]->descripcion == 'Advertencia en Eje X'){
+
+                                        
+                                        //TELEGRAM MSG
+                                    $text = 'Advertencia , Revisa Tu módulo Vibración , eje X.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+
+                                    }elseif($last_alert[0]->descripcion == 'Advertencia en Eje Y'){
+
+                                        
+                                        //TELEGRAM MSG
+                                    $text = 'Advertencia , Revisa Tu módulo Vibración , eje Y.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+
+                                    }elseif($last_alert[0]->descripcion == 'Advertencia en Eje Z'){
+
+                                        
+                                        //TELEGRAM MSG
+                                    $text = 'Advertencia , Revisa Tu módulo Vibración , eje X.';
+
+                                    Telegram::sendMessage([
+                                    'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
+                                    'parse_mode' => 'HTML',
+                                    'text' => $text
+                                    ]);
+
+                                    }
+
+                                }
+                        }
+                 }  
+            }
+        }   
     }
 }
