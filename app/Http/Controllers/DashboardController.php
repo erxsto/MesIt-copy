@@ -16,7 +16,7 @@ class DashboardController extends Controller
     }
     public function datadashboard()
     {
-        //Obtenemos los registros de la tabla grafica_ejes con el modelo, tomamos los ultimos 5 registros
+        //Obtenemos los registros de la tabla grafica_ejes con el modelo, tomamos los ultimos 5 registros y ordenamos por id
         $graficas = grafica_ejes::latest()->take(5)->get()->sortBy('id');
         $labels = $graficas->pluck('id'); //con pluck agarramos el id, igual así con las de abajo
         $data = $graficas->pluck('ejex');

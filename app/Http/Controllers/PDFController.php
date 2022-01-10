@@ -15,11 +15,13 @@ class PDFController extends Controller
 {
     public function PDFv(Request $request)
     {
-        //Asignamos las variables  
+        //asignamos el tiempo de repuesta con el cual la pagina va a permitir
         set_time_limit(120);
+        //Asignamos las variables y concatenamos las horas 
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
         $graficas = grafica_ejes::whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        //generamos el pdf para en la siguiente linea poderlo descargarlo
         $pdf = PDF::loadView('content.PDFvibracion', compact('graficas'));
         return $pdf->download('Vibracion.pdf');
     }

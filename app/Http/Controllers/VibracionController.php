@@ -19,7 +19,7 @@ class VibracionController extends Controller
         return view('content.vibracion')
             ->with(['graficas' => $graficas]);
     }
-    
+
     public function datavibracion()
     {
         $graficas = grafica_ejes::latest()->take(20)->get()->sortBy('id');
@@ -29,7 +29,7 @@ class VibracionController extends Controller
         $dataz = $graficas->pluck('ejez');
         return response()->json(compact('labels', 'data', 'datay', 'dataz'));
     }
-    
+
     public function dataalertz()
     {
         $graficas = grafica_ejes::latest()->take(1)->get()->sortBy('id');
@@ -39,19 +39,18 @@ class VibracionController extends Controller
         if ($data[0] >= 2.9) {
 
             //TELEGRAM MSG
-                        
+
             $text = '¡Alerta Crítica! , Revisa Tu módulo Vibración , eje z';
-                    
+
             Telegram::sendMessage([
                 'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001593292840'),
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
             //TELEGRAM MSG
-            
+
             $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje z';
 
             Telegram::sendMessage([
@@ -59,8 +58,7 @@ class VibracionController extends Controller
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-            
-        } 
+        }
 
         return response()->json(compact('labels', 'data'));
     }
@@ -96,7 +94,6 @@ class VibracionController extends Controller
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
             // require_once '../vendor/autoload.php';
@@ -112,9 +109,9 @@ class VibracionController extends Controller
             //             "body" => "Advertencia! , Revisa Tu módulo 'vibracion' en Eje x"
             //         )
             //     );
-            
+
             //TELEGRAM MSG
-            
+
             $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje x';
 
             Telegram::sendMessage([
@@ -135,7 +132,7 @@ class VibracionController extends Controller
         if ($data[0] >= 2.9) {
 
             //TELEGRAM MSG
-            
+
             $text = '¡Alerta Crítica! , Revisa Tu módulo Vibración , eje y';
 
             Telegram::sendMessage([
@@ -143,11 +140,10 @@ class VibracionController extends Controller
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-
         } else if ($data[0] >= 1.5 && $data[0] < 2.9) {
 
             //TELEGRAM MSG
-            
+
             $text = '¡Advertencia! , Revisa Tu módulo Vibración , eje y';
 
             Telegram::sendMessage([
@@ -155,8 +151,7 @@ class VibracionController extends Controller
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-
-        } 
+        }
 
         return response()->json(compact('labels', 'data'));
     }

@@ -10,7 +10,9 @@ class CortosController extends Controller
     {
         return view('content.cortos');
     }
-    public function datacorto(){
+    //Consulta para una api
+    public function datacorto()
+    {
         $cortos = \DB::select('SELECT TOP 1 * FROM cortos ORDER BY id DESC');
         return response()->json(
             $cortos

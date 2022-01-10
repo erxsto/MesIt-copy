@@ -25,49 +25,55 @@ class ModuloController extends Controller
         if ($request->ajax()) {
             // return response()->json(['status'=>'Ajax request']);
             // $idl = DB::table('control_var')->latest('id')->first();
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
             //$tabla = modulo_control::latest()->take(1)->get()->sortBy('id');
             //$idl = $tabla->pluck('id');
             $frecuenciac = DB::insert("UPDATE [dbo].[control_var] SET frecuencia = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
-    public function updateizq(Request $request){
+    public function updateizq(Request $request)
+    {
         if ($request->ajax()) {
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
             $new = DB::insert("UPDATE [dbo].[control_var] SET izquierdo = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
 
-    public function updateder(Request $request){
+    public function updateder(Request $request)
+    {
+        // De la tabla control_var y tomar el ultimo registro
         if ($request->ajax()) {
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
+            //Con la variable new actualizaremos el campo derecho con un request
             $new = DB::insert("UPDATE [dbo].[control_var] SET derecho = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
 
-    public function updatestop(Request $request){
+    public function updatestop(Request $request)
+    {
         if ($request->ajax()) {
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
             $new = DB::insert("UPDATE [dbo].[control_var] SET stop = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
-    public function updatereset(Request $request){
+    public function updatereset(Request $request)
+    {
         if ($request->ajax()) {
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
             $new = DB::insert("UPDATE [dbo].[control_var] SET reset = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
-    public function updatebtn(Request $request){
+    public function updatebtn(Request $request)
+    {
         if ($request->ajax()) {
-             $idl = DB::table('control_var')->latest('id')->first();
+            $idl = DB::table('control_var')->latest('id')->first();
             $new = DB::insert("UPDATE [dbo].[control_var] SET btnactualizar = '$request->data' WHERE id = '$idl->id'");
             return redirect()->back();
         }
     }
-
 }
