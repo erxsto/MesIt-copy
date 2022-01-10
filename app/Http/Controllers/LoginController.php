@@ -16,6 +16,7 @@ class LoginController extends Controller
     }
     public function store(Request $request)
     {
+        
         $email = $request->input('email');
         $password = $request->input('password');
         $consulta = User::where('email', '=', $email)
@@ -29,7 +30,7 @@ class LoginController extends Controller
             if ($datos[0]->tipo == 'Administrador') {
                 $request->session()->put('session_id', $consulta[0]->id);
                 $request->session()->put('session_name', $consulta[0]->name);
-                $request->session()->put('session_tipo', 'Administrador');
+                $request->session()->put('session_tipo', $consulta[0]->tipo);
                 // ------------- Consultar sesion ---------------
 
                 $session_id = $request->session()->get('session_id');
@@ -39,7 +40,7 @@ class LoginController extends Controller
             } else if ($datos[0]->tipo == 'Operador') {
                 $request->session()->put('session_id', $consulta[0]->id);
                 $request->session()->put('session_name', $consulta[0]->name);
-                $request->session()->put('session_tipo', 'Operador');
+                $request->session()->put('session_tipo', $consulta[0]->tipo);
 
                 // ------------- Consultar sesion ---------------
 
