@@ -16,10 +16,13 @@ class AlertasController extends Controller
         $ff = $request->fecha_fin . ' 23:59:59';
         //mandamos a llamar a la tabla junto con las fechas
         $tabla = $request->slcm;
-        $alertas = alertas::whereBetween('created_at', [$fi, $ff])->limit(30)->get();
-        return view('content.alertas')
-            //regresamos las variables a la vista
-            ->with(['alertas' => $alertas, 'tabla' => $tabla]);
+        // dd($tabla);
+        if($tabla == "temperatura"){
+        $alertas = alertas::where('tabla', '=','temperatura')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        }else{
+        $alertas = alertas::where('tabla', '=','vibracion')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        }
+        return view('content.alertas', ["alertas" => $alertas]);
     }
 
     public function alertashow()
