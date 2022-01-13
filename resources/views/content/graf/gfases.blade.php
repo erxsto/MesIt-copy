@@ -252,7 +252,7 @@
 </div>
 <div class="ch3" id="chart_div3" style="width:1000px; height: 500px;"></div>
 </div>
-<form class="form-inline" method="get" action="{{route('gfases')}}">
+<!-- <form class="form-inline" method="get" action="{{route('gfases')}}">
   <label>Fecha Desde:</label>
   <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
   <label>Hasta</label>
@@ -282,7 +282,7 @@
       @endforeach
     </tbody>
   </table>
-</div>
+</div> -->
 <div class="alert alert-dark alert-sm" role="alert">
   <h4 class="alert-heading">Descarga el reporte.</h4><br>
   <form class="form-inline" method="get" action="{{route('descargarPDFef')}}">

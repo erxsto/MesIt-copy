@@ -151,7 +151,7 @@
     <div id="at"></div>
   </main>
 </div>
-<form class="form-inline" method="get" action="{{route('temperatura')}}">
+<!-- <form class="form-inline" method="get" action="{{route('temperatura')}}">
   <label>Fecha Desde:</label>
   <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
   <label>Hasta</label>
@@ -177,7 +177,7 @@
       @endforeach
     </tbody>
   </table>
-</div>
+</div> -->
 <div class="alert alert-dark alert-sm" role="alert">
   <h4 class="alert-heading">Descarga el reporte.</h4><br>
   <form class="form-inline" method="get" action="{{route('descargarPDFt')}}">

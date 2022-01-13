@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\alertas;
 use Illuminate\Http\Request;
 use DB;
-use Carbon\Carbon;
+use App\Models\grafica_ejes;
+use App\Models\temperatura;
+use App\Models\variador;
 
 class AlertasController extends Controller
 {
@@ -14,15 +16,31 @@ class AlertasController extends Controller
         //asignamos fechas
         $fi = $request->fecha_ini . ' 00:00:00';
         $ff = $request->fecha_fin . ' 23:59:59';
+        $fi1 = $request->fecha_ini1 . ' 00:00:00';
+        $ff1 = $request->fecha_fin1 . ' 23:59:59';
         //mandamos a llamar a la tabla junto con las fechas
-        $tabla = $request->slcm;
+        $tabla1 = $request->slcm1;
         // dd($tabla);
-        if($tabla == "temperatura"){
-        $alertas = alertas::where('tabla', '=','temperatura')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
-        }else{
-        $alertas = alertas::where('tabla', '=','vibracion')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        if ($tabla1 == "temperatura1") {
+            $otrasv = temperatura::whereBetween('created_at', [$fi1, $ff1])->limit(5)->get();
+        } else if($tabla1 == "vibracion1"){
+            $otrasv = grafica_ejes::whereBetween('created_at', [$fi1, $ff1])->limit(5)->get();
+        } else if($tabla1 == "gfases" || $tabla1 == "gfye" || $tabla1 == "gpotencias"){
+            $otrasv = variador::whereBetween('created_at', [$fi1, $ff1])->limit(5)->get();
+        } else{
+            $otrasv = variador::whereBetween('created_at', [$fi1, $ff1])->limit(5)->get();
         }
-        return view('content.alertas', ["alertas" => $alertas]);
+        $tabla = $request->slcm;
+        
+        if ($tabla == "temperatura") {
+            $alertas = alertas::where('tabla', '=', 'temperatura')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        } else {
+            $alertas = alertas::where('tabla', '=', 'vibracion')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        }
+        return view('content.alertas')
+        ->with(['alertas' => $alertas])
+        ->with(['tabla1' => $tabla1])
+        ->with(['otrasv' => $otrasv]);
     }
 
     public function alertashow()
