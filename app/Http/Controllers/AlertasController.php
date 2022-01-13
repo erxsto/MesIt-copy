@@ -31,15 +31,17 @@ class AlertasController extends Controller
             $otrasv = variador::whereBetween('created_at', [$fi1, $ff1])->limit(5)->get();
         }
         $tabla = $request->slcm;
-        
         if ($tabla == "temperatura") {
             $alertas = alertas::where('tabla', '=', 'temperatura')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
-        } else {
+        } else if($tabla == "vibracion"){
             $alertas = alertas::where('tabla', '=', 'vibracion')->whereBetween('created_at', [$fi, $ff])->limit(50)->get();
+        } else{
+            $alertas = alertas::whereBetween('created_at', [$fi, $ff])->limit(50)->get();
         }
         return view('content.alertas')
         ->with(['alertas' => $alertas])
         ->with(['tabla1' => $tabla1])
+        ->with(['tabla' => $tabla])
         ->with(['otrasv' => $otrasv]);
     }
 
