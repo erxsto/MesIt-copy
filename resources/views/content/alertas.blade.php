@@ -76,7 +76,6 @@
   <form class="form-inline" method="get" action="{{route('alertas')}}">
 
     <select name="slcm" id="slcm" class="form-control">
-
       <option value="">Selecciona el módulo</option>
       <option value="temperatura">Temperatura</option>
       <option value="vibracion">Vibración</option>
@@ -343,17 +342,15 @@
 
   <form class="form-inline " method="get" action="{{route('descargarPDFalerts')}}">
     <label>Fecha Desde:</label>
-    <input type="date" class="form-control" placeholder="Start" id="fecha_ini" name="fecha_ini" />
+    <input type="date" class="form-control" placeholder="Start" id="fecha_ini2" name="fecha_ini2" />
     <label>Hasta</label>
-    <input type="date" class="form-control" placeholder="End" id="fecha_fin" name="fecha_fin" /><br>
+    <input type="date" class="form-control" placeholder="End" id="fecha_fin2" name="fecha_fin2" /><br>
 
     <div class="asf">
       <button class="btn btn-dark" name="search">
         <i class="fa fa-download"></i></button> &nbsp;
 
   </form>
-
-
   <form class=" form-inline" action="{{route('cindex')}}">
 
     <div id="datform">
@@ -363,7 +360,6 @@
 
     <button class="btn btn-dark"><i class="fa fa-envelope"></i></button>
   </form>
-
 </div>
 </div>
 <hr><br>
@@ -381,9 +377,9 @@
     $('#datform1').css('display', 'block');
   }
 
-  $('#fecha_ini1').change(function() {
+  $('#fecha_ini2').change(function() {
     var date1 = $(this).val();
-    $('#datform').html("<input value='" + date1 + "' type='date' id='fecha_ini1' name='fecha_ini1'>");
+    $('#datform').html("<input value='" + date1 + "' type='date' id='fecha_ini2' name='fecha_ini2'>");
     console.log('ok');
 
     $('#datform').css('visibility', 'visible');
@@ -391,9 +387,9 @@
 
   });
 
-  $('#fecha_fin1').change(function() {
+  $('#fecha_fin2').change(function() {
     var date2 = $(this).val();
-    $('#datform1').html("<input value='" + date2 + "' type='date'  id='fecha_fin1' name='fecha_fin1'>");
+    $('#datform1').html("<input value='" + date2 + "' type='date'  id='fecha_fin2' name='fecha_fin2'>");
     $('datform1').hide();
 
   });
