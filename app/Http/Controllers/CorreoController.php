@@ -15,8 +15,8 @@ class CorreoController extends Controller
 {
     public function index(Request $request)
     {
-        $fi = $request->fecha_ini1;
-        $ff = $request->fecha_fin1;
+        $fi = $request->fecha_ini2;
+        $ff = $request->fecha_fin2;
 
         // Las variables abajo son para diferentes formatos (algunas computadoras tienen diferentes)
 
