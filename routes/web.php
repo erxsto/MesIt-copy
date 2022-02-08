@@ -24,7 +24,7 @@ Route::name('destroy')->get('destroy/', 'App\Http\Controllers\LoginController@de
 //RUTAS Graficas Energia.
 
 
-
+Route::group(['middleware' => ['customAuth']], function () {
     Route::name('/')->get('/', 'App\Http\Controllers\DashboardController@index');
     Route::name('vibracion')->get('vibracion/', 'App\Http\Controllers\VibracionController@index');
     Route::name('temperatura')->get('temperatura/', 'App\Http\Controllers\TemperaturaController@index');
@@ -62,10 +62,11 @@ Route::name('destroy')->get('destroy/', 'App\Http\Controllers\LoginController@de
     Route::post('Horarios/guardar_horas', 'App\Http\Controllers\AlertasController@guardar_horas')->name('guardar_horas');
     Route::post('Horarios/guardar_dias', 'App\Http\Controllers\AlertasController@guardar_dias')->name('guardar_dias');
     Route::post('Horarios/status_alertas', 'App\Http\Controllers\AlertasController@status_alertas')->name('status_alertas');
+    
+});
 
-
-
+Route::group(['middleware' => 'admin'], function () {
     Route::name('modulo_control')->get('modulo_control/', 'App\Http\Controllers\ModuloController@modulo_control');
     Route::name('alertas')->get('alertas/', 'App\Http\Controllers\AlertasController@alertas');
 
-
+});
