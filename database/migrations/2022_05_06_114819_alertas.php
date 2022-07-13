@@ -18,7 +18,7 @@ class Alertas extends Migration
             $table->string('tabla');
             $table->string('descripcion');
             $table->float('valor', 8, 2);
-            $table->dateTime('created_at');
+            $table->timestamps();
         });
     }
 

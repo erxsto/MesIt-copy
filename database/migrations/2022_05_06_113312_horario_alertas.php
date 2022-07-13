@@ -15,17 +15,17 @@ class HorarioAlertas extends Migration
     {
         Schema::create('horario_alertas', function (Blueprint $table) {
             $table->id();
-            $table->int('user_id');
+            $table->integer('user_id');
             $table->string('h_ini');
             $table->string('h_fin');
-            $table->int('lun');
-            $table->int('mar');
-            $table->int('mier');
-            $table->int('jue');
-            $table->int('vier');
-            $table->int('sab');
-            $table->int('dom');
-            $table->int('status');
+            $table->integer('lun');
+            $table->integer('mar');
+            $table->integer('mier');
+            $table->integer('jue');
+            $table->integer('vier');
+            $table->integer('sab');
+            $table->integer('dom');
+            $table->integer('status');
         });
     }
 

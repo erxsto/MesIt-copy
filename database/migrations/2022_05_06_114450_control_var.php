@@ -15,10 +15,10 @@ class ControlVar extends Migration
     {
         Schema::create('control_var', function (Blueprint $table) {
             $table->id();
-            $table->int('izquierdo');
-            $table->int('derecho');
-            $table->int('stop');
-            $table->int('reset');
+            $table->integer('izquierdo');
+            $table->integer('derecho');
+            $table->integer('stop');
+            $table->integer('reset');
             $table->float('amperaje', 8, 2);
             $table->float('voltaje', 8, 2);
             $table->float('frecuencia', 8, 2);

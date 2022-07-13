@@ -16,7 +16,7 @@ class Temperatura extends Migration
         Schema::create('temperatura', function (Blueprint $table) {
             $table->id();
             $table->float('temp', 8, 2);
-            $table->dateTime('created_at');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
