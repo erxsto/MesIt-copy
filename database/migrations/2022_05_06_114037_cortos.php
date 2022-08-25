@@ -21,7 +21,6 @@ class Cortos extends Migration
             $table->integer('puerto3');
             $table->integer('puerto4');
             $table->timestamps();
-
         });
     }
 

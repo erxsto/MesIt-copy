@@ -19,7 +19,6 @@ class GraficaEjes extends Migration
             $table->float('ejey', 8, 2);
             $table->float('ejez', 8, 2);
             $table->timestamps();
-
         });
     }
 

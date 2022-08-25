@@ -173,6 +173,7 @@
             },
             //Se actualizan los 3 ejes.
             success: function(data, datay) {
+                console.log('ola');
                 myChart.data.labels = data.labels;
                 myChart.data.datasets[0].data = data.data;
                 myChart.update();
@@ -192,7 +193,7 @@
     updateChart();
     setInterval(() => {
         updateChart();
-    }, 1000);
+    }, 2000);
 </script>
 
 @endsection

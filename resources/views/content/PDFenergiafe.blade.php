@@ -1,22 +1,33 @@
 <html>
 
-<head>
-    <img style="width:9.375em;" class="logo" src="{{asset('img/logo-amats.svg')}}" alt="amats_logo">
-    <strong><text class="">AMATS ELECTRIC, S.A DE C.V.</text></strong>
-    <text class="">-Soluciones Rentables en Automatización</text>
-    <hr>
-</head>
-
 <body>
+
+    <head>
+        <img style="width:9.375em;" class="logo" src="{{public_path('img/logo-amats.svg')}}" alt="amats_logo">
+
+        <hr>
+    </head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid;
+        }
+    </style>
     <br><br>
-    <table class="table table-bordered" id="order-listing" width="50%">
-        <thead class="thead-dark">
+    <table class="table">
+        <thead">
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Frecuencia(Hz)</th>
-                <th scope="col">Energia activa(KWH)</th>
-                <th scope="col">Energia reactiva(KVARH)</th>
-                <th scope="col">Fecha de creación</th>
+                <th>Id</th>
+                <th>Frecuencia(Hz)</th>
+                <th>Energia activa(KWH)</th>
+                <th>Energia reactiva(KVARH)</th>
+                <th>Fecha de creación</th>
             </tr>
         </thead>
         <tbody>

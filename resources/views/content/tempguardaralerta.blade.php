@@ -14,7 +14,7 @@
       async: false
     }).responseText;
     var Respuesta1 = jQuery.parseJSON(JSON);
-    if (Respuesta1[0].temp >= 30) {
+    if (Respuesta1[0].temp >= 40) {
 
 
 

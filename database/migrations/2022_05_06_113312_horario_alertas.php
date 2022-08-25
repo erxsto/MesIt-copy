@@ -27,7 +27,6 @@ class HorarioAlertas extends Migration
             $table->integer('dom');
             $table->integer('status');
             $table->timestamps();
-
         });
     }
 
