@@ -19,6 +19,8 @@ class Users extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('tipo');
+            $table->timestamps();
+
         });
     }
 

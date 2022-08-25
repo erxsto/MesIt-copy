@@ -15,11 +15,13 @@ class Cortos extends Migration
     {
         Schema::create('cortos', function (Blueprint $table) {
             $table->id();
-            $table->int('master1');
-            $table->int('puerto1');
-            $table->int('puerto2');
-            $table->int('puerto3');
-            $table->int('puerto4');
+            $table->integer('master1');
+            $table->integer('puerto1');
+            $table->integer('puerto2');
+            $table->integer('puerto3');
+            $table->integer('puerto4');
+            $table->timestamps();
+
         });
     }
 

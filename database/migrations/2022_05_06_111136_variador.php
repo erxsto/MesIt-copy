@@ -27,8 +27,9 @@ class Variador extends Migration
             $table->float('pottreactiva', 8, 2);
             $table->float('energiaa', 8, 2);
             $table->float('energiar', 8, 2);
-            $table->dateTime('created_at');
             $table->float('consumo_total', 8, 2);
+            $table->timestamps();
+
         });
     }
 
